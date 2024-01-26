@@ -67,8 +67,8 @@ class MyService:
         games_by_team = df_games[condition_home | condition_away]
         return games_by_team
 
-    def list_clashes(teamOne, teamTwo):
-        df_games = self.get_df_games()
+    def list_clashes(cls, teamOne, teamTwo):
+        df_games = cls.get_df_games()
         # Filtrar os jogos onde a equipe é a mandante ou visitante
         condition_home = df_games['EQUIPE Mandante'].str.contains(teamOne)
         condition_away = df_games['EQUIPE Visitante'].str.contains(teamOne)

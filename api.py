@@ -82,7 +82,7 @@ def get_clashes():
     team1_name = request.args.get('team1', type=str)
     team2_name = request.args.get('team2', type=str)
 
-    df_clashes = list_clashes(my_app.df_games, team1_name, team2_name)
+    df_clashes = my_app.service.list_clashes(team1_name, team2_name)
     return jsonify(df_clashes.to_dict(orient='records'))
 
 @app.route('/api/games/group/<group>', methods=['GET'])
