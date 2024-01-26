@@ -59,10 +59,9 @@ class MyService:
 
     def get_confrontation(self):
         return self._confrontation
-    
 
-    def list_game_by_team(team_surname):
-        df_games = self.get_df_games()
+    def list_game_by_team(cls, team_surname):
+        df_games = cls.get_df_games()
         condition_home = df_games['EQUIPE Mandante'].str.contains(team_surname)
         condition_away = df_games['EQUIPE Visitante'].str.contains(team_surname)
         games_by_team = df_games[condition_home | condition_away]

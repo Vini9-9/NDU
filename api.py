@@ -108,7 +108,7 @@ def get_games_by_team(team):
       200:
         description: Lista de jogos.
     """
-    df_games_team = list_game_by_team(my_app.df_games, team)
+    df_games_team = my_app.service.list_game_by_team(team)
 
     return jsonify(df_games_team.to_dict(orient='records'))
 
