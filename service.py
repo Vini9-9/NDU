@@ -114,8 +114,8 @@ class MyService:
         global df_games
         df_games = pd.concat([df_games, pd.DataFrame([new_game_data])], ignore_index=True)
 
-    def get_df_games_group(group):
-        df_games = self.get_df_games()
+    def get_df_games_group(cls, group):
+        df_games = cls.get_df_games()
         game_filter = df_games['GRUPO'] == group.upper()
         return df_games[game_filter]
 

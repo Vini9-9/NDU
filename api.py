@@ -95,7 +95,7 @@ def get_games_by_group(group):
         description: Lista de jogos.
     """
 
-    df_games_group = get_df_games_group(my_app.df_games, group)
+    df_games_group = my_app.service.get_df_games_group(group)
 
     return jsonify(df_games_group.to_dict(orient='records'))
 
