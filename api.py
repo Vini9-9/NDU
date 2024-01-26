@@ -128,7 +128,7 @@ def get_ranking(group):
       404:
         description: Grupo não encontrado.
     """
-    df_group = get_df_ranking_group(group)
+    df_group = MyService.get_df_ranking_group(group)
     
     return jsonify(df_group.to_dict(orient='records'))
 
