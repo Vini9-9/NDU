@@ -54,7 +54,7 @@ def get_confrontation():
     if team1_name and team2_name:
       return confrontation[team1_name][team2_name]
 
-    return jsonify(my_app.confrontation)
+    return jsonify(confrontation)
 
 @app.route('/api/games/clashes', methods=['GET'])
 def get_clashes():
