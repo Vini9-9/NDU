@@ -216,9 +216,6 @@ class MyService:
                 df_group.loc[condition_home, 'D'] += 1
                 my_service.update_direct_confrontation(away_team, home_team)
             
-            print('my_service.get_confrontation()')
-            print(my_service.get_confrontation())
-            
             my_service.concat_df_games(game)
             # TODO update ranking group
             MyService.update_ranking(group, my_service.confrontos_to_df(confrontos_diretos))

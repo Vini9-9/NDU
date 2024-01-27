@@ -26,7 +26,7 @@ def get_games():
       200:
         description: Lista de jogos.
     """
-    df_games = myAppService.get_df_games()
+    df_games = my_service.get_df_games()
     return jsonify(df_games.to_dict(orient='records'))
 
 @app.route('/api/games/confrontation', methods=['GET'])
