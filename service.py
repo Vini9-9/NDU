@@ -98,9 +98,10 @@ class MyService:
         else:
             return games_teamOne[games_teamOne['EQUIPE Visitante'].str.contains(teamTwo)]
 
-    def update_ranking(group, df_confrontos_diretos):
-        df_group = my_service.get_df_ranking_group(group)
+    def update_csv(cls, df, path, filename):
+        df.to_csv(path + '/' + filename + '.csv', index=False)
 
+    def update_ranking(group, df_group, df_confrontos_diretos):
         linhas_pontos_iguais = df_group[df_group.duplicated(subset='Pontos', keep=False)]
 
         # Obter apenas os nomes das atléticas
@@ -115,10 +116,10 @@ class MyService:
             # Encontrar a posição da atlética no DataFrame
             position_ahead = df_group.index[df_group['Atléticas'] == team_ahead].tolist()[0]
             position_behind = df_group.index[df_group['Atléticas'] == team_behind].tolist()[0]
-
             # Trocar os valores entre as linhas diretamente
             df_group.loc[position_ahead], df_group.loc[position_behind] = df_group.loc[position_behind].copy(), df_group.loc[position_ahead].copy()
-        return df_group.sort_values(by='Pontos', ascending=False)
+            return df_group.sort_values(by='Pontos', ascending=False)
+            
 
     def concat_df_games(cls, new_game_data):
         new_df_games = pd.concat([cls.df_games, pd.DataFrame([new_game_data])], ignore_index=True)
@@ -156,7 +157,6 @@ class MyService:
         cls.confrontation = confrontos_diretos
 
     def simulate_game(cls, data_json):
-        confrontos_diretos = my_service.get_confrontation()
         home_team = data_json['home_team']
         away_team = data_json['away_team']
 
@@ -217,8 +217,9 @@ class MyService:
                 my_service.update_direct_confrontation(away_team, home_team)
             
             my_service.concat_df_games(game)
-            # TODO update ranking group
-            MyService.update_ranking(group, my_service.confrontos_to_df(confrontos_diretos))
+            
+            df_new_group = MyService.update_ranking(group, df_group, my_service.confrontos_to_df(my_service.get_confrontation()))
+            my_service.update_csv(df_new_group, 'files/group', 'ranking_' + group)
             return(game)
 
 my_service = MyService()

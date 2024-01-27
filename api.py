@@ -178,12 +178,7 @@ def post_simulate_game():
     """
     try:
         # Obter parâmetros da solicitação
-        # game_req = {
-        #   'group': request.form.get('group', type=str) 
-        # }
         data_json = request.get_json()
-        print(data_json)
-        # confrontos_diretos = request.form.get('confrontos_diretos', type=str)
 
         # Chamar a função simular_jogo
         game = my_service.simulate_game(data_json)
