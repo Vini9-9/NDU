@@ -14,6 +14,8 @@ class MyApp:
 
 # Cria uma instância da classe MyApp
 my_app = MyApp()
+myAppService = my_app.service
+my_service = MyService()
 
 @app.route('/api/games', methods=['GET'])
 def get_games():
@@ -24,7 +26,7 @@ def get_games():
       200:
         description: Lista de jogos.
     """
-    df_games = my_app.service.get_df_games()
+    df_games = myAppService.get_df_games()
     return jsonify(df_games.to_dict(orient='records'))
 
 @app.route('/api/games/confrontation', methods=['GET'])
@@ -50,7 +52,7 @@ def get_confrontation():
     team1_name = request.args.get('team1', type=str)
     team2_name = request.args.get('team2', type=str)
 
-    confrontation = my_app.service.get_confrontation()
+    confrontation = my_service.get_confrontation()
     if team1_name and team2_name:
       return confrontation[team1_name][team2_name]
 
@@ -82,7 +84,7 @@ def get_clashes():
     team1_name = request.args.get('team1', type=str)
     team2_name = request.args.get('team2', type=str)
 
-    df_clashes = my_app.service.list_clashes(team1_name, team2_name)
+    df_clashes = myAppService.list_clashes(team1_name, team2_name)
     return jsonify(df_clashes.to_dict(orient='records'))
 
 @app.route('/api/games/group/<group>', methods=['GET'])
@@ -95,7 +97,7 @@ def get_games_by_group(group):
         description: Lista de jogos.
     """
 
-    df_games_group = my_app.service.get_df_games_group(group)
+    df_games_group = myAppService.get_df_games_group(group)
 
     return jsonify(df_games_group.to_dict(orient='records'))
 
@@ -108,7 +110,7 @@ def get_games_by_team(team):
       200:
         description: Lista de jogos.
     """
-    df_games_team = my_app.service.list_game_by_team(team)
+    df_games_team = myAppService.list_game_by_team(team)
 
     return jsonify(df_games_team.to_dict(orient='records'))
 
@@ -128,7 +130,7 @@ def get_ranking(group):
       404:
         description: Grupo não encontrado.
     """
-    df_group = MyService.get_df_ranking_group(group)
+    df_group = myAppService.get_df_ranking_group(group)
     
     return jsonify(df_group.to_dict(orient='records'))
 
@@ -184,7 +186,7 @@ def post_simulate_game():
         # confrontos_diretos = request.form.get('confrontos_diretos', type=str)
 
         # Chamar a função simular_jogo
-        game = simulate_game(data_json, my_app.confrontation)
+        game = my_service.simulate_game(data_json)
 
         return jsonify(
           {'message': 'Simulação do jogo realizada com sucesso.'},

@@ -1,9 +1,16 @@
 import pandas as pd
 
 class MyService:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(MyService, cls).__new__(cls)
+        return cls._instance
+    
     def __init__(self):
         self.df_games = self.load_csv('games')
-        # self.confrontation = self.generate_direct_confrontations(self.df_games)
+        self.confrontation = self.generate_direct_confrontations(self.df_games)
 
     @staticmethod
     def load_csv(filename):
@@ -54,6 +61,14 @@ class MyService:
         self._df_games = novo_df_games
         self._confrontation = self.generate_direct_confrontations(novo_df_games)
 
+    @property
+    def confrontation(self):
+        return self._confrontation
+
+    @confrontation.setter
+    def confrontation(self, new_confrontation):
+        self._confrontation = new_confrontation
+
     def get_df_games(self):
         return self.df_games
 
@@ -84,10 +99,7 @@ class MyService:
             return games_teamOne[games_teamOne['EQUIPE Visitante'].str.contains(teamTwo)]
 
     def update_ranking(group, df_confrontos_diretos):
-        if group == 'A':
-            df_group = df_groupA
-        elif group == 'B':
-            df_group = df_groupB
+        df_group = my_service.get_df_ranking_group(group)
 
         linhas_pontos_iguais = df_group[df_group.duplicated(subset='Pontos', keep=False)]
 
@@ -106,26 +118,32 @@ class MyService:
 
             # Trocar os valores entre as linhas diretamente
             df_group.loc[position_ahead], df_group.loc[position_behind] = df_group.loc[position_behind].copy(), df_group.loc[position_ahead].copy()
-
         return df_group.sort_values(by='Pontos', ascending=False)
 
-    def update_df_games(new_game_data):
-        global df_games
-        df_games = pd.concat([df_games, pd.DataFrame([new_game_data])], ignore_index=True)
+    def concat_df_games(cls, new_game_data):
+        new_df_games = pd.concat([cls.df_games, pd.DataFrame([new_game_data])], ignore_index=True)
+        cls.df_games = new_df_games.reset_index(drop=True)
 
     def get_df_games_group(cls, group):
         df_games = cls.get_df_games()
         game_filter = df_games['GRUPO'] == group.upper()
         return df_games[game_filter]
 
-    def get_df_ranking_group(group):
+    def get_df_ranking_group(cls, group):
         try:
             df = pd.read_csv('files/group/ranking_' + group.upper() + '.csv')
             return df
         except FileNotFoundError:
             return jsonify({'error': str("O arquivo de dados não foi encontrado.")}), 404
 
-    def update_confronto_direto(winner_team, loser_team, draw, confrontos_diretos):
+    def confrontos_to_df(cls, confrontos_diretos):
+        # Criar um DataFrame a partir dos resultados dos confrontos diretos
+        df_confrontos_diretos = pd.DataFrame(confrontos_diretos).T.fillna('').sort_index()
+        df_confrontos_diretos.index.name = 'Equipes'
+        return df_confrontos_diretos
+
+    def update_direct_confrontation(cls, winner_team, loser_team, draw=False):
+        confrontos_diretos = cls.confrontation  # Obtenha o dicionário atual
         if draw:
             resultado = 'E'
         else:
@@ -134,15 +152,16 @@ class MyService:
         # Registrar o resultado no dicionário
         confrontos_diretos.setdefault(winner_team, {}).setdefault(loser_team, resultado)
         confrontos_diretos.setdefault(loser_team, {}).setdefault(winner_team, resultado)
-        
-        return confrontos_diretos
+        # Atualizar a propriedade confrontation com o novo dicionário
+        cls.confrontation = confrontos_diretos
 
-    def simulate_game(data_json, confrontos_diretos):
-        
+    def simulate_game(cls, data_json):
+        confrontos_diretos = my_service.get_confrontation()
         home_team = data_json['home_team']
         away_team = data_json['away_team']
 
-        if list_clashes(home_team, away_team).empty == False:
+        if my_service.list_clashes(home_team, away_team).empty == False:
+            # TODO Return com info
             print("Não posso substituir um jogo que já existe")
         else:
             group     = data_json['group']
@@ -160,7 +179,7 @@ class MyService:
             }
 
             # Definir df por grupo
-            df_group = get_df_ranking_group(group)
+            df_group = my_service.get_df_ranking_group(group)
 
             condition_home = df_group['Atléticas'] == home_team
             condition_away = df_group['Atléticas'] == away_team
@@ -185,18 +204,24 @@ class MyService:
                 df_group.loc[condition_away, 'Pontos'] += 1
                 df_group.loc[condition_home, 'E'] += 1
                 df_group.loc[condition_away, 'E'] += 1
-                update_confronto_direto(away_team, home_team, True, confrontos_diretos)
+                my_service.update_direct_confrontation(away_team, home_team, True)
             elif home_goal > away_goal:
                 df_group.loc[condition_home, 'Pontos'] += 3
                 df_group.loc[condition_home, 'V'] += 1
                 df_group.loc[condition_away, 'D'] += 1
-                update_confronto_direto(home_team, away_team, False, confrontos_diretos)
+                my_service.update_direct_confrontation(home_team, away_team)
             else:
                 df_group.loc[condition_away, 'Pontos'] += 3
                 df_group.loc[condition_away, 'V'] += 1
                 df_group.loc[condition_home, 'D'] += 1
-                update_confronto_direto(away_team, home_team, False, confrontos_diretos)
-
-            update_df_games(game)
-            update_ranking(group, confrontos_to_df(confrontos_diretos))
+                my_service.update_direct_confrontation(away_team, home_team)
+            
+            print('my_service.get_confrontation()')
+            print(my_service.get_confrontation())
+            
+            my_service.concat_df_games(game)
+            # TODO update ranking group
+            MyService.update_ranking(group, my_service.confrontos_to_df(confrontos_diretos))
             return(game)
+
+my_service = MyService()
