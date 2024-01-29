@@ -13,6 +13,7 @@ pip install flask pandas flasgger
 ## Executando o Aplicativo
 
 Caso queira gerar os dados, execute o seguinte comando:
+(Será gerado apenas os dados do futsal masculino serie A)
 
 ```bash
 python ndu.py
