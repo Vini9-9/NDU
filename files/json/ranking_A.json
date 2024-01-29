@@ -1,0 +1,74 @@
+[
+	{
+		"Atléticas": "Getúlio Vargas",
+		"D": 1,
+		"E": 0,
+		"Gols Contra": 9,
+		"Gols Pró": 22,
+		"ID": "beb13094-8893-4dd8-bf0d-0b9b78c6fc42",
+		"Jogos": 5,
+		"Pontos": 12,
+		"Saldo": 13,
+		"V": 4
+	},
+	{
+		"Atléticas": "EEFE USP",
+		"D": 2,
+		"E": 0,
+		"Gols Contra": 8,
+		"Gols Pró": 19,
+		"ID": "7ad15269-b4c8-4291-a6c4-8ea2986164c7",
+		"Jogos": 5,
+		"Pontos": 9,
+		"Saldo": 11,
+		"V": 3
+	},
+	{
+		"Atléticas": "FEI",
+		"D": 1,
+		"E": 2,
+		"Gols Contra": 12,
+		"Gols Pró": 12,
+		"ID": "bdb2d023-3ec3-4272-bd23-cb5d5341c37a",
+		"Jogos": 5,
+		"Pontos": 8,
+		"Saldo": 0,
+		"V": 2
+	},
+	{
+		"Atléticas": "FECAP",
+		"D": 2,
+		"E": 1,
+		"Gols Contra": 12,
+		"Gols Pró": 19,
+		"ID": "63236aa6-d1ee-4419-9c5d-247fe42c1d04",
+		"Jogos": 5,
+		"Pontos": 7,
+		"Saldo": 7,
+		"V": 2
+	},
+	{
+		"Atléticas": "Engenharia Mackenzie",
+		"D": 3,
+		"E": 0,
+		"Gols Contra": 21,
+		"Gols Pró": 9,
+		"ID": "cd9b5cfc-6cc7-4dc4-a766-f2349bd6b0b1",
+		"Jogos": 5,
+		"Pontos": 6,
+		"Saldo": -12,
+		"V": 2
+	},
+	{
+		"Atléticas": "Economia Mackenzie",
+		"D": 4,
+		"E": 1,
+		"Gols Contra": 33,
+		"Gols Pró": 14,
+		"ID": "1b9e3cac-cfa4-4af3-afb1-c1f307324e8d",
+		"Jogos": 5,
+		"Pontos": 1,
+		"Saldo": -19,
+		"V": 0
+	}
+]

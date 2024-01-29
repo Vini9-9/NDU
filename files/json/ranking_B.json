@@ -1,0 +1,74 @@
+[
+	{
+		"Atléticas": "INSPER",
+		"D": 1,
+		"E": 0,
+		"Gols Contra": 9,
+		"Gols Pró": 14,
+		"ID": "2cb85c75-cce8-4603-9341-b88a57e1889a",
+		"Jogos": 5,
+		"Pontos": 12,
+		"Saldo": 5,
+		"V": 4
+	},
+	{
+		"Atléticas": "Federal do ABC",
+		"D": 1,
+		"E": 1,
+		"Gols Contra": 5,
+		"Gols Pró": 13,
+		"ID": "3b47d543-050d-426d-a15b-f9d4b70cb98e",
+		"Jogos": 5,
+		"Pontos": 10,
+		"Saldo": 8,
+		"V": 3
+	},
+	{
+		"Atléticas": "FEA USP",
+		"D": 1,
+		"E": 2,
+		"Gols Contra": 8,
+		"Gols Pró": 11,
+		"ID": "3d5197f5-65c8-4248-8dd9-e10d18e80481",
+		"Jogos": 5,
+		"Pontos": 8,
+		"Saldo": 3,
+		"V": 2
+	},
+	{
+		"Atléticas": "FEA PUC",
+		"D": 2,
+		"E": 1,
+		"Gols Contra": 11,
+		"Gols Pró": 7,
+		"ID": "e66b1005-aff7-470e-a303-01119ba2bf20",
+		"Jogos": 5,
+		"Pontos": 7,
+		"Saldo": -4,
+		"V": 2
+	},
+	{
+		"Atléticas": "ESPM",
+		"D": 3,
+		"E": 1,
+		"Gols Contra": 14,
+		"Gols Pró": 12,
+		"ID": "5b8a8e04-6cb3-4854-bd06-4025bcd6448a",
+		"Jogos": 5,
+		"Pontos": 4,
+		"Saldo": -2,
+		"V": 1
+	},
+	{
+		"Atléticas": "Medicina Taubaté",
+		"D": 4,
+		"E": 1,
+		"Gols Contra": 15,
+		"Gols Pró": 5,
+		"ID": "9b4af288-6369-47a7-9d42-6cf2644481f5",
+		"Jogos": 5,
+		"Pontos": 1,
+		"Saldo": -10,
+		"V": 0
+	}
+]
