@@ -101,24 +101,38 @@ class MyService:
     def update_csv(cls, df, path, filename):
         df.to_csv(path + '/' + filename + '.csv', index=False)
 
+    def tiebreaker_update_ranking(df_group):
+        return df_group.sort_values(by=['Pontos', 'Saldo', 'Gols Pró'], ascending=[False, False, False])
+
+    def direct_confrontation_update_ranking(df_group, teams_same_points, result_confront):
+        team_ahead = result_confront
+        teams_same_points.remove(team_ahead)
+        # Nome da atlética que você deseja trocar
+        team_behind = teams_same_points[0]
+
+        # Encontrar a posição da atlética no DataFrame
+        position_ahead = df_group.index[df_group['Atléticas'] == team_ahead].tolist()[0]
+        position_behind = df_group.index[df_group['Atléticas'] == team_behind].tolist()[0]
+        # Trocar os valores entre as linhas diretamente
+        df_group.loc[position_ahead], df_group.loc[position_behind] = df_group.loc[position_behind].copy(), df_group.loc[position_ahead].copy()
+
+        return df_group.sort_values(by='Pontos', ascending=False)
+
     def update_ranking(group, df_group, df_confrontos_diretos):
-        linhas_pontos_iguais = df_group[df_group.duplicated(subset='Pontos', keep=False)]
+        row_equals_points = df_group[df_group.duplicated(subset='Pontos', keep=False)]
 
         # Obter apenas os nomes das atléticas
-        atléticas_pontos_iguais = linhas_pontos_iguais['Atléticas'].tolist()
-        if len(atléticas_pontos_iguais) == 2:
-            team_ahead = df_confrontos_diretos.loc[atléticas_pontos_iguais[0], atléticas_pontos_iguais[1]]
-            atléticas_pontos_iguais.remove(team_ahead)
+        teams_same_points = row_equals_points['Atléticas'].tolist()
+        
+        if len(teams_same_points) == 2:
+            team_one = teams_same_points[0]
+            team_two = teams_same_points[1]
+            result_confront = df_confrontos_diretos.loc[team_one, team_two]
 
-            # Nome da atlética que você deseja trocar
-            team_behind = atléticas_pontos_iguais[0]
-
-            # Encontrar a posição da atlética no DataFrame
-            position_ahead = df_group.index[df_group['Atléticas'] == team_ahead].tolist()[0]
-            position_behind = df_group.index[df_group['Atléticas'] == team_behind].tolist()[0]
-            # Trocar os valores entre as linhas diretamente
-            df_group.loc[position_ahead], df_group.loc[position_behind] = df_group.loc[position_behind].copy(), df_group.loc[position_ahead].copy()
-            return df_group.sort_values(by='Pontos', ascending=False)
+            if result_confront != 'E':
+                return my_service.direct_confrontation_update_ranking(df_group, teams_same_points, result_confront)
+        
+        return my_service.tiebreaker_update_ranking(df_group)
             
 
     def concat_df_games(cls, new_game_data):
