@@ -386,12 +386,12 @@ def remover_jogo(home_team, away_team, confrontos_diretos):
     else:
         print('Nenhum jogo simulado foi encontrado')
 
-# df_games.to_csv('files/games.csv', index=False)
-# print('df_games gerado')
-# df_groupA.to_csv('files/df_groupA.csv', index=False)
-# print('df_groupA gerado')
-# df_groupB.to_csv('files/df_groupB.csv', index=False)
-# print('df_groupB gerado')
+df_games.to_csv('files/games.csv', index=False)
+print('df_games gerado')
+df_groupA.to_csv('files/group/ranking_A.csv', index=False)
+print('ranking_A gerado')
+df_groupB.to_csv('files/group/ranking_B.csv', index=False)
+print('ranking_B gerado')
 
 # confrontos.to_csv('files/confrontos.csv', index=False)
 confrontos_df = confrontos_to_df(confrontos).to_csv('files/confrontos_df.csv', index=False)

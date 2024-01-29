@@ -12,7 +12,13 @@ pip install flask pandas flasgger
 
 ## Executando o Aplicativo
 
-Para iniciar o aplicativo, execute o seguinte comando:
+Caso queira gerar os dados, execute o seguinte comando:
+
+```bash
+python ndu.py
+```
+
+Para iniciar a api, execute o seguinte comando:
 
 ```bash
 python api.py
