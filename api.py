@@ -26,7 +26,11 @@ def get_games():
       200:
         description: Lista de jogos.
     """
-    df_games = my_service.get_df_games()
+    simulator = request.args.get('simulator', type=bool)
+    if simulator:
+        df_games = my_service.get_simulator_df_games()
+    else: 
+      df_games = my_service.get_df_games()
     return jsonify(df_games.to_dict(orient='records'))
 
 @app.route('/api/games/confrontation', methods=['GET'])
@@ -130,7 +134,11 @@ def get_ranking(group):
       404:
         description: Grupo não encontrado.
     """
-    df_group = myAppService.get_df_ranking_group(group)
+    simulator = request.args.get('simulator', type=bool)
+    if simulator:
+      df_group = myAppService.get_simulator_df_ranking_group(group)
+    else:
+      df_group = myAppService.get_df_ranking_group(group)
     
     return jsonify(df_group.to_dict(orient='records'))
 

@@ -1,4 +1,5 @@
 import pandas as pd
+from flask import jsonify
 
 class MyService:
     _instance = None
@@ -22,8 +23,7 @@ class MyService:
         :raise FileNotFoundError: Se o arquivo de dados não for encontrado.
         """
         try:
-            df = pd.read_csv('files/' + filename + '.csv')
-            return df
+            return pd.read_csv('files/' + filename + '.csv')
         except FileNotFoundError:
             return jsonify({'error': str("O arquivo de dados não foi encontrado.")}), 404
 
@@ -71,6 +71,9 @@ class MyService:
 
     def get_df_games(self):
         return self.df_games
+    
+    def get_simulator_df_games(self):
+        return self.load_csv('simulator/games')
 
     def get_confrontation(self):
         return self._confrontation
@@ -98,7 +101,7 @@ class MyService:
         else:
             return games_teamOne[games_teamOne['EQUIPE Visitante'].str.contains(teamTwo)]
 
-    def update_csv(cls, df, path, filename):
+    def create_csv(cls, df, path, filename):
         df.to_csv(path + '/' + filename + '.csv', index=False)
 
     def tiebreaker_update_ranking(df_group):
@@ -130,26 +133,26 @@ class MyService:
             result_confront = df_confrontos_diretos.loc[team_one, team_two]
 
             if result_confront != 'E':
-                return my_service.direct_confrontation_update_ranking(df_group, teams_same_points, result_confront)
+                return MyService.direct_confrontation_update_ranking(df_group, teams_same_points, result_confront)
         
-        return my_service.tiebreaker_update_ranking(df_group)
-            
+        return MyService.tiebreaker_update_ranking(df_group)
 
     def concat_df_games(cls, new_game_data):
         new_df_games = pd.concat([cls.df_games, pd.DataFrame([new_game_data])], ignore_index=True)
-        cls.df_games = new_df_games.reset_index(drop=True)
+        new_df_games.reset_index(drop=True)
+        my_service.create_csv(new_df_games, 'files/simulator', 'games')
 
     def get_df_games_group(cls, group):
         df_games = cls.get_df_games()
         game_filter = df_games['GRUPO'] == group.upper()
         return df_games[game_filter]
 
+    def get_simulator_df_ranking_group(cls, group):
+        df = cls.load_csv('simulator/ranking_' + group.upper())
+        return df
+
     def get_df_ranking_group(cls, group):
-        try:
-            df = pd.read_csv('files/group/ranking_' + group.upper() + '.csv')
-            return df
-        except FileNotFoundError:
-            return jsonify({'error': str("O arquivo de dados não foi encontrado.")}), 404
+        return cls.load_csv('group/ranking_' + group.upper())
 
     def confrontos_to_df(cls, confrontos_diretos):
         # Criar um DataFrame a partir dos resultados dos confrontos diretos
@@ -233,7 +236,7 @@ class MyService:
             my_service.concat_df_games(game)
             
             df_new_group = MyService.update_ranking(group, df_group, my_service.confrontos_to_df(my_service.get_confrontation()))
-            my_service.update_csv(df_new_group, 'files/group', 'ranking_' + group)
+            my_service.create_csv(df_new_group, 'files/simulator', 'ranking_' + group)
             return(game)
 
 my_service = MyService()
