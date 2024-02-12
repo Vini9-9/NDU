@@ -1,10 +1,13 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from flasgger import Swagger
 from service import MyService
 import pandas as pd
+import glob
 
 
 app     = Flask(__name__)
+CORS(app)
 swagger = Swagger(app)
 
 class MyApp:
@@ -100,7 +103,6 @@ def get_games_by_group(group):
       200:
         description: Lista de jogos.
     """
-
     df_games_group = myAppService.get_df_games_group(group)
 
     return jsonify(df_games_group.to_dict(orient='records'))
@@ -141,6 +143,41 @@ def get_ranking(group):
       df_group = myAppService.get_df_ranking_group(group)
     
     return jsonify(df_group.to_dict(orient='records'))
+
+@app.route('/api/ranking', methods=['GET'])
+def get_all_rankings():
+    """
+    Obtém os rankings de todos os grupos.
+    ---
+    parameters:
+      - name: simulator
+        in: query
+        type: boolean
+        description: Indica se é para obter o ranking do simulador.
+    responses:
+      200:
+        description: Rankings de todos os grupos.
+    """
+    simulator = request.args.get('simulator', type=bool)
+
+    all_rankings = []
+
+    # Obtém os rankings de todos os grupos
+    for group in ['A', 'B']:
+        ranking_entry = {
+            'group': group,
+            'ranking': []
+        }
+
+        if simulator:
+            df_group = myAppService.get_simulator_df_ranking_group(group)
+        else:
+            df_group = myAppService.get_df_ranking_group(group)
+
+        ranking_entry['ranking'] = df_group.to_dict(orient='records')
+        all_rankings.append(ranking_entry)
+
+    return jsonify(all_rankings)
 
 @app.route('/api/games/simulate', methods=['POST'])
 def post_simulate_game():

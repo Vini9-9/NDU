@@ -32,8 +32,8 @@ class MyService:
 
         # Iterar sobre os jogos e registrar os resultados dos confrontos diretos
         for _, jogo in df_games.iterrows():
-            equipe_mandante = jogo['EQUIPE Mandante']
-            equipe_visitante = jogo['EQUIPE Visitante']
+            equipe_mandante = jogo['Mandante']
+            equipe_visitante = jogo['Visitante']
             placar_mandante = jogo['GOLS_MANDANTE']
             placar_visitante = jogo['GOLS_VISITANTE']
 
@@ -80,26 +80,26 @@ class MyService:
 
     def list_game_by_team(cls, team_surname):
         df_games = cls.get_df_games()
-        condition_home = df_games['EQUIPE Mandante'].str.contains(team_surname)
-        condition_away = df_games['EQUIPE Visitante'].str.contains(team_surname)
+        condition_home = df_games['Mandante'].str.contains(team_surname)
+        condition_away = df_games['Visitante'].str.contains(team_surname)
         games_by_team = df_games[condition_home | condition_away]
         return games_by_team
 
     def list_clashes(cls, teamOne, teamTwo):
         df_games = cls.get_df_games()
         # Filtrar os jogos onde a equipe é a mandante ou visitante
-        condition_home = df_games['EQUIPE Mandante'].str.contains(teamOne)
-        condition_away = df_games['EQUIPE Visitante'].str.contains(teamOne)
+        condition_home = df_games['Mandante'].str.contains(teamOne)
+        condition_away = df_games['Visitante'].str.contains(teamOne)
 
         # Combinar as condições usando o operador lógico OR (|)
         games_teamOne = df_games[condition_home | condition_away]
 
         # Filtrar os jogos onde a outra equipe é a visitante
-        games_between_home = games_teamOne[games_teamOne['EQUIPE Mandante'].str.contains(teamTwo)]
+        games_between_home = games_teamOne[games_teamOne['Mandante'].str.contains(teamTwo)]
         if games_between_home.empty == False:
             return games_between_home
         else:
-            return games_teamOne[games_teamOne['EQUIPE Visitante'].str.contains(teamTwo)]
+            return games_teamOne[games_teamOne['Visitante'].str.contains(teamTwo)]
 
     def create_csv(cls, df, path, filename):
         df.to_csv(path + '/' + filename + '.csv', index=False)
@@ -150,9 +150,13 @@ class MyService:
     def get_simulator_df_ranking_group(cls, group):
         df = cls.load_csv('simulator/ranking_' + group.upper())
         return df
+    
+    def get_simulator_df_ranking(cls):
+        df = cls.load_csv('simulator/ranking')
+        return df
 
-    def get_df_ranking_group(cls, group):
-        return cls.load_csv('group/ranking_' + group.upper())
+    def get_df_ranking_group(cls, group, filepath='FM/A/group/'):
+        return cls.load_csv(filepath + 'ranking_' + group.upper())
 
     def confrontos_to_df(cls, confrontos_diretos):
         # Criar um DataFrame a partir dos resultados dos confrontos diretos
@@ -187,9 +191,9 @@ class MyService:
             
             game = {
                 'GRUPO': group,
-                'EQUIPE Mandante': home_team,
+                'Mandante': home_team,
                 'GOLS_MANDANTE': home_goal,
-                'EQUIPE Visitante': away_team,
+                'Visitante': away_team,
                 'GOLS_VISITANTE': away_goal,
                 'PLACAR': str(home_goal) + 'x' + str(away_goal),
                 'SIMULADOR': True
