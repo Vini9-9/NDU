@@ -4,6 +4,8 @@ from flasgger import Swagger
 from service import MyService
 import pandas as pd
 import glob
+import os
+import re
 
 
 app     = Flask(__name__)
@@ -144,8 +146,8 @@ def get_ranking(group):
     
     return jsonify(df_group.to_dict(orient='records'))
 
-@app.route('/api/ranking', methods=['GET'])
-def get_all_rankings():
+@app.route('/api/ranking/<modality>/<series>', methods=['GET'])
+def get_all_rankings(modality, series):
     """
     Obtém os rankings de todos os grupos.
     ---
@@ -154,6 +156,14 @@ def get_all_rankings():
         in: query
         type: boolean
         description: Indica se é para obter o ranking do simulador.
+       - name: modality
+        in: path
+        type: string
+        description: A modalidade para a qual o ranking deve ser obtido.
+      - name: series
+        in: path
+        type: string
+        description: A série para a qual o ranking deve ser obtido.
     responses:
       200:
         description: Rankings de todos os grupos.
@@ -161,19 +171,28 @@ def get_all_rankings():
     simulator = request.args.get('simulator', type=bool)
 
     all_rankings = []
+    filepath_group =  modality + '/' + series + '/group/'
+    filepath = './files/' + filepath_group
+
+    # Expressão regular para extrair a letra após "ranking_"
+    regex_expression = r"ranking_([A-Z]+)\.csv"
 
     # Obtém os rankings de todos os grupos
-    for group in ['A', 'B']:
+    for filename in os.listdir(filepath):
+    # Verifica se é um arquivo (não é um diretório)
+      if os.path.isfile(os.path.join(filepath, filename)):
+        group = re.match(regex_expression, filename).group(1)
+        print("Listando grupo " + group)
         ranking_entry = {
-            'group': group,
-            'ranking': []
-        }
+              'group': group,
+              'ranking': []
+          }
 
         if simulator:
             df_group = myAppService.get_simulator_df_ranking_group(group)
         else:
-            df_group = myAppService.get_df_ranking_group(group)
-
+            df_group = myAppService.get_df_ranking_group(group, filepath_group)
+        
         ranking_entry['ranking'] = df_group.to_dict(orient='records')
         all_rankings.append(ranking_entry)
 
