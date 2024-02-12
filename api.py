@@ -42,6 +42,14 @@ def get_confrontation(modality, series):
         type: string
         description: Nome do segundo time.
         required: true
+      - name: modality
+        in: path
+        type: string
+        description: A modalidade dos jogos.
+      - name: series
+        in: path
+        type: string
+        description: A série dos jogos.
     responses:
       200:
         description: Lista de confrontos ou lista do vencedor do confronto.
@@ -72,6 +80,14 @@ def get_clashes(modality, series):
         type: string
         description: Nome do segundo time.
         required: true
+      - name: modality
+        in: path
+        type: string
+        description: A modalidade dos jogos.
+      - name: series
+        in: path
+        type: string
+        description: A série dos jogos.
     responses:
       200:
         description: Informações de confronto entre os dois times.
@@ -103,6 +119,15 @@ def get_games_by_team(modality, series):
     """
     Obtém informações sobre os jogos por time.
     ---
+    parameters:
+    - name: modality
+      in: path
+      type: string
+      description: A modalidade dos jogos.
+    - name: series
+      in: path
+      type: string
+      description: A série dos jogos.
     responses:
       200:
         description: Lista de jogos.
