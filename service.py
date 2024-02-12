@@ -26,6 +26,8 @@ class MyService:
             return pd.read_csv('files/' + filename + '.csv')
         except FileNotFoundError:
             return jsonify({'error': str("O arquivo de dados não foi encontrado.")}), 404
+    
+    
 
     def generate_direct_confrontations(cls, df_games):
         confrontos_diretos = {}
@@ -71,6 +73,9 @@ class MyService:
 
     def get_df_games(self):
         return self.df_games
+
+    def get_df_games_by_filepath(cls, filepath):
+        return cls.load_csv(filepath + '/games')
     
     def get_simulator_df_games(self):
         return self.load_csv('simulator/games')
@@ -78,8 +83,8 @@ class MyService:
     def get_confrontation(self):
         return self._confrontation
 
-    def list_game_by_team(cls, team_surname):
-        df_games = cls.get_df_games()
+    def list_game_by_team(cls, team_surname, filepath):
+        df_games = cls.get_df_games_by_filepath(filepath)
         condition_home = df_games['Mandante'].str.contains(team_surname)
         condition_away = df_games['Visitante'].str.contains(team_surname)
         games_by_team = df_games[condition_home | condition_away]

@@ -17,26 +17,13 @@ class MyApp:
   def __init__(self):
         self.service = MyService()
 
+  def generateFilepath(modality, series):
+        return modality + '/' + series
+
 # Cria uma instância da classe MyApp
 my_app = MyApp()
 myAppService = my_app.service
 my_service = MyService()
-
-@app.route('/api/games', methods=['GET'])
-def get_games():
-    """
-    Obtém informações sobre os jogos.
-    ---
-    responses:
-      200:
-        description: Lista de jogos.
-    """
-    simulator = request.args.get('simulator', type=bool)
-    if simulator:
-        df_games = my_service.get_simulator_df_games()
-    else: 
-      df_games = my_service.get_df_games()
-    return jsonify(df_games.to_dict(orient='records'))
 
 @app.route('/api/games/confrontation', methods=['GET'])
 def get_confrontation():
@@ -109,8 +96,8 @@ def get_games_by_group(group):
 
     return jsonify(df_games_group.to_dict(orient='records'))
 
-@app.route('/api/games/team/<team>', methods=['GET'])
-def get_games_by_team(team):
+@app.route('/api/games/<modality>/<series>', methods=['GET'])
+def get_games_by_team(modality, series):
     """
     Obtém informações sobre os jogos por time.
     ---
@@ -118,9 +105,15 @@ def get_games_by_team(team):
       200:
         description: Lista de jogos.
     """
-    df_games_team = myAppService.list_game_by_team(team)
+    team_query = request.args.get('team')
+    
+    filepath = MyApp.generateFilepath(modality, series)
 
-    return jsonify(df_games_team.to_dict(orient='records'))
+    if team_query:
+      df_games = myAppService.list_game_by_team(team_query, filepath)
+    else:
+      df_games = my_service.get_df_games_by_filepath(filepath)
+    return jsonify(df_games.to_dict(orient='records'))
 
 @app.route('/api/ranking/<modality>/<series>', methods=['GET'])
 def get_all_rankings(modality, series):
@@ -146,7 +139,7 @@ def get_all_rankings(modality, series):
     """
     simulator = request.args.get('simulator', type=bool)
     group_query = request.args.get('group')
-    filepath_group =  modality + '/' + series + '/group/'
+    filepath_group =  MyApp.generateFilepath(modality, series) + '/group/'
     
     if group_query:
       df_group = myAppService.get_df_ranking_group(group_query, filepath_group)
