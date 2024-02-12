@@ -2,10 +2,9 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flasgger import Swagger
 from service import MyService
+from exception import *
 import pandas as pd
-import glob
-import os
-import re
+
 
 
 app     = Flask(__name__)
@@ -54,15 +53,20 @@ def get_confrontation(modality, series):
       200:
         description: Lista de confrontos ou lista do vencedor do confronto.
     """
-    filepath = MyApp.generateFilepath(modality, series)
-    team1_name = request.args.get('team1', type=str)
-    team2_name = request.args.get('team2', type=str)
+    try:
 
-    confrontation = myAppService.get_confrontation(filepath)
-    if team1_name and team2_name:
-      return confrontation[team1_name][team2_name]
+      filepath = MyApp.generateFilepath(modality, series)
+      team1_name = request.args.get('team1', type=str)
+      team2_name = request.args.get('team2', type=str)
 
-    return jsonify(confrontation)
+      confrontation = myAppService.get_confrontation(filepath)
+      if team1_name and team2_name:
+        return confrontation[team1_name][team2_name]
+
+      return jsonify(confrontation)
+
+    except Exception as e:
+        return jsonify({'error': e.message}), e.errorCode
 
 @app.route('/api/games/<modality>/<series>/clashes', methods=['GET'])
 def get_clashes(modality, series):
@@ -94,12 +98,17 @@ def get_clashes(modality, series):
       404:
         description: Pelo menos um dos times não foi encontrado.
     """
-    filepath = MyApp.generateFilepath(modality, series)
-    team1_name = request.args.get('team1', type=str)
-    team2_name = request.args.get('team2', type=str)
+    try:
 
-    df_clashes = myAppService.list_clashes(team1_name, team2_name, filepath)
-    return jsonify(df_clashes.to_dict(orient='records'))
+      filepath = MyApp.generateFilepath(modality, series)
+      team1_name = request.args.get('team1', type=str)
+      team2_name = request.args.get('team2', type=str)
+
+      df_clashes = myAppService.list_clashes(team1_name, team2_name, filepath)
+      return jsonify(df_clashes.to_dict(orient='records'))
+
+    except Exception as e:
+        return jsonify({'error': e.message}), e.errorCode
 
 @app.route('/api/games/group/<group>', methods=['GET'])
 def get_games_by_group(group):
@@ -110,12 +119,16 @@ def get_games_by_group(group):
       200:
         description: Lista de jogos.
     """
-    df_games_group = myAppService.get_df_games_group(group)
+    try:
+      df_games_group = myAppService.get_df_games_group(group)
 
-    return jsonify(df_games_group.to_dict(orient='records'))
+      return jsonify(df_games_group.to_dict(orient='records'))
+
+    except Exception as e:
+        return jsonify({'error': e.message}), e.errorCode
 
 @app.route('/api/games/<modality>/<series>', methods=['GET'])
-def get_games_by_team(modality, series):
+def get_games(modality, series):
     """
     Obtém informações sobre os jogos por time.
     ---
@@ -132,15 +145,20 @@ def get_games_by_team(modality, series):
       200:
         description: Lista de jogos.
     """
-    team_query = request.args.get('team')
-    
-    filepath = MyApp.generateFilepath(modality, series)
+    try:
 
-    if team_query:
-      df_games = myAppService.list_game_by_team(team_query, filepath)
-    else:
-      df_games = myAppService.get_df_games_by_filepath(filepath)
-    return jsonify(df_games.to_dict(orient='records'))
+      team_query = request.args.get('team')
+      
+      filepath = MyApp.generateFilepath(modality, series)
+
+      if team_query:
+        df_games = myAppService.list_game_by_team(team_query, filepath)
+      else:
+        df_games = myAppService.get_df_games_by_filepath(filepath)
+      return jsonify(df_games.to_dict(orient='records'))
+
+    except Exception as e:
+        return jsonify({'error': e.message}), e.errorCode
 
 @app.route('/api/ranking/<modality>/<series>', methods=['GET'])
 def get_all_rankings(modality, series):
@@ -164,41 +182,22 @@ def get_all_rankings(modality, series):
       200:
         description: Rankings de todos os grupos.
     """
-    simulator = request.args.get('simulator', type=bool)
-    group_query = request.args.get('group')
-    filepath_group =  MyApp.generateFilepath(modality, series) + '/group/'
-    
-    if group_query:
-      df_group = myAppService.get_df_ranking_group(group_query, filepath_group)
-      return jsonify(df_group.to_dict(orient='records'))
+    try:
+      simulator = request.args.get('simulator', type=bool)
+      group_query = request.args.get('group')
+      filepath_group =  MyApp.generateFilepath(modality, series) + '/group/'
 
-    all_rankings = []
-    filepath = './files/' + filepath_group
+      if group_query:
+        df_group = myAppService.get_df_ranking_group(group_query, filepath_group)
+        return jsonify(df_group.to_dict(orient='records'))
 
-    # Expressão regular para extrair a letra após "ranking_"
-    regex_expression = r"ranking_([A-Z]+)\.csv"
+      all_rankings = myAppService.generate_all_rankings(filepath_group)
 
-    # Obtém os rankings de todos os grupos
-    for filename in os.listdir(filepath):
-    # Verifica se é um arquivo (não é um diretório)
-      if os.path.isfile(os.path.join(filepath, filename)):
-        group = re.match(regex_expression, filename).group(1)
-        print("Listando grupo " + group)
-        ranking_entry = {
-              'group': group,
-              'ranking': []
-          }
-
-        if simulator:
-            df_group = myAppService.get_simulator_df_ranking_group(group)
-        else:
-            df_group = myAppService.get_df_ranking_group(group, filepath_group)
-        
-        ranking_entry['ranking'] = df_group.to_dict(orient='records')
-        all_rankings.append(ranking_entry)
-
-    return jsonify(all_rankings)
-
+      return jsonify(all_rankings)
+      
+    except Exception as e:
+      return jsonify({'error': e.message}), e.errorCode
+      
 @app.route('/api/simulate/<modality>/<series>/games', methods=['POST'])
 def post_simulate_game(modality, series):
     """
@@ -254,7 +253,7 @@ def post_simulate_game(modality, series):
           {'game': game}
         )
     except Exception as e:
-        return jsonify({'error': e.message}), 400
+        return jsonify({'error': e.message}), e.errorCode
 
 
 if __name__ == '__main__':

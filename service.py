@@ -1,6 +1,9 @@
 import pandas as pd
 from flask import jsonify
 from exception import *
+import glob
+import os
+import re
 
 class MyService:
     _instance = None
@@ -27,7 +30,37 @@ class MyService:
         except FileNotFoundError:
             raise FileNotFoundErrorException()
     
-    
+    def generate_all_rankings(cls, filepath_group, simulator=False):
+        all_rankings = []
+        filepath = './files/' + filepath_group
+
+        # Expressão regular para extrair a letra após "ranking_"
+        regex_expression = r"ranking_([A-Z]+)\.csv"
+
+        try:
+            # Obtém os rankings de todos os grupos
+            for filename in os.listdir(filepath):
+            # Verifica se é um arquivo (não é um diretório)
+                if os.path.isfile(os.path.join(filepath, filename)):
+                    group = re.match(regex_expression, filename).group(1)
+                    print("Listando grupo " + group)
+                    ranking_entry = {
+                            'group': group,
+                            'ranking': []
+                        }
+
+                    if simulator:
+                        df_group = cls.get_simulator_df_ranking_group(group)
+                    else:
+                        df_group = cls.get_df_ranking_group(group, filepath_group)
+                
+                ranking_entry['ranking'] = df_group.to_dict(orient='records')
+                all_rankings.append(ranking_entry)
+            
+            return all_rankings
+        
+        except FileNotFoundError:
+            raise FileNotFoundErrorException()
 
     def generate_direct_confrontations(cls, df_games):
         confrontos_diretos = {}
@@ -206,7 +239,7 @@ class MyService:
             }
 
             # Definir df por grupo
-            df_group = my_service.get_df_ranking_group(group)
+            df_group = my_service.get_df_ranking_group(group, filepath)
 
             condition_home = df_group['Atléticas'] == home_team
             condition_away = df_group['Atléticas'] == away_team
