@@ -10,8 +10,7 @@ class MyService:
         return cls._instance
     
     def __init__(self):
-        self.df_games = self.load_csv('games')
-        self.confrontation = self.generate_direct_confrontations(self.df_games)
+        print("################# Iniciando Service #################")
 
     @staticmethod
     def load_csv(filename):
@@ -90,8 +89,8 @@ class MyService:
         games_by_team = df_games[condition_home | condition_away]
         return games_by_team
 
-    def list_clashes(cls, teamOne, teamTwo):
-        df_games = cls.get_df_games()
+    def list_clashes(cls, teamOne, teamTwo, filepath):
+        df_games = cls.get_df_games_by_filepath(filepath)
         # Filtrar os jogos onde a equipe é a mandante ou visitante
         condition_home = df_games['Mandante'].str.contains(teamOne)
         condition_away = df_games['Visitante'].str.contains(teamOne)

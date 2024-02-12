@@ -54,8 +54,8 @@ def get_confrontation():
 
     return jsonify(confrontation)
 
-@app.route('/api/games/clashes', methods=['GET'])
-def get_clashes():
+@app.route('/api/games/<modality>/<series>/clashes', methods=['GET'])
+def get_clashes(modality, series):
     """
     Obtém informações de confronto entre dois times.
     ---
@@ -76,11 +76,11 @@ def get_clashes():
       404:
         description: Pelo menos um dos times não foi encontrado.
     """
-    # df_games  = load_csv('games')
+    filepath = MyApp.generateFilepath(modality, series)
     team1_name = request.args.get('team1', type=str)
     team2_name = request.args.get('team2', type=str)
 
-    df_clashes = myAppService.list_clashes(team1_name, team2_name)
+    df_clashes = myAppService.list_clashes(team1_name, team2_name, filepath)
     return jsonify(df_clashes.to_dict(orient='records'))
 
 @app.route('/api/games/group/<group>', methods=['GET'])
