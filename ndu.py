@@ -2,6 +2,11 @@
 # coding: utf-8
 
 # # Tabelas
+import uuid
+
+# Função para gerar IDs
+def generate_game_id():
+    return str(uuid.uuid4())
 
 import tabula
 import pandas as pd
@@ -386,10 +391,19 @@ def remover_jogo(home_team, away_team, confrontos_diretos):
     else:
         print('Nenhum jogo simulado foi encontrado')
 
+df_games['ID'] = [generate_game_id() for _ in range(len(df_games))]
+df_games.rename(columns={'HORÁRIO': 'HORARIO'}, inplace=True)
+df_games.rename(columns={'EQUIPE Mandante': 'Mandante'}, inplace=True)
+df_games.rename(columns={'EQUIPE Visitante': 'Visitante'}, inplace=True)
+
 df_games.to_csv('files/games.csv', index=False)
 print('df_games gerado')
+
+df_groupA['ID'] = [generate_game_id() for _ in range(len(df_groupA))]
 df_groupA.to_csv('files/group/ranking_A.csv', index=False)
 print('ranking_A gerado')
+
+df_groupB['ID'] = [generate_game_id() for _ in range(len(df_groupB))]
 df_groupB.to_csv('files/group/ranking_B.csv', index=False)
 print('ranking_B gerado')
 
