@@ -122,30 +122,6 @@ def get_games_by_team(team):
 
     return jsonify(df_games_team.to_dict(orient='records'))
 
-@app.route('/api/ranking/<group>', methods=['GET'])
-def get_ranking(group):
-    """
-    Obtém o ranking de um grupo específico.
-    ---
-    parameters:
-      - name: group
-        in: query
-        type: string
-        description: Grupo para o qual o ranking deve ser obtido.
-    responses:
-      200:
-        description: Ranking do grupo especificado.
-      404:
-        description: Grupo não encontrado.
-    """
-    simulator = request.args.get('simulator', type=bool)
-    if simulator:
-      df_group = myAppService.get_simulator_df_ranking_group(group)
-    else:
-      df_group = myAppService.get_df_ranking_group(group)
-    
-    return jsonify(df_group.to_dict(orient='records'))
-
 @app.route('/api/ranking/<modality>/<series>', methods=['GET'])
 def get_all_rankings(modality, series):
     """
@@ -156,7 +132,7 @@ def get_all_rankings(modality, series):
         in: query
         type: boolean
         description: Indica se é para obter o ranking do simulador.
-       - name: modality
+      - name: modality
         in: path
         type: string
         description: A modalidade para a qual o ranking deve ser obtido.
@@ -169,9 +145,14 @@ def get_all_rankings(modality, series):
         description: Rankings de todos os grupos.
     """
     simulator = request.args.get('simulator', type=bool)
+    group_query = request.args.get('group')
+    filepath_group =  modality + '/' + series + '/group/'
+    
+    if group_query:
+      df_group = myAppService.get_df_ranking_group(group_query, filepath_group)
+      return jsonify(df_group.to_dict(orient='records'))
 
     all_rankings = []
-    filepath_group =  modality + '/' + series + '/group/'
     filepath = './files/' + filepath_group
 
     # Expressão regular para extrair a letra após "ranking_"
