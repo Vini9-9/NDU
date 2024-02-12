@@ -1,5 +1,6 @@
 import pandas as pd
 from flask import jsonify
+from exception import *
 
 class MyService:
     _instance = None
@@ -24,7 +25,7 @@ class MyService:
         try:
             return pd.read_csv('files/' + filename + '.csv')
         except FileNotFoundError:
-            return jsonify({'error': str("O arquivo de dados não foi encontrado.")}), 404
+            raise FileNotFoundErrorException()
     
     
 
@@ -142,8 +143,9 @@ class MyService:
         
         return MyService.tiebreaker_update_ranking(df_group)
 
-    def concat_df_games(cls, new_game_data):
-        new_df_games = pd.concat([cls.df_games, pd.DataFrame([new_game_data])], ignore_index=True)
+    def concat_df_games(cls, new_game_data, filepath):
+        df_games = cls.get_df_games_by_filepath(filepath)
+        new_df_games = pd.concat([df_games, pd.DataFrame([new_game_data])], ignore_index=True)
         new_df_games.reset_index(drop=True)
         my_service.create_csv(new_df_games, 'files/simulator', 'games')
 
@@ -182,13 +184,12 @@ class MyService:
         # Atualizar a propriedade confrontation com o novo dicionário
         cls.confrontation = confrontos_diretos
 
-    def simulate_game(cls, data_json):
+    def simulate_game(cls, data_json, filepath):
         home_team = data_json['home_team']
         away_team = data_json['away_team']
 
-        if my_service.list_clashes(home_team, away_team).empty == False:
-            # TODO Return com info
-            print("Não posso substituir um jogo que já existe")
+        if my_service.list_clashes(home_team, away_team, filepath).empty == False:
+            raise GameAlreadyExistsException()
         else:
             group     = data_json['group']
             home_goal = data_json['home_goal']
@@ -242,10 +243,10 @@ class MyService:
                 df_group.loc[condition_home, 'D'] += 1
                 my_service.update_direct_confrontation(away_team, home_team)
             
-            my_service.concat_df_games(game)
+            my_service.concat_df_games(game, filepath)
             
             df_new_group = MyService.update_ranking(group, df_group, my_service.confrontos_to_df(my_service.get_confrontation()))
             my_service.create_csv(df_new_group, 'files/simulator', 'ranking_' + group)
             return(game)
 
-# my_service = MyService()
+my_service = MyService()

@@ -199,8 +199,8 @@ def get_all_rankings(modality, series):
 
     return jsonify(all_rankings)
 
-@app.route('/api/games/simulate', methods=['POST'])
-def post_simulate_game():
+@app.route('/api/simulate/<modality>/<series>/games', methods=['POST'])
+def post_simulate_game(modality, series):
     """
     Simula o resultado de um jogo.
     ---
@@ -241,19 +241,20 @@ def post_simulate_game():
       400:
         description: Parâmetros inválidos.
     """
+    filepath_group =  MyApp.generateFilepath(modality, series)
     try:
         # Obter parâmetros da solicitação
         data_json = request.get_json()
 
         # Chamar a função simular_jogo
-        game = myAppService.simulate_game(data_json)
+        game = myAppService.simulate_game(data_json, filepath_group)
 
         return jsonify(
           {'message': 'Simulação do jogo realizada com sucesso.'},
           {'game': game}
         )
     except Exception as e:
-        return jsonify({'error': str(e)}), 400
+        return jsonify({'error': e.message}), 400
 
 
 if __name__ == '__main__':
