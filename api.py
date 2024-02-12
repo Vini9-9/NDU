@@ -24,7 +24,7 @@ class MyApp:
 # Cria uma instância da classe MyApp
 my_app = MyApp()
 myAppService = my_app.service
-my_service = MyService()
+# myAppService = MyService()
 
 @app.route('/api/games/<modality>/<series>/confrontation', methods=['GET'])
 def get_confrontation(modality, series):
@@ -58,7 +58,7 @@ def get_confrontation(modality, series):
     team1_name = request.args.get('team1', type=str)
     team2_name = request.args.get('team2', type=str)
 
-    confrontation = my_service.get_confrontation(filepath)
+    confrontation = myAppService.get_confrontation(filepath)
     if team1_name and team2_name:
       return confrontation[team1_name][team2_name]
 
@@ -139,7 +139,7 @@ def get_games_by_team(modality, series):
     if team_query:
       df_games = myAppService.list_game_by_team(team_query, filepath)
     else:
-      df_games = my_service.get_df_games_by_filepath(filepath)
+      df_games = myAppService.get_df_games_by_filepath(filepath)
     return jsonify(df_games.to_dict(orient='records'))
 
 @app.route('/api/ranking/<modality>/<series>', methods=['GET'])
@@ -246,7 +246,7 @@ def post_simulate_game():
         data_json = request.get_json()
 
         # Chamar a função simular_jogo
-        game = my_service.simulate_game(data_json)
+        game = myAppService.simulate_game(data_json)
 
         return jsonify(
           {'message': 'Simulação do jogo realizada com sucesso.'},

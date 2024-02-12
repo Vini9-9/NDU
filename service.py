@@ -248,4 +248,4 @@ class MyService:
             my_service.create_csv(df_new_group, 'files/simulator', 'ranking_' + group)
             return(game)
 
-my_service = MyService()
+# my_service = MyService()
