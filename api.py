@@ -16,6 +16,7 @@ class MyApp:
 
   def __init__(self):
         self.service = MyService()
+        print("!!!!!!!!!!!!!!!!!!!!! Iniciando MyApp !!!!!!!!!!!!!!!!!!!!!")
 
   def generateFilepath(modality, series):
         return modality + '/' + series
@@ -25,8 +26,8 @@ my_app = MyApp()
 myAppService = my_app.service
 my_service = MyService()
 
-@app.route('/api/games/confrontation', methods=['GET'])
-def get_confrontation():
+@app.route('/api/games/<modality>/<series>/confrontation', methods=['GET'])
+def get_confrontation(modality, series):
     """
     Obtém informações sobre os confrontos.
     ---
@@ -45,10 +46,11 @@ def get_confrontation():
       200:
         description: Lista de confrontos ou lista do vencedor do confronto.
     """
+    filepath = MyApp.generateFilepath(modality, series)
     team1_name = request.args.get('team1', type=str)
     team2_name = request.args.get('team2', type=str)
 
-    confrontation = my_service.get_confrontation()
+    confrontation = my_service.get_confrontation(filepath)
     if team1_name and team2_name:
       return confrontation[team1_name][team2_name]
 

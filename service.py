@@ -79,8 +79,9 @@ class MyService:
     def get_simulator_df_games(self):
         return self.load_csv('simulator/games')
 
-    def get_confrontation(self):
-        return self._confrontation
+    def get_confrontation(cls, filepath):
+        df_games = cls.get_df_games_by_filepath(filepath)
+        return cls.generate_direct_confrontations(df_games)
 
     def list_game_by_team(cls, team_surname, filepath):
         df_games = cls.get_df_games_by_filepath(filepath)
