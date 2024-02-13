@@ -4,6 +4,7 @@ from exception import *
 import glob
 import os
 import re
+from repository import FirebaseRepository
 
 class MyService:
     _instance = None
@@ -15,6 +16,19 @@ class MyService:
     
     def __init__(self):
         print("################# Iniciando Service #################")
+        self.repository = FirebaseRepository()
+
+    def get_confrontation(self, modality, series):
+        return self.repository.get_confrontation(modality, series)
+
+    def get_ranking(self, modality, series):
+        return self.repository.get_ranking(modality, series)
+
+    def get_games(self, modality, series):
+        return self.repository.get_games(modality, series)
+    
+    def get_games_by_team(self, modality, series, team=None):
+        return self.repository.get_games_by_team(modality, series, team)
 
     @staticmethod
     def load_csv(filename):
@@ -42,7 +56,6 @@ class MyService:
             for filename in os.listdir(filepath):
             # Verifica se é um arquivo (não é um diretório)
                 if os.path.isfile(os.path.join(filepath, filename)):
-                    print(filename)
                     group = re.match(regex_expression, filename).group(1)
                     print("Listando grupo " + group)
                     ranking_entry = {
@@ -114,9 +127,9 @@ class MyService:
     def get_simulator_df_games(self):
         return self.load_csv('simulator/games')
 
-    def get_confrontation(cls, filepath):
-        df_games = cls.get_df_games_by_filepath(filepath)
-        return cls.generate_direct_confrontations(df_games)
+    # def get_confrontation(cls, filepath):
+    #     df_games = cls.get_df_games_by_filepath(filepath)
+    #     return cls.generate_direct_confrontations(df_games)
 
     def list_game_by_team(cls, team_surname, filepath):
         df_games = cls.get_df_games_by_filepath(filepath)
@@ -145,7 +158,7 @@ class MyService:
         df.to_csv(path + '/' + filename + '.csv', index=False)
 
     def tiebreaker_update_ranking(df_group):
-        return df_group.sort_values(by=['Pontos', 'Saldo', 'Gols Pró'], ascending=[False, False, False])
+        return df_group.sort_values(by=['Pontos', 'Saldo', 'Gols_Pro'], ascending=[False, False, False])
 
     def direct_confrontation_update_ranking(df_group, teams_same_points, result_confront):
         team_ahead = result_confront
@@ -154,8 +167,8 @@ class MyService:
         team_behind = teams_same_points[0]
 
         # Encontrar a posição da atlética no DataFrame
-        position_ahead = df_group.index[df_group['Atléticas'] == team_ahead].tolist()[0]
-        position_behind = df_group.index[df_group['Atléticas'] == team_behind].tolist()[0]
+        position_ahead = df_group.index[df_group['Time'] == team_ahead].tolist()[0]
+        position_behind = df_group.index[df_group['Time'] == team_behind].tolist()[0]
         # Trocar os valores entre as linhas diretamente
         df_group.loc[position_ahead], df_group.loc[position_behind] = df_group.loc[position_behind].copy(), df_group.loc[position_ahead].copy()
 
@@ -164,15 +177,15 @@ class MyService:
     def update_ranking(group, df_group, df_confrontos_diretos):
         row_equals_points = df_group[df_group.duplicated(subset='Pontos', keep=False)]
 
-        # Obter apenas os nomes das atléticas
-        teams_same_points = row_equals_points['Atléticas'].tolist()
+        # Obter apenas os nomes dos Times
+        teams_same_points = row_equals_points['Time'].tolist()
         
         if len(teams_same_points) == 2:
             team_one = teams_same_points[0]
             team_two = teams_same_points[1]
             result_confront = df_confrontos_diretos.loc[team_one, team_two]
 
-            if result_confront != 'E':
+            if result_confront != 'E' and result_confront != '':
                 return MyService.direct_confrontation_update_ranking(df_group, teams_same_points, result_confront)
         
         return MyService.tiebreaker_update_ranking(df_group)
@@ -205,8 +218,8 @@ class MyService:
         df_confrontos_diretos.index.name = 'Equipes'
         return df_confrontos_diretos
 
-    def update_direct_confrontation(cls, winner_team, loser_team, draw=False):
-        confrontos_diretos = cls.confrontation  # Obtenha o dicionário atual
+    def update_direct_confrontation(cls, filepath, winner_team, loser_team, draw=False):
+        confrontos_diretos = cls.get_confrontation(filepath)  # Obtenha o dicionário atual
         if draw:
             resultado = 'E'
         else:
@@ -216,7 +229,7 @@ class MyService:
         confrontos_diretos.setdefault(winner_team, {}).setdefault(loser_team, resultado)
         confrontos_diretos.setdefault(loser_team, {}).setdefault(winner_team, resultado)
         # Atualizar a propriedade confrontation com o novo dicionário
-        cls.confrontation = confrontos_diretos
+        # cls.confrontation = confrontos_diretos
 
     def simulate_game(cls, data_json, filepath):
         home_team = data_json['home_team']
@@ -242,24 +255,22 @@ class MyService:
             # Definir df por grupo
             df_group = my_service.get_df_ranking_group(group, filepath)
 
-            condition_home = df_group['Atléticas'] == home_team
-            condition_away = df_group['Atléticas'] == away_team
+            condition_home = df_group['Time'] == home_team
+            condition_away = df_group['Time'] == away_team
 
         # Atualizar o número de jogos
             df_group.loc[condition_home, 'Jogos'] += 1
             df_group.loc[condition_away, 'Jogos'] += 1
 
         # Atualizar os gols
-            df_group.loc[condition_home, 'Gols Pró'] += home_goal
-            df_group.loc[condition_home, 'Gols Contra'] += away_goal
+            df_group.loc[condition_home, 'Gols_Pro'] += home_goal
+            df_group.loc[condition_home, 'Gols_Contra'] += away_goal
 
-            df_group.loc[condition_away, 'Gols Pró'] += away_goal
-            df_group.loc[condition_away, 'Gols Contra'] += home_goal
+            df_group.loc[condition_away, 'Gols_Pro'] += away_goal
+            df_group.loc[condition_away, 'Gols_Contra'] += home_goal
 
             df_group.loc[condition_home, 'Saldo'] += home_goal - away_goal
             df_group.loc[condition_away, 'Saldo'] += away_goal - home_goal
-
-            print('cheguei aqui')
 
         # Atualizar os pontos
             if home_goal == away_goal:
@@ -267,22 +278,22 @@ class MyService:
                 df_group.loc[condition_away, 'Pontos'] += 1
                 df_group.loc[condition_home, 'E'] += 1
                 df_group.loc[condition_away, 'E'] += 1
-                my_service.update_direct_confrontation(away_team, home_team, True)
+                my_service.update_direct_confrontation(filepath, away_team, home_team, True)
             elif home_goal > away_goal:
                 df_group.loc[condition_home, 'Pontos'] += 3
                 df_group.loc[condition_home, 'V'] += 1
                 df_group.loc[condition_away, 'D'] += 1
-                my_service.update_direct_confrontation(home_team, away_team)
+                my_service.update_direct_confrontation(filepath, home_team, away_team)
             else:
                 df_group.loc[condition_away, 'Pontos'] += 3
                 df_group.loc[condition_away, 'V'] += 1
                 df_group.loc[condition_home, 'D'] += 1
-                my_service.update_direct_confrontation(away_team, home_team)
+                my_service.update_direct_confrontation(filepath, away_team, home_team)
             
             my_service.concat_df_games(game, filepath)
             
-            df_new_group = MyService.update_ranking(group, df_group, my_service.confrontos_to_df(my_service.get_confrontation()))
+            df_new_group = MyService.update_ranking(group, df_group, my_service.confrontos_to_df(my_service.get_confrontation(filepath)))
             my_service.create_csv(df_new_group, 'files/simulator', 'ranking_' + group)
             return(game)
 
-my_service = MyService()
+# my_service = MyService()

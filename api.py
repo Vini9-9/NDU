@@ -149,13 +149,8 @@ def get_games(modality, series):
 
       team_query = request.args.get('team')
       
-      filepath = MyApp.generateFilepath(modality, series)
-
-      if team_query:
-        df_games = myAppService.list_game_by_team(team_query, filepath)
-      else:
-        df_games = myAppService.get_df_games_by_filepath(filepath)
-      return jsonify(df_games.to_dict(orient='records'))
+      df_games = myAppService.get_games_by_team(modality, series, team_query)
+      return df_games
 
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
