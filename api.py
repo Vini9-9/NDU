@@ -171,15 +171,14 @@ def get_all_rankings(modality, series):
     try:
       simulator = request.args.get('simulator', type=bool)
       group_query = request.args.get('group')
-      filepath =  MyApp.generateFilepath(modality, series)
 
       if group_query:
-        df_group = myAppService.get_df_ranking_group(group_query, filepath)
-        return jsonify(df_group.to_dict(orient='records'))
+        df_group = myAppService.get_df_ranking_group(group_query, modality, series)
+        return df_group
 
-      all_rankings = myAppService.generate_all_rankings(filepath)
+      all_rankings = myAppService.generate_all_rankings(modality, series)
 
-      return jsonify(all_rankings)
+      return all_rankings
       
     except Exception as e:
       return jsonify({'error': e.message}), e.errorCode

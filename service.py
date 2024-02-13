@@ -44,34 +44,9 @@ class MyService:
         except FileNotFoundError:
             raise FileNotFoundErrorException()
     
-    def generate_all_rankings(cls, filepath_modality, simulator=False):
-        all_rankings = []
-        filepath = './files/' + filepath_modality + '/group/'
-
-        # Expressão regular para extrair a letra após "ranking_"
-        regex_expression = r"ranking_([A-Z]+)\.csv"
-
+    def generate_all_rankings(self, modality, series, simulator=False):
         try:
-            # Obtém os rankings de todos os grupos
-            for filename in os.listdir(filepath):
-            # Verifica se é um arquivo (não é um diretório)
-                if os.path.isfile(os.path.join(filepath, filename)):
-                    group = re.match(regex_expression, filename).group(1)
-                    print("Listando grupo " + group)
-                    ranking_entry = {
-                            'group': group,
-                            'ranking': []
-                        }
-
-                    if simulator:
-                        df_group = cls.get_simulator_df_ranking_group(group)
-                    else:
-                        df_group = cls.get_df_ranking_group(group, filepath_modality)
-                
-                ranking_entry['ranking'] = df_group.to_dict(orient='records')
-                all_rankings.append(ranking_entry)
-            
-            return all_rankings
+            return self.get_ranking(modality, series)
         
         except FileNotFoundError:
             raise FileNotFoundErrorException()
@@ -209,8 +184,8 @@ class MyService:
         df = cls.load_csv('simulator/ranking')
         return df
 
-    def get_df_ranking_group(cls, group, filepath_modality='FM/A'):
-        return cls.load_csv(filepath_modality + '/group/ranking_' + group.upper())
+    def get_df_ranking_group(self, group, modality, series):
+        return self.repository.get_ranking_by_group(modality, series, group)
 
     def confrontos_to_df(cls, confrontos_diretos):
         # Criar um DataFrame a partir dos resultados dos confrontos diretos

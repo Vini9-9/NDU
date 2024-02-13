@@ -30,3 +30,10 @@ class FirebaseRepository:
         if team:
             return [game for game in games if game.get('Mandante') == team or game.get('Visitante') == team]
         return games
+    
+    def get_ranking_by_group(self, modality, series, group):
+        group_index = ord(group) - ord('A')
+        # Referência para o nó 'ranking' no banco de dados Firebase
+        ranking_group = db.reference(f'modalidades/{modality}/{series}/ranking/{group_index}/ranking').get()
+        
+        return ranking_group
