@@ -185,13 +185,13 @@ def get_all_rankings(modality, series):
     try:
       simulator = request.args.get('simulator', type=bool)
       group_query = request.args.get('group')
-      filepath_group =  MyApp.generateFilepath(modality, series) + '/group/'
+      filepath =  MyApp.generateFilepath(modality, series)
 
       if group_query:
-        df_group = myAppService.get_df_ranking_group(group_query, filepath_group)
+        df_group = myAppService.get_df_ranking_group(group_query, filepath)
         return jsonify(df_group.to_dict(orient='records'))
 
-      all_rankings = myAppService.generate_all_rankings(filepath_group)
+      all_rankings = myAppService.generate_all_rankings(filepath)
 
       return jsonify(all_rankings)
       
@@ -240,13 +240,13 @@ def post_simulate_game(modality, series):
       400:
         description: Parâmetros inválidos.
     """
-    filepath_group =  MyApp.generateFilepath(modality, series)
+    filepath =  MyApp.generateFilepath(modality, series)
     try:
         # Obter parâmetros da solicitação
         data_json = request.get_json()
 
         # Chamar a função simular_jogo
-        game = myAppService.simulate_game(data_json, filepath_group)
+        game = myAppService.simulate_game(data_json, filepath)
 
         return jsonify(
           {'message': 'Simulação do jogo realizada com sucesso.'},

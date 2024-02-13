@@ -30,9 +30,9 @@ class MyService:
         except FileNotFoundError:
             raise FileNotFoundErrorException()
     
-    def generate_all_rankings(cls, filepath_group, simulator=False):
+    def generate_all_rankings(cls, filepath_modality, simulator=False):
         all_rankings = []
-        filepath = './files/' + filepath_group
+        filepath = './files/' + filepath_modality + '/group/'
 
         # Expressão regular para extrair a letra após "ranking_"
         regex_expression = r"ranking_([A-Z]+)\.csv"
@@ -42,6 +42,7 @@ class MyService:
             for filename in os.listdir(filepath):
             # Verifica se é um arquivo (não é um diretório)
                 if os.path.isfile(os.path.join(filepath, filename)):
+                    print(filename)
                     group = re.match(regex_expression, filename).group(1)
                     print("Listando grupo " + group)
                     ranking_entry = {
@@ -52,7 +53,7 @@ class MyService:
                     if simulator:
                         df_group = cls.get_simulator_df_ranking_group(group)
                     else:
-                        df_group = cls.get_df_ranking_group(group, filepath_group)
+                        df_group = cls.get_df_ranking_group(group, filepath_modality)
                 
                 ranking_entry['ranking'] = df_group.to_dict(orient='records')
                 all_rankings.append(ranking_entry)
@@ -195,8 +196,8 @@ class MyService:
         df = cls.load_csv('simulator/ranking')
         return df
 
-    def get_df_ranking_group(cls, group, filepath='FM/A/group/'):
-        return cls.load_csv(filepath + 'ranking_' + group.upper())
+    def get_df_ranking_group(cls, group, filepath_modality='FM/A'):
+        return cls.load_csv(filepath_modality + '/group/ranking_' + group.upper())
 
     def confrontos_to_df(cls, confrontos_diretos):
         # Criar um DataFrame a partir dos resultados dos confrontos diretos
@@ -257,6 +258,8 @@ class MyService:
 
             df_group.loc[condition_home, 'Saldo'] += home_goal - away_goal
             df_group.loc[condition_away, 'Saldo'] += away_goal - home_goal
+
+            print('cheguei aqui')
 
         # Atualizar os pontos
             if home_goal == away_goal:
