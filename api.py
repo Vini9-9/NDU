@@ -53,11 +53,10 @@ def get_confrontation(modality, series):
     """
     try:
 
-      filepath = MyApp.generateFilepath(modality, series)
       team1_name = request.args.get('team1', type=str)
       team2_name = request.args.get('team2', type=str)
 
-      confrontation = myAppService.get_confrontation(filepath)
+      confrontation = myAppService.get_confrontation(modality, series)
       if team1_name and team2_name:
         return confrontation[team1_name][team2_name]
 
