@@ -9,3 +9,6 @@ class FileNotFoundErrorException(Exception):
         self.message = message
         self.errorCode = 404
         super().__init__(self.message)
+
+class MissingParameterError(Exception):
+    pass

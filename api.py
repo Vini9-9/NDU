@@ -17,8 +17,6 @@ class MyApp:
         self.service = MyService()
         print("!!!!!!!!!!!!!!!!!!!!! Iniciando MyApp !!!!!!!!!!!!!!!!!!!!!")
 
-  def generateFilepath(modality, series):
-        return modality + '/' + series
 
 # Cria uma instância da classe MyApp
 my_app = MyApp()
@@ -100,15 +98,26 @@ def get_clashes(modality, series):
     """
     try:
 
-      filepath = MyApp.generateFilepath(modality, series)
+      if 'team1' not in request.args or 'team2' not in request.args:
+        raise MissingParameterError("Os parâmetros 'team1' e 'team2' são obrigatórios.")
+       
       team1_name = request.args.get('team1', type=str)
       team2_name = request.args.get('team2', type=str)
 
-      df_clashes = myAppService.list_clashes(team1_name, team2_name, filepath)
+      df_clashes = myAppService.list_clashes(team1_name, team2_name, modality, series)
       return jsonify(df_clashes.to_dict(orient='records'))
+    
+    except MissingParameterError as e:
+        return jsonify({'error': str(e)}), 400
 
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
+    
+@app.errorhandler(MissingParameterError)
+def handle_missing_parameter_error(error):
+    response = jsonify({'error': str(error)})
+    response.status_code = 400
+    return response
 
 @app.route('/api/games/<modality>/<series>', methods=['GET'])
 def get_games(modality, series):
