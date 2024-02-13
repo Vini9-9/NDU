@@ -110,23 +110,6 @@ def get_clashes(modality, series):
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
 
-@app.route('/api/games/group/<group>', methods=['GET'])
-def get_games_by_group(group):
-    """
-    Obtém informações sobre os jogos por grupo.
-    ---
-    responses:
-      200:
-        description: Lista de jogos.
-    """
-    try:
-      df_games_group = myAppService.get_df_games_group(group)
-
-      return jsonify(df_games_group.to_dict(orient='records'))
-
-    except Exception as e:
-        return jsonify({'error': e.message}), e.errorCode
-
 @app.route('/api/games/<modality>/<series>', methods=['GET'])
 def get_games(modality, series):
     """
