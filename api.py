@@ -145,6 +145,49 @@ def get_games(modality, series):
 
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
+    
+@app.route('/api/modalities', methods=['GET'])
+def get_modalities():
+    """
+    Obtém informações sobre os jogos por time.
+    ---
+    parameters:
+    - name: modality
+      in: path
+      type: string
+      description: A modalidade dos jogos.
+    - name: series
+      in: path
+      type: string
+      description: A série dos jogos.
+    responses:
+      200:
+        description: Lista de jogos.
+    """
+    try:
+      return ([
+  {
+    "label": "Futsal Masculino - Série A",
+    "modality": "Futsal Masculino",
+    "series": "A",
+    "value": "FM/A"
+  },
+  {
+    "label": "Futsal Masculino - Série D",
+    "modality": "Futsal Masculino",
+    "series": "D",
+    "value": "FM/D"
+  },
+  {
+    "label": "Futsal Feminino - Série C",
+    "modality": "Futsal Feminino",
+    "series": "C",
+    "value": "FF/C"
+  },
+])
+
+    except Exception as e:
+        return jsonify({'error': e.message}), e.errorCode
 
 @app.route('/api/ranking/<modality>/<series>', methods=['GET'])
 def get_all_rankings(modality, series):
@@ -225,13 +268,12 @@ def post_simulate_game(modality, series):
       400:
         description: Parâmetros inválidos.
     """
-    filepath =  MyApp.generateFilepath(modality, series)
     try:
         # Obter parâmetros da solicitação
         data_json = request.get_json()
 
         # Chamar a função simular_jogo
-        game = myAppService.simulate_game(data_json, filepath)
+        game = myAppService.simulate_game(data_json, modality, series)
 
         return jsonify(
           {'message': 'Simulação do jogo realizada com sucesso.'},
