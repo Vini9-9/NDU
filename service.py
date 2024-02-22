@@ -43,6 +43,29 @@ class MyService:
             return pd.read_csv('files/' + filename + '.csv')
         except FileNotFoundError:
             raise FileNotFoundErrorException()
+        
+    def generate_modality_series_data(self, modalidade, sexo, numero_series):
+        series = ['A', 'B', 'C', 'D', 'E', 'F']
+
+        modalidade_label = modalidade + ' ' + sexo
+        
+        dados = []
+        for serie in series[:numero_series]:
+            modalidade_value = modalidade[0] + sexo[0] + '/' + serie
+            dados.append({
+                "label": modalidade_label + " - Série " + serie,
+                "modality": modalidade_label,
+                "series": serie,
+                "value": modalidade_value
+            })
+        
+        return dados
+
+    def generate_all_modalities(self):
+        fm = self.generate_modality_series_data('Futsal', 'Masculino', 6)
+        ff = self.generate_modality_series_data('Futsal', 'Feminino', 5)
+        all_modalities = fm + ff
+        return all_modalities
     
     def generate_all_rankings(self, modality, series, simulator=False):
         try:

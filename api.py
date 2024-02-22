@@ -165,27 +165,8 @@ def get_modalities():
         description: Lista de jogos.
     """
     try:
-      return ([
-  {
-    "label": "Futsal Masculino - Série A",
-    "modality": "Futsal Masculino",
-    "series": "A",
-    "value": "FM/A"
-  },
-  {
-    "label": "Futsal Masculino - Série D",
-    "modality": "Futsal Masculino",
-    "series": "D",
-    "value": "FM/D"
-  },
-  {
-    "label": "Futsal Feminino - Série C",
-    "modality": "Futsal Feminino",
-    "series": "C",
-    "value": "FF/C"
-  },
-])
-
+      modalities = myAppService.generate_all_modalities()
+      return modalities
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
 
