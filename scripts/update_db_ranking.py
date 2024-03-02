@@ -6,10 +6,14 @@ import os
 
 load_dotenv()
 
-def set_json_data(json_file_path, ref):
+def get_json_data(json_file_path, group):
     with open(json_file_path, 'r') as file:
-        data = json.load(file)
-        ref.set(data)
+        data = {
+            "group": group,
+            "ranking": json.load(file)
+        }
+        return data
+        
 
 def load_json_data(filepath_json):
     # Carregar o conteúdo do outro arquivo
@@ -29,8 +33,10 @@ values_json = [item['value'] for item in data_son]
 groups = ['A', 'B']
 
 for modality in values_json:
+    data = []
     for group in groups:
-        ranking_ref = ref.child('modalidades/' + modality + '/ranking/' + group)
+        ranking_ref = ref.child('modalidades/' + modality + '/ranking/')
         ranking_json_file_path = '../files/' + modality + '/group/ranking_' + group + '.json'
-        set_json_data(ranking_json_file_path, ranking_ref)
+        data.append(get_json_data(ranking_json_file_path, group))
+    ranking_ref.set(data)
     print('Ranking da modalidade ' + modality + ' atualizados com sucesso no Firebase Realtime Database.')
