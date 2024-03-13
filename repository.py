@@ -31,6 +31,15 @@ class FirebaseRepository:
             return [game for game in games if game.get('Mandante') == team or game.get('Visitante') == team]
         return games
     
+    def get_simulator_games(self, modality, series):
+        simulator_games = []
+        games = db.reference(f'modalidades/{modality}/{series}/games').get()
+        if games:
+            for game in games:
+                if game.get('SIMULADOR') == 'True':
+                    simulator_games.append(game)
+        return simulator_games
+    
     def get_ranking_by_group(self, modality, series, group):
         ranking_group = db.reference(f'modalidades/{modality}/{series}/ranking/{group}').get()
         return ranking_group

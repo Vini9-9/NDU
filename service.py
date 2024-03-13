@@ -29,6 +29,9 @@ class MyService:
     
     def get_games_by_team(self, modality, series, team=None):
         return self.repository.get_games_by_team(modality, series, team)
+    
+    def get_simulator_games(self, modality, series):
+        return self.repository.get_simulator_games(modality, series)
 
     @staticmethod
     def load_csv(filename):

@@ -3,6 +3,13 @@ from firebase_admin import credentials, db
 import json
 from dotenv import load_dotenv
 import os
+import datetime
+import logging
+
+data_hora_atual = datetime.datetime.now()
+
+# Configuração básica de logging
+logging.basicConfig(filename='../logs/log_db_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 load_dotenv()
 
@@ -37,4 +44,4 @@ for modality in values_json:
     set_json_data(games_json_file_path, games_ref)
     set_json_data(confrontation_json_file_path, confrontation_ref)
 
-    print('Games e Confrontation da modalidade ' + modality + ' atualizados com sucesso no Firebase Realtime Database.')
+    logging.info('Games e Confrontation da modalidade ' + modality + ' atualizados com sucesso no Firebase Realtime Database.')

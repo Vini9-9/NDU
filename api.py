@@ -5,8 +5,6 @@ from service import MyService
 from exception import *
 import pandas as pd
 
-
-
 app     = Flask(__name__)
 CORS(app)
 swagger = Swagger(app)
@@ -16,7 +14,6 @@ class MyApp:
   def __init__(self):
         self.service = MyService()
         print("!!!!!!!!!!!!!!!!!!!!! Iniciando MyApp !!!!!!!!!!!!!!!!!!!!!")
-
 
 # Cria uma instância da classe MyApp
 my_app = MyApp()
@@ -139,8 +136,12 @@ def get_games(modality, series):
     try:
 
       team_query = request.args.get('team')
+      simulator_query = request.args.get('simulator')
       
-      df_games = myAppService.get_games_by_team(modality, series, team_query)
+      if simulator_query :
+        df_games = myAppService.get_simulator_games(modality, series) 
+      else:
+        df_games = myAppService.get_games_by_team(modality, series, team_query)
       return df_games
 
     except Exception as e:
@@ -207,62 +208,5 @@ def get_all_rankings(modality, series):
     except Exception as e:
       return jsonify({'error': e.message}), e.errorCode
       
-@app.route('/api/simulate/<modality>/<series>/games', methods=['POST'])
-def post_simulate_game(modality, series):
-    """
-    Simula o resultado de um jogo.
-    ---
-    parameters:
-      - name: group
-        in: formData
-        type: string
-        description: Grupo do jogo.
-        required: true
-      - name: home_team
-        in: formData
-        type: string
-        description: Equipe mandante.
-        required: true
-      - name: home_goal
-        in: formData
-        type: int
-        description: Gols da equipe mandante.
-        required: true
-      - name: away_team
-        in: formData
-        type: string
-        description: Equipe visitante.
-        required: true
-      - name: away_goal
-        in: formData
-        type: int
-        description: Gols da equipe visitante.
-        required: true
-      - name: confrontos_diretos
-        in: formData
-        type: string
-        description: Informações sobre confrontos diretos.
-        required: true
-    responses:
-      200:
-        description: Simulação do jogo realizada com sucesso.
-      400:
-        description: Parâmetros inválidos.
-    """
-    try:
-        # Obter parâmetros da solicitação
-        data_json = request.get_json()
-
-        # Chamar a função simular_jogo
-        game = myAppService.simulate_game(data_json, modality, series)
-
-        return jsonify(
-          {'message': 'Simulação do jogo realizada com sucesso.'},
-          {'game': game}
-        )
-    except Exception as e:
-        return jsonify({'error': e.message}), e.errorCode
-
-
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

@@ -6,15 +6,13 @@ import uuid
 import csv
 import json
 
+import datetime
 import logging
 
-# Configuração básica de logging
-logging.basicConfig(filename='meu_arquivo_de_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+data_hora_atual = datetime.datetime.now()
 
-# Exemplo de uso do logging
-# logging.info('Isso é uma mensagem de informação.')
-# logging.warning('Isso é uma mensagem de aviso.')
-# logging.error('Isso é uma mensagem de erro.')
+# Configuração básica de logging
+logging.basicConfig(filename='logs/log_ndu_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def generate_game_id():
@@ -55,6 +53,10 @@ def csv_to_json(csv_file, json_file):
 
     # Escrevendo os dados em um arquivo JSON
     create_json(data, json_file)
+
+def save_json_data(data, file_path):
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
 
 # %%
 def create_games_files(df_games, filepath):
@@ -131,7 +133,28 @@ def format_table_group(tb_groupA, tb_groupB):
 # # Formatando tabela de jogos
 
 # %%
-def generate_table_games(tb_games):
+def check_simulador(row):
+    if row['PLACAR'] == 'X':
+        return True
+    else:
+        return False   
+    
+def verify_empty_games(tables):
+    for df in tables:
+        # Verificar se 'EQUIPE Mandante' é NaN
+        empty_rows = df[df['EQUIPE Mandante'].isna()]
+
+        # Remover as linhas onde 'EQUIPE Mandante' ou 'EQUIPE Visitante' é NaN
+        if not empty_rows.empty:
+            df.dropna(subset=['EQUIPE Mandante'], inplace=True)
+            # df.dropna(subset=['EQUIPE Visitante'], inplace=True)
+    
+    concatenated_df = pd.concat(tables, ignore_index=True)
+    return concatenated_df
+
+def generate_table_games(tables):
+    tb_games = verify_empty_games(tables)
+    print(tb_games)
     df_games = pd.DataFrame(tb_games)
     if df_games['DIA'].isna().all():
         df_games['DIA'] = ''
@@ -143,11 +166,11 @@ def generate_table_games(tb_games):
     # Limpar os espaços extras e corrigir a formatação dos placares
     df_games['PLACAR'] = df_games['PLACAR'].str.replace(' ', '', regex=True)
     df_games[['GOLS_MANDANTE', 'GOLS_VISITANTE']] = df_games['PLACAR'].str.split('X', expand=True)
-    df_games['SIMULADOR'] = False
+    df_games['ID'] = [generate_game_id() for _ in range(len(df_games))]
     df_games.rename(columns={'HORÁRIO': 'HORARIO'}, inplace=True)
     df_games.rename(columns={'EQUIPE Mandante': 'Mandante'}, inplace=True)
     df_games.rename(columns={'EQUIPE Visitante': 'Visitante'}, inplace=True)
-    
+    df_games['SIMULADOR'] = df_games.apply(check_simulador, axis=1)
     return df_games
 
 # %% [markdown]
@@ -272,122 +295,6 @@ def remover_df_games(matches_to_remove, simulador=True):
     # Remover os jogos do DataFrame original
     df_games.drop(indices_to_remove, inplace=True)
 
-# Simular o resultado do jogo (exemplo simples)
-# def simular_jogo(group, home_team, home_goal, away_team, away_goal, confrontos_diretos):
-    
-#     if listar_confrontos(home_team, away_team).empty == False:
-#         print("Não posso substituir um jogo que já existe")
-#     else:
-#         game = {
-#             'GRUPO': group,
-#             'EQUIPE Mandante': home_team,
-#             'GOLS_MANDANTE': home_goal,
-#             'EQUIPE Visitante': away_team,
-#             'GOLS_VISITANTE': away_goal,
-#             'PLACAR': str(home_goal) + 'x' + str(away_goal),
-#             'SIMULADOR': 1
-#         }
-
-#         # Definir df por grupo
-#         if group == 'A':
-#           df_group = df_groupA
-#         elif group == 'B':
-#           df_group = df_groupB
-
-#         condition_home = df_group['Atléticas'] == home_team
-#         condition_away = df_group['Atléticas'] == away_team
-
-#     # Atualizar o número de jogos
-#         df_group.loc[condition_home, 'Jogos'] += 1
-#         df_group.loc[condition_away, 'Jogos'] += 1
-
-#     # Atualizar os gols
-#         df_group.loc[condition_home, 'Gols Pró'] += home_goal
-#         df_group.loc[condition_home, 'Gols Contra'] += away_goal
-
-#         df_group.loc[condition_away, 'Gols Pró'] += away_goal
-#         df_group.loc[condition_away, 'Gols Contra'] += home_goal
-
-#         df_group.loc[condition_home, 'Saldo'] += home_goal - away_goal
-#         df_group.loc[condition_away, 'Saldo'] += away_goal - home_goal
-
-#     # Atualizar os pontos
-#         if home_goal == away_goal:
-#             df_group.loc[condition_home, 'Pontos'] += 1
-#             df_group.loc[condition_away, 'Pontos'] += 1
-#             df_group.loc[condition_home, 'E'] += 1
-#             df_group.loc[condition_away, 'E'] += 1
-#             update_confronto_direto(away_team, home_team, True, confrontos_diretos)
-#         elif home_goal > away_goal:
-#             df_group.loc[condition_home, 'Pontos'] += 3
-#             df_group.loc[condition_home, 'V'] += 1
-#             df_group.loc[condition_away, 'D'] += 1
-#             update_confronto_direto(home_team, away_team, False, confrontos_diretos)
-#         else:
-#             df_group.loc[condition_away, 'Pontos'] += 3
-#             df_group.loc[condition_away, 'V'] += 1
-#             df_group.loc[condition_home, 'D'] += 1
-#             update_confronto_direto(away_team, home_team, False, confrontos_diretos)
-
-#         atualizar_df_games(game)
-#         atualizar_classificacao(group, confrontos_to_df(confrontos_diretos))
-
-# %%
-# def remover_jogo(home_team, away_team, confrontos_diretos):
-
-#     df_confronto = listar_confrontos(home_team, away_team)
-# #   Se for jogo simulado  
-#     if df_confronto['SIMULADOR'].tolist()[0]:
-#         group = df_confronto['GRUPO'].values[0]
-
-#         # Definir df por grupo
-#         if group == 'A':
-#             df_group = df_groupA
-#         elif group == 'B':
-#             df_group = df_groupB
-
-#         home_team = df_confronto['EQUIPE Mandante'].tolist()[0]
-#         away_team = df_confronto['EQUIPE Visitante'].tolist()[0]
-#         home_goal = int(df_confronto['GOLS_MANDANTE'].tolist()[0])
-#         away_goal = int(df_confronto['GOLS_VISITANTE'].tolist()[0])
-
-#         condition_home = df_group['Atléticas'] == home_team
-#         condition_away = df_group['Atléticas'] == away_team
-
-#     # Atualizar o número de jogos
-#         df_group.loc[condition_home, 'Jogos'] -= 1
-#         df_group.loc[condition_away, 'Jogos'] -= 1
-
-#     # Atualizar os gols
-#         df_group.loc[condition_home, 'Gols Pró'] -= home_goal
-#         df_group.loc[condition_home, 'Gols Contra'] -= away_goal
-
-#         df_group.loc[condition_away, 'Gols Pró'] -= away_goal
-#         df_group.loc[condition_away, 'Gols Contra'] -= home_goal
-
-#         df_group.loc[condition_home, 'Saldo'] += home_goal - away_goal
-#         df_group.loc[condition_away, 'Saldo'] += away_goal - home_goal
-
-#     # Atualizar os pontos
-#         if home_goal == away_goal:
-#             df_group.loc[condition_home, 'Pontos'] -= 1
-#             df_group.loc[condition_away, 'Pontos'] -= 1
-#             df_group.loc[condition_home, 'E'] -= 1
-#             df_group.loc[condition_away, 'E'] -= 1
-#         elif home_goal > away_goal:
-#             df_group.loc[condition_home, 'Pontos'] -= 3
-#             df_group.loc[condition_home, 'V'] += 1
-#             df_group.loc[condition_away, 'D'] += 1
-#         else:
-#             df_group.loc[condition_away, 'Pontos'] -= 3
-#             df_group.loc[condition_away, 'V'] += 1
-#             df_group.loc[condition_home, 'D'] += 1
-
-#         remover_df_games(df_confronto)
-#         remover_confronto_direto(home_team, away_team, confrontos_diretos)
-#         atualizar_classificacao(group, confrontos_to_df(confrontos_diretos))
-#     else:
-#         print('Nenhum jogo simulado foi encontrado')
 # %% [markdown]
 # ### Dicionário de correção
 def verificar_listagem(set_output, set_default):
@@ -425,6 +332,7 @@ def corrigir_times(tb_group, df_games):
         'ArquiteturaMackenzie': 'Arquitetura Mackenzie',
         'Belas A rtes': 'Belas Artes',
         'CAAP U FABC': 'CAAP UFABC',
+        'CásperLíbero': 'Cásper Líbero',
         'Comunica ção PUC': 'Comunicação PUC',
         'Comunicaçã o Anhembi': 'Comunicação Anhembi',
         'Comunicaçã o Mackenzie': 'Comunicação Mackenzie',
@@ -435,22 +343,26 @@ def corrigir_times(tb_group, df_games):
         'Direito S ã o Judas': 'Direito São Judas',
         'Direito S ão Judas': 'Direito São Judas',
         'Direito SãoBernardo': 'Direito São Bernardo',
+        'Direito U NICID': 'Direito UNICID',
+        'DireitoFMU': 'Direito FMU',
         'EACHUSP': 'EACH USP',
-        'EEFEUSP': 'EEFE USP',
+        'ECA U SP': 'ECA USP',
         'Economia M ackenzie': 'Economia Mackenzie',
         'Economia M ackenzie': 'Economia Mackenzie',
         'Educação Fís i ca Anhembi': 'Educação Física Anhembi',
         'Educação Fís i ca UNINOVE': 'Educação Física UNINOVE',
         'Educação Fís ica Anhembi': 'Educação Física Anhembi',
+        'Educação Físi ca UNINOVE': 'Educação Física UNINOVE',
+        'EEFEUSP': 'EEFE USP',
         'EngenhariaAnhembi': 'Engenharia Anhembi',
         'EngenhariaMackenzie': 'Engenharia Mackenzie',
         'EngenhariaSão Judas': 'Engenharia São Judas',
         'EngenhariaUNICAMP': 'Engenharia UNICAMP',
         'ESP M': 'ESPM',
+        'FAA P': 'FAAP',
         'Farmác ia USP': 'Farmácia USP',
         'Fatec Sã o Paulo': 'Fatec São Paulo',
         'FAUUSP': 'FAU USP',
-        'FAA P': 'FAAP',
         'FE I': 'FEI',
         'FEA P UC': 'FEA PUC',
         'FEA U SP': 'FEA USP',
@@ -459,20 +371,20 @@ def corrigir_times(tb_group, df_games):
         'FM U': 'FMU',
         'GetúlioVargas': 'Getúlio Vargas',
         'IBME C SP': 'IBMEC SP',
+        'IME U SP': 'IME USP',
         'INS P ER': 'INSPER',
         'INSP ER': 'INSPER',
         'IT A': 'ITA',
-        'IME U SP': 'IME USP',
-        'DireitoFMU': 'Direito FMU',
+        'LEP Ma c kenzie': 'LEP Mackenzie',
         'LEP Mac kenzie': 'LEP Mackenzie',
-        'LEP MAC KENZIE': 'LEP MACKENZIE',
+        'LEP MAC KENZIE': 'LEP Mackenzie',
         'Ma uá': 'Mauá',
-        'MedicinaPaulista': 'Medicina Paulista',
+        'Medici n a ABC': 'Medicina ABC',
         'Medici n a USP': 'Medicina USP',
         'Medicin a ABC': 'Medicina ABC',
-        'Medici n a ABC': 'Medicina ABC',
         'Medicin a ABC': 'Medicina ABC',
         'Medicin a Santos': 'Medicina Santos',
+        'Medicina B ela Vista': 'Medicina Bela Vista',
         'Medicina PU C Campinas': 'Medicina PUC Campinas',
         'Medicina S ã o Caetano': 'Medicina São Caetano',
         'Medicina S anta Casa': 'Medicina Santa Casa',
@@ -484,10 +396,13 @@ def corrigir_times(tb_group, df_games):
         'Medicina Ta ubaté (DT)': 'Medicina Taubaté',
         'Medicina U NICAMP': 'Medicina UNICAMP',
         'Medicina U NINOVE': 'Medicina UNINOVE',
+        'Medicina UN E SP Botucatu': 'Medicina UNESP Botucatu',
         'MedicinaAnhembi': 'Medicina Anhembi',
         'MedicinaBragança': 'Medicina Bragança',
         'MedicinaEinstein': 'Medicina Einstein',
         'MedicinaJundiaí': 'Medicina Jundiaí',
+        'MedicinaMANDIC': 'Medicina MANDIC',
+        'MedicinaPaulista': 'Medicina Paulista',
         'MedicinaTaubaté': 'Medicina Taubaté',
         'MedicinaUNICID': 'Medicina UNICID',
         'MedicinaUNIMES': 'Medicina UNIMES',
@@ -495,6 +410,7 @@ def corrigir_times(tb_group, df_games):
         'Politécn ica USP': 'Politécnica USP',
         'Psicologia  d a PUC SP': 'Psicologia da PUC SP',
         'Psicologia d a PUC SP': 'Psicologia da PUC SP',
+        'RI P UC': 'RI PUC',
         'SEN  AC': 'SENAC',
         'SEN AC': 'SENAC',
         'Sistema de Inf ormação USP': 'Sistema de Informação USP',
@@ -508,6 +424,7 @@ def corrigir_times(tb_group, df_games):
     }
     # Função de validação e correção
     def correct_team(equipe):
+        # print(equipe, type(equipe))
         equipe_strip = equipe.strip().replace('  ', ' ')
         if equipe_strip in teams:
             return equipe_strip
@@ -625,7 +542,6 @@ def update_ranking(tb_groups, df_confrontos_diretos):
     for ponto in pontos_iguais:
       times_pontos_iguais = df_group[df_group['Pontos'] == ponto]['Time'].tolist()
       if len(times_pontos_iguais) == 2:
-        logging.info('times_pontos_iguais:', times_pontos_iguais)
         team_ahead = df_confrontos_diretos.loc[times_pontos_iguais[0], times_pontos_iguais[1]]
         if team_ahead != 'E' and team_ahead != '':
           times_pontos_iguais.remove(team_ahead)
@@ -639,6 +555,8 @@ def update_ranking(tb_groups, df_confrontos_diretos):
           if position_ahead > position_behind:
               # Trocar os valores entre as linhas diretamente
               df_group.loc[position_ahead], df_group.loc[position_behind] = df_group.loc[position_behind].copy(), df_group.loc[position_ahead].copy()
+              logging.info(f"Classificação grupo {chr(idx + 64)} atualizada com confrontos diretos:")
+              logging.info(f'Por confronto direto: 1º {team_ahead} 2º {team_behind}')
               
     df_groups.append(df_group)
     idx = idx + 1
@@ -651,8 +569,46 @@ def format_tb_group(tb_group):
         tb_group.columns = tb_group.iloc[0]
         # Remover a primeira linha, que agora é o cabeçalho
         return tb_group[1:]
+    return tb_group
 # %% [markdown]
 # # Execução
+    
+def update_game(modality, game_id, home_goal, away_goal):
+    file_path = f'files/{modality}/games.json'
+    games_data = load_json_data(file_path)
+
+    # Encontrar o jogo com o ID fornecido
+    for game in games_data:
+        if game['ID'] == game_id:
+            # Atualizar o placar, gols do mandante e gols do visitante
+            group = game['GRUPO']
+            game['PLACAR'] = f"{home_goal}X{away_goal}"
+            game['GOLS_MANDANTE'] = str(home_goal)
+            game['GOLS_VISITANTE'] = str(away_goal)
+            home_team = game['Mandante'] 
+            away_team = game['Visitante']
+            winner_team = home_team
+            loser_team = away_team
+            draw = False
+            if int(home_goal) < int(away_goal):
+                winner_team = away_team
+                loser_team = home_team
+            elif home_goal == away_goal: 
+                draw = True
+            break
+    
+    file_path_group = f'files/{modality}/group'
+    save_json_data(games_data, file_path)
+    confrontos_diretos = load_json_data(f'files/{modality}/confrontation.json')
+    df_confrontos_diretos = confrontos_to_df(update_confronto_direto(winner_team, loser_team, draw, confrontos_diretos))
+    rankings = generate_ranking_by_games(modality)
+    df_groups = update_ranking([rankings[group]], df_confrontos_diretos)
+
+    df_group = df_groups[0]
+    df_group.to_csv(f'{file_path_group}/ranking_{group}.csv', index=False)
+
+    csv_to_json(f'{file_path_group}/ranking_{group}.csv', f'{file_path_group}/ranking_{group}.json')
+    
 
 def execute_zero_ranking(dic_modalities_page):
 
@@ -661,9 +617,8 @@ def execute_zero_ranking(dic_modalities_page):
         modality = key
         # tables = tabula.read_pdf("files/Boletim.pdf", pages=dic_modalities_page[modality])
         tables = tabula.read_pdf("files/Boletim.pdf", pages=value)
-        print(tables)
         tb_group = format_tb_group(tables[0])
-        tb_games = tables[1]
+        tb_games = [tables[1], tables[2]]
 
         filepath = 'files/' + modality
         filepath_group = filepath + '/group'
@@ -678,10 +633,10 @@ def execute_update_data_by_modality(modality, pages):
     logging.info(f"modalidade: {modality}")
     tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
     tb_group = format_tb_group(tables[0])
-    tb_games = tables[1]
+    tb_games = [tables[1], tables[2]]
+    print(tables[2])
 
-    filepath = 'files/' + modality
-    # filepath_group = filepath + '/group'
+    filepath = f'files/{modality}'
     df_games = generate_table_games(tb_games)
     df_games = corrigir_local(df_games)
     df_games = corrigir_times(tb_group, df_games)
@@ -697,7 +652,7 @@ def execute_update_data_by_modality(modality, pages):
     df_groupB.to_csv(f'files/{modality}/group/ranking_B.csv', index=False)
 
     csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
-    csv_to_json(f'files/{modality}/group//ranking_B.csv', f'files/{modality}/group/ranking_B.json')
+    csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')
 
 def execute_update_data(dic_modalities_page):
 
@@ -714,9 +669,10 @@ dic_modalities_page = {
         "FM/A" : "62-63",
         "FM/B" : "66-67",
         "FM/C" : "70-71",
-        "FM/D" : "74-75",
         "FM/E" : "78-79",
         "FM/F" : "82-83",
+        "FM/D" : "74-75",
     }
 
-execute_update_data(dic_modalities_page)
+# execute_update_data(dic_modalities_page)
+execute_update_data_by_modality("FM/D", "74-75")

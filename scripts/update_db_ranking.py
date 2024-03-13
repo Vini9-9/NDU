@@ -3,6 +3,13 @@ from firebase_admin import credentials, db
 import json
 from dotenv import load_dotenv
 import os
+import datetime
+import logging
+
+data_hora_atual = datetime.datetime.now()
+
+# Configuração básica de logging
+logging.basicConfig(filename='../logs/log_db_ranking_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 load_dotenv()
 
@@ -25,18 +32,18 @@ firebase_admin.initialize_app(cred, {
     "databaseURL": os.getenv('DATABASE_URL')
 })
 
-# Acessar o Realtime Database
-ref = db.reference()
+# Acesse o Realtime Database com o token personalizado
+ref = db.reference('/')
 
-data_son = load_json_data('../files/modalities.json')
-values_json = [item['value'] for item in data_son]
+data_json = load_json_data('../files/modalities.json')
+values_json = [item['value'] for item in data_json]
 groups = ['A', 'B']
 
 for modality in values_json:
     data = []
     for group in groups:
-        ranking_ref = ref.child('modalidades/' + modality + '/ranking/')
-        ranking_json_file_path = '../files/' + modality + '/group/ranking_' + group + '.json'
+        ranking_ref = ref.child(f'modalidades/{modality}/ranking/')
+        ranking_json_file_path = f'../files/{modality}/group/ranking_{group}.json'
         data.append(get_json_data(ranking_json_file_path, group))
     ranking_ref.set(data)
-    print('Ranking da modalidade ' + modality + ' atualizados com sucesso no Firebase Realtime Database.')
+    logging.info(f'Ranking da modalidade ' + modality + ' atualizados com sucesso no Firebase Realtime Database.')

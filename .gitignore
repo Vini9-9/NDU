@@ -4,3 +4,5 @@ env/
 files/
 test.ipynb
 backup/
+logs/
+scripts/
