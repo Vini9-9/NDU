@@ -14,7 +14,7 @@ logging.basicConfig(filename='../logs/log_db_ranking_' + data_hora_atual.strftim
 load_dotenv()
 
 def get_json_data(json_file_path, group):
-    with open(json_file_path, 'r') as file:
+    with open(json_file_path, 'r', encoding='utf-8') as file:
         data = {
             "group": group,
             "ranking": json.load(file)
@@ -24,7 +24,7 @@ def get_json_data(json_file_path, group):
 
 def load_json_data(filepath_json):
     # Carregar o conteúdo do outro arquivo
-    with open(filepath_json, 'r') as file:
+    with open(filepath_json, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 cred = credentials.Certificate("../env/credentials.json")

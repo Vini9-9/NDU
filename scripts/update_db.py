@@ -14,13 +14,13 @@ logging.basicConfig(filename='../logs/log_db_' + data_hora_atual.strftime("%Y-%m
 load_dotenv()
 
 def set_json_data(json_file_path, ref):
-    with open(json_file_path, 'r') as file:
+    with open(json_file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
         ref.set(data)
 
 def load_json_data(filepath_json):
     # Carregar o conteúdo do outro arquivo
-    with open(filepath_json, 'r') as file:
+    with open(filepath_json, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 cred = credentials.Certificate("../env/credentials.json")
