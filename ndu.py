@@ -1,7 +1,6 @@
 
 import tabula
 import pandas as pd
-from flask import jsonify
 import uuid
 import csv
 import json
@@ -154,7 +153,6 @@ def verify_empty_games(tables):
 
 def generate_table_games(tables):
     tb_games = verify_empty_games(tables)
-    print(tb_games)
     df_games = pd.DataFrame(tb_games)
     if df_games['DIA'].isna().all():
         df_games['DIA'] = ''
@@ -461,8 +459,10 @@ def atualizar_dados_times(df_nova, df_original):
     return df_original
 
 def get_rankings_zero_group(modality):
-    ranking_A = load_json_data(f'files/{modality}/group/ranking_zero_A.json')
-    ranking_B = load_json_data(f'files/{modality}/group/ranking_zero_B.json')
+    ranking_A = load_json_data(f'files/{modality}/group/ranking_A.json')
+    ranking_B = load_json_data(f'files/{modality}/group/ranking_B.json')
+    # ranking_A = load_json_data(f'files/{modality}/group/ranking_zero_A.json')
+    # ranking_B = load_json_data(f'files/{modality}/group/ranking_zero_B.json')
     return {
         'A': ranking_A,
         'B': ranking_B
@@ -634,7 +634,6 @@ def execute_update_data_by_modality(modality, pages):
     tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
     tb_group = format_tb_group(tables[0])
     tb_games = [tables[1], tables[2]]
-    print(tables[2])
 
     filepath = f'files/{modality}'
     df_games = generate_table_games(tb_games)
@@ -660,6 +659,23 @@ def execute_update_data(dic_modalities_page):
         execute_update_data_by_modality(key, value)
         logging.info("----------------------------------------")
 
+def update_ranking_by_games(modality):
+    filepath = f'files/{modality}'
+    df_games = pd.read_json(f'{filepath}/games.json')
+
+    confrontos = gerar_confronto_direto(df_games, filepath)
+    df_confrontos_diretos = confrontos_to_df(confrontos)
+    rankings = generate_ranking_by_games(modality)
+    df_groups = update_ranking([rankings['A'], rankings['B']], df_confrontos_diretos)
+    df_groupA = df_groups[0]
+    df_groupB = df_groups[1]
+
+    df_groupA.to_csv(f'files/{modality}/group/ranking_A.csv', index=False)
+    df_groupB.to_csv(f'files/{modality}/group/ranking_B.csv', index=False)
+
+    csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
+    csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')    
+
 dic_modalities_page = {
         "FF/A" : "42-43",
         "FF/B" : "46-47",
@@ -674,5 +690,7 @@ dic_modalities_page = {
         "FM/D" : "74-75",
     }
 
+# execute_zero_ranking(dic_modalities_page)
 # execute_update_data(dic_modalities_page)
-execute_update_data_by_modality("FM/D", "74-75")
+# execute_update_data_by_modality("FM/D", "74-75")
+update_ranking_by_games("FM/D")
