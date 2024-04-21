@@ -1,10 +1,7 @@
 import pandas as pd
-from flask import jsonify
 from exception import *
-import glob
-import os
-import re
 from repository import FirebaseRepository
+from datetime import datetime, timedelta
 
 class MyService:
     _instance = None
@@ -18,6 +15,9 @@ class MyService:
         print("################# Iniciando Service #################")
         self.repository = FirebaseRepository()
 
+    def get_info(self):
+        return self.repository.get_info()
+    
     def get_confrontation(self, modality, series):
         return self.repository.get_confrontation(modality, series)
 
@@ -30,8 +30,28 @@ class MyService:
     def get_games_by_team(self, modality, series, team=None):
         return self.repository.get_games_by_team(modality, series, team)
     
-    def get_simulator_games(self, modality, series):
-        return self.repository.get_simulator_games(modality, series)
+    def get_next_games_by_local(self, local):
+        # Obtém a data atual
+        data_atual = datetime.now()
+
+        # Verifica se o dia atual é sábado ou domingo
+        if data_atual.weekday() == 5:  # sábado
+            proximo_sabado = data_atual
+            proximo_domingo = data_atual + timedelta(days=1)
+        elif data_atual.weekday() == 6:  # domingo
+            proximo_sabado = data_atual - timedelta(days=1)
+            proximo_domingo = data_atual
+
+        # Se não for sábado ou domingo, encontra o próximo sábado e domingo
+        else:
+            proximo_sabado = data_atual + timedelta((5 - data_atual.weekday()) % 7)
+            proximo_domingo = proximo_sabado + timedelta(days=1)
+
+        # Formata as datas no modelo YYYY-MM-DD
+        formato_data = "%Y-%m-%d"
+        sabado_formatado = proximo_sabado.strftime(formato_data)
+        domingo_formatado = proximo_domingo.strftime(formato_data)
+        return self.repository.get_next_games_by_local([sabado_formatado, domingo_formatado], local)
 
     @staticmethod
     def load_csv(filename):
@@ -232,69 +252,5 @@ class MyService:
         # Atualizar a propriedade confrontation com o novo dicionário
         self.confrontation = confrontos_diretos
 
-    def simulate_game(self, data_json, modality, series):
-        home_team = data_json['home_team']
-        away_team = data_json['away_team']
-
-        if self.list_clashes(home_team, away_team, modality, series).empty == False:
-            raise GameAlreadyExistsException()
-        else:
-            group     = data_json['group']
-            home_goal = data_json['home_goal']
-            away_goal = data_json['away_goal']
-            
-            game = {
-                'GRUPO': group,
-                'Mandante': home_team,
-                'GOLS_MANDANTE': home_goal,
-                'Visitante': away_team,
-                'GOLS_VISITANTE': away_goal,
-                'PLACAR': str(home_goal) + 'x' + str(away_goal),
-                'SIMULADOR': True
-            }
-
-            # Definir df por grupo
-            df_group = pd.DataFrame(self.get_df_ranking_group(group, modality, series))
-
-            condition_home = df_group['Time'] == home_team
-            condition_away = df_group['Time'] == away_team
-
-        # Atualizar o número de jogos
-            df_group.loc[condition_home, 'Jogos'] += 1
-            df_group.loc[condition_away, 'Jogos'] += 1
-
-        # Atualizar os gols
-            df_group.loc[condition_home, 'Gols_Pro'] += home_goal
-            df_group.loc[condition_home, 'Gols_Contra'] += away_goal
-
-            df_group.loc[condition_away, 'Gols_Pro'] += away_goal
-            df_group.loc[condition_away, 'Gols_Contra'] += home_goal
-
-            df_group.loc[condition_home, 'Saldo'] += home_goal - away_goal
-            df_group.loc[condition_away, 'Saldo'] += away_goal - home_goal
-
-        # Atualizar os pontos
-            if home_goal == away_goal:
-                df_group.loc[condition_home, 'Pontos'] += 1
-                df_group.loc[condition_away, 'Pontos'] += 1
-                df_group.loc[condition_home, 'E'] += 1
-                df_group.loc[condition_away, 'E'] += 1
-                self.update_direct_confrontation(modality, series, away_team, home_team, True)
-            elif home_goal > away_goal:
-                df_group.loc[condition_home, 'Pontos'] += 3
-                df_group.loc[condition_home, 'V'] += 1
-                df_group.loc[condition_away, 'D'] += 1
-                self.update_direct_confrontation(modality, series, home_team, away_team)
-            else:
-                df_group.loc[condition_away, 'Pontos'] += 3
-                df_group.loc[condition_away, 'V'] += 1
-                df_group.loc[condition_home, 'D'] += 1
-                self.update_direct_confrontation(modality, series, away_team, home_team)
-            
-            self.concat_df_games(game, modality, series)
-            
-            df_new_group = MyService.update_ranking(group, df_group, self.confrontos_to_df(self.get_confrontation(filepath)))
-            # self.create_csv(df_new_group, 'files/simulator', 'ranking_' + group)
-            return(game)
 
 # my_service = MyService()

@@ -10,6 +10,8 @@ import logging
 
 data_hora_atual = datetime.datetime.now()
 
+dia_atual = data_hora_atual.date()
+
 # Configuração básica de logging
 logging.basicConfig(filename='logs/log_ndu_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -95,8 +97,8 @@ def create_zero_ranking_group(table_groups, filepath):
     df_groupA.to_csv(filepath + '/ranking_A.csv', index=False)
     df_groupB.to_csv(filepath  + '/ranking_B.csv', index=False)
     
-    csv_to_json(filepath  + '/ranking_A.csv', filepath + '/ranking_A.json')
-    csv_to_json(filepath + '/ranking_B.csv', filepath + '/ranking_B.json')
+    csv_to_json(filepath  + '/ranking_A.csv', filepath + '/ranking_zero_A.json')
+    csv_to_json(filepath + '/ranking_B.csv', filepath + '/ranking_zero_B.json')
 
     return df_groupA, df_groupB
 
@@ -133,7 +135,13 @@ def format_table_group(tb_groupA, tb_groupB):
 
 # %%
 def check_simulador(row):
-    if row['PLACAR'] == 'X':
+    
+    dia_jogo = pd.to_datetime(row['DIA'], format='%Y-%m-%d', errors='coerce').date()
+
+    if pd.isna(dia_jogo) or dia_jogo > dia_atual or row['PLACAR'] == 'X':
+        row['PLACAR'] = 'X'
+        row['GOLS_MANDANTE'] = ''
+        row['GOLS_VISITANTE'] = ''
         return True
     else:
         return False   
@@ -146,7 +154,6 @@ def verify_empty_games(tables):
         # Remover as linhas onde 'EQUIPE Mandante' ou 'EQUIPE Visitante' é NaN
         if not empty_rows.empty:
             df.dropna(subset=['EQUIPE Mandante'], inplace=True)
-            # df.dropna(subset=['EQUIPE Visitante'], inplace=True)
     
     concatenated_df = pd.concat(tables, ignore_index=True)
     return concatenated_df
@@ -168,7 +175,7 @@ def generate_table_games(tables):
     df_games.rename(columns={'HORÁRIO': 'HORARIO'}, inplace=True)
     df_games.rename(columns={'EQUIPE Mandante': 'Mandante'}, inplace=True)
     df_games.rename(columns={'EQUIPE Visitante': 'Visitante'}, inplace=True)
-    df_games['SIMULADOR'] = df_games.apply(check_simulador, axis=1)
+    df_games['SIMULADOR'] = False
     return df_games
 
 # %% [markdown]
@@ -298,15 +305,18 @@ def remover_df_games(matches_to_remove, simulador=True):
 def verificar_listagem(set_output, set_default):
     elementos_ausentes = set(set_output) - set(set_default)
     if len(elementos_ausentes) > 0:
-        logging.warning("Os seguintes elementos não estão listados:")
-        logging.warning(elementos_ausentes)
+        logging.critical("Os seguintes elementos não estão listados:")
+        logging.critical(elementos_ausentes)
 
 def corrigir_local(df_games):
-    locations = ['Palestra', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO']
+    locations = ['Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha']
     correction_local = {
         'Pale stra': 'Palestra',
         'Idal ina': 'Idalina',
         'SEM EF': 'SEMEF',
+        'GE TA': 'GETA',
+        'Mané Ga rrincha': 'Mané Garrincha',
+        'US CS': 'USCS',
     }
     # Função de validação e correção
     def correct_local(local):
@@ -361,6 +371,7 @@ def corrigir_times(tb_group, df_games):
         'Farmác ia USP': 'Farmácia USP',
         'Fatec Sã o Paulo': 'Fatec São Paulo',
         'FAUUSP': 'FAU USP',
+        'FFLCHUSP': 'FFLCH USP',
         'FE I': 'FEI',
         'FEA P UC': 'FEA PUC',
         'FEA U SP': 'FEA USP',
@@ -378,6 +389,7 @@ def corrigir_times(tb_group, df_games):
         'LEP MAC KENZIE': 'LEP Mackenzie',
         'Ma uá': 'Mauá',
         'Medici n a ABC': 'Medicina ABC',
+        'Medicin a USP': 'Medicina USP',
         'Medici n a USP': 'Medicina USP',
         'Medicin a ABC': 'Medicina ABC',
         'Medicin a ABC': 'Medicina ABC',
@@ -418,7 +430,9 @@ def corrigir_times(tb_group, df_games):
         'UNIFESPOsasco': 'UNIFESP Osasco',
         'US C S': 'USCS',
         'US CS': 'USCS',
+        'USCS (WO)': 'USCS',
         'Veteriná ria USP': 'Veterinária USP',
+        'Medicina UNE SP Botucatu': 'Medicina UNESP Botucatu',
     }
     # Função de validação e correção
     def correct_team(equipe):
@@ -459,10 +473,8 @@ def atualizar_dados_times(df_nova, df_original):
     return df_original
 
 def get_rankings_zero_group(modality):
-    ranking_A = load_json_data(f'files/{modality}/group/ranking_A.json')
-    ranking_B = load_json_data(f'files/{modality}/group/ranking_B.json')
-    # ranking_A = load_json_data(f'files/{modality}/group/ranking_zero_A.json')
-    # ranking_B = load_json_data(f'files/{modality}/group/ranking_zero_B.json')
+    ranking_A = load_json_data(f'files/{modality}/group/ranking_zero_A.json')
+    ranking_B = load_json_data(f'files/{modality}/group/ranking_zero_B.json')
     return {
         'A': ranking_A,
         'B': ranking_B
@@ -607,8 +619,27 @@ def update_game(modality, game_id, home_goal, away_goal):
     df_group = df_groups[0]
     df_group.to_csv(f'{file_path_group}/ranking_{group}.csv', index=False)
 
-    csv_to_json(f'{file_path_group}/ranking_{group}.csv', f'{file_path_group}/ranking_{group}.json')
-    
+    csv_to_json(f'{file_path_group}/ranking_{group}.csv', f'{file_path_group}/ranking_{group}.json') 
+
+def format_DIA_HORARIO(games_data):
+    current_year = datetime.datetime.now().year
+
+    def process_date_time(value):
+        if value.strip() != "":
+            value_strip = value[:6].strip()
+            value_fmt = value_strip.replace(" ", "")
+            value_with_year = f"{value_fmt}/{current_year}"
+            date = pd.to_datetime(value_with_year, format='%d/%m/%Y', errors='coerce').date()
+            time = value.replace(value_strip, '').strip().replace(" ", "")
+            return date, time
+        else:
+            return pd.NaT, ''
+
+    # Aplicar a função à coluna "DIA HORÁRIO" apenas se o campo 'DIA' não for NaT e o campo 'HORARIO' não for NaN
+    games_data[['DIA', 'HORARIO']] = games_data.apply(lambda row: process_date_time(row['DIA HORÁRIO']) if pd.isna(row['DIA']) and pd.isna(row['HORARIO']) else (row['DIA'], row['HORARIO']), axis=1).apply(pd.Series)
+    games_data.drop(columns=['DIA HORÁRIO'], inplace=True)
+
+    return games_data
 
 def execute_zero_ranking(dic_modalities_page):
 
@@ -629,6 +660,45 @@ def execute_zero_ranking(dic_modalities_page):
         create_games_files(df_games, filepath)
         gerar_confronto_direto(df_games, filepath)
 
+def check_game_data(modality):
+    file_path = f'files/{modality}/games.json'
+    json_data = load_json_data(file_path)
+    
+    # Verifica o formato dos campos 'DIA' e 'HORARIO' para cada jogo
+    for json_game in json_data:
+        if len(str(json_game['DIA'])) != 10:
+            logging.critical(f"Jogo {json_game['ID']} com DIA inválido: {json_game['DIA']}")
+        if len(str(json_game['HORARIO'])) > 8:
+            logging.critical(f"Jogo {json_game['ID']} com HORARIO inválido: {json_game['HORARIO']}")
+    
+
+def corrigir_horario(df):
+    # Corrigir o campo 'HORARIO' para cada jogo no DataFrame
+    for index, row in df.iterrows():
+        horario = str(row['HORARIO']).replace(" ", "")  # Remover espaços em branco
+        horario = horario[-8:]  # Pegar os últimos 8 caracteres
+        df.at[index, 'HORARIO'] = horario  # Atualizar o valor do campo 'HORARIO'
+    
+    return df
+
+def corrigir_dia(games_data):
+    # Corrigir a coluna 'DIA' se estiver no formato de data e hora completa
+    games_data['DIA'] = games_data['DIA'].apply(lambda x: str(x)[:10] if pd.notnull(x) else x)
+    
+    return games_data
+
+def preencher_simulador(df):
+
+    for index, row in df.iterrows():
+        dia_jogo = pd.to_datetime(row['DIA'], format='%Y-%m-%d', errors='coerce').date()
+        if pd.isna(dia_jogo) or dia_jogo > dia_atual or row['PLACAR'] == 'X':
+            df.at[index, 'PLACAR'] = 'X'
+            df.at[index, 'GOLS_MANDANTE'] = ''
+            df.at[index, 'GOLS_VISITANTE'] = ''
+            df.at[index, 'SIMULADOR'] = True
+    
+    return df
+
 def execute_update_data_by_modality(modality, pages):
     logging.info(f"modalidade: {modality}")
     tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
@@ -639,7 +709,16 @@ def execute_update_data_by_modality(modality, pages):
     df_games = generate_table_games(tb_games)
     df_games = corrigir_local(df_games)
     df_games = corrigir_times(tb_group, df_games)
+
+    if modality == 'FM/F':
+        df_games = format_DIA_HORARIO(df_games)
+
+    df_games = corrigir_horario(df_games)
+    df_games = corrigir_dia(df_games)
+    # df_games['SIMULADOR'] = df_games.apply(check_simulador, axis=1)
+    df_games = preencher_simulador(df_games)
     create_games_files(df_games, filepath)
+    
     confrontos = gerar_confronto_direto(df_games, filepath)
     df_confrontos_diretos = confrontos_to_df(confrontos)
     rankings = generate_ranking_by_games(modality)
@@ -652,6 +731,7 @@ def execute_update_data_by_modality(modality, pages):
 
     csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
     csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')
+    check_game_data(modality)
 
 def execute_update_data(dic_modalities_page):
 
@@ -674,23 +754,24 @@ def update_ranking_by_games(modality):
     df_groupB.to_csv(f'files/{modality}/group/ranking_B.csv', index=False)
 
     csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
-    csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')    
+    csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')  
 
 dic_modalities_page = {
-        "FF/A" : "42-43",
-        "FF/B" : "46-47",
-        "FF/C" : "50-51",
-        "FF/D" : "54-55",
-        "FF/E" : "58-59",
-        "FM/A" : "62-63",
-        "FM/B" : "66-67",
-        "FM/C" : "70-71",
-        "FM/E" : "78-79",
-        "FM/F" : "82-83",
-        "FM/D" : "74-75",
+        "FF/A" : "44-45",
+        "FF/B" : "48-49",
+        "FF/C" : "52-53",
+        "FF/D" : "56-57",
+        "FF/E" : "60-61",
+        "FM/A" : "64-65",
+        "FM/B" : "68-69",
+        "FM/C" : "72-73",
+        "FM/E" : "80-81",
+        "FM/F" : "84-85",
+        "FM/D" : "76-77",
     }
 
+execute_update_data(dic_modalities_page)
 # execute_zero_ranking(dic_modalities_page)
-# execute_update_data(dic_modalities_page)
-# execute_update_data_by_modality("FM/D", "74-75")
-update_ranking_by_games("FM/D")
+# execute_update_data_by_modality("FM/F", "84-85")
+# execute_update_data_by_modality("FM/D", "75-76")
+# update_ranking_by_games("FM/F")

@@ -4,6 +4,7 @@ from flasgger import Swagger
 from service import MyService
 from exception import *
 import pandas as pd
+import json
 
 app     = Flask(__name__)
 CORS(app)
@@ -19,6 +20,10 @@ class MyApp:
 my_app = MyApp()
 myAppService = my_app.service
 # myAppService = MyService()
+
+@app.route('/api/info', methods=['GET'])
+def get_info():
+    return json.dumps(myAppService.get_info(), ensure_ascii=False).encode('utf8')
 
 @app.route('/api/games/<modality>/<series>/confrontation', methods=['GET'])
 def get_confrontation(modality, series):
@@ -136,16 +141,18 @@ def get_games(modality, series):
     try:
 
       team_query = request.args.get('team')
-      simulator_query = request.args.get('simulator')
-      
-      if simulator_query :
-        df_games = myAppService.get_simulator_games(modality, series) 
-      else:
-        df_games = myAppService.get_games_by_team(modality, series, team_query)
+      df_games = myAppService.get_games_by_team(modality, series, team_query)
       return df_games
 
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
+    
+@app.route('/api/nextGames/local/<local>', methods=['GET'])
+def get_games_by_local(local):
+    
+    df_all_games = myAppService.get_next_games_by_local(local)
+    return df_all_games
+
     
 @app.route('/api/modalities', methods=['GET'])
 def get_modalities():
