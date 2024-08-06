@@ -4,26 +4,30 @@ import pandas as pd
 import uuid
 import csv
 import json
-
+import os
 import datetime
 import logging
 import inspect
+import zipfile
 
 data_hora_atual = datetime.datetime.now()
 
 dia_atual = data_hora_atual.date()
 
 # Configuração básica de logging
-logging.basicConfig(filename='logs/log_ndu_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-# logging.basicConfig(filename='logs/debug_ndu_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# logging.basicConfig(filename='logs/log_ndu_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='logs/debug_ndu_' + data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S") + '.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# TODO - Utils
 def log_function_entry():
     function_name = inspect.currentframe().f_back.f_code.co_name
     logging.debug(f"Function: {function_name}")
 
+# TODO - Utils
 def generate_game_id():
     return str(uuid.uuid4())
 
+# TODO - Utils
 def load_json_data(filepath):
     log_function_entry()
     """
@@ -36,6 +40,7 @@ def load_json_data(filepath):
         data = json.load(file)
     return data
 
+# TODO - Utils
 def create_json(data, json_file):
     log_function_entry()
     with open(json_file, 'w', encoding='utf-8') as file:  # Certifique-se de especificar a codificação correta
@@ -43,6 +48,7 @@ def create_json(data, json_file):
     
     logging.info('criado JSON em ' + json_file)
 
+# TODO - Utils
 def csv_to_json(csv_file, json_file):
     log_function_entry()
     """
@@ -63,6 +69,7 @@ def csv_to_json(csv_file, json_file):
     # Escrevendo os dados em um arquivo JSON
     create_json(data, json_file)
 
+# TODO - Utils
 def convert_to_json_serializable(value):
     """
     Converte um valor para um tipo que pode ser serializado em JSON.
@@ -80,6 +87,7 @@ def convert_to_json_serializable(value):
         # Converte outros tipos para string, se necessário
         return str(value)
 
+# TODO - Utils
 def create_json_from_df(df, json_file):
     """
     Converte um DataFrame em um arquivo JSON.
@@ -96,21 +104,42 @@ def create_json_from_df(df, json_file):
     data = df.to_dict(orient='records')
     create_json(data, json_file)
 
+# TODO - Utils
 def save_json_data(data, file_path):
     log_function_entry()
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
+# TODO - Utils
 def create_files(df_games, filepath, filename='games'):
     log_function_entry()
     full_filepath=f'{filepath}/{filename}'
-    # csv_file = f"{full_filepath}.csv"
     json_file = f"{full_filepath}.json"
-    # df_games.to_csv(csv_file, index=False)
-    # csv_to_json(csv_file, json_file)
-    # json_data = df_games.to_dict(orient='records')
-    # create_json(json_data, json_file)
     create_json_from_df(df_games, json_file)
+
+# TODO - Utils
+def create_backup_zipped(source_folder='files', backup_folder='backup'):
+    # Certifique-se de que o diretório de backup existe
+    if not os.path.exists(backup_folder):
+        os.makedirs(backup_folder)
+
+    # Obter a data e hora atuais
+    data_hora_atual = datetime.datetime.now()
+    timestamp = data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S")
+
+    # Criar o nome do arquivo zip
+    zip_filename = f"backup_{timestamp}.zip"
+    zip_filepath = os.path.join(backup_folder, zip_filename)
+
+    # Criar o arquivo zip
+    with zipfile.ZipFile(zip_filepath, 'w') as zipf:
+        for root, dirs, files in os.walk(source_folder):
+            for file in files:
+                file_path = os.path.join(root, file)
+                # Adicionar o arquivo ao zip
+                zipf.write(file_path, os.path.relpath(file_path, source_folder))
+
+    logging.info(f"Arquivo zip criado: {zip_filepath}")
 
 # Criando tabela dos grupos
 def create_zero_ranking_group(table_groups, filepath):
@@ -161,35 +190,9 @@ def create_zero_ranking_group(table_groups, filepath):
         
     return dataframes
 
-# Formatando as tabelas dos grupos
-def format_table_group(tb_groupA, tb_groupB):
-    log_function_entry()
-    df_groupA_base = pd.DataFrame(tb_groupA)
-    df_groupB_base = pd.DataFrame(tb_groupB)
-
-    # Atualizando nome das colunas:
-    novos_nomes_colunas = ['Col.', 'Atléticas', 'Pontos', 'Jogos', 'V', 'E', 'D', 'Gols Pró', 'Gols Contra', 'Saldo']
-    df_groupA_base.columns = novos_nomes_colunas
-    df_groupB_base.columns = novos_nomes_colunas
-
-
-    # Removendo a primeira coluna
-    df_groupA = df_groupA_base.drop(columns=['Col.'])
-    df_groupB = df_groupB_base.drop(columns=['Col.'])
-
-    # Removendo as duas primeiras linhas (antiga coluna)
-    df_groupA.drop([0, 1], inplace=True)
-    df_groupB.drop([0, 1], inplace=True)
-
-
-    # Converter os dados das colunas para o tipo int
-    colunas_para_converter = ['Pontos', 'Jogos', 'V', 'E', 'D', 'Gols Pró', 'Gols Contra', 'Saldo']
-    df_groupA[colunas_para_converter] = df_groupA[colunas_para_converter].astype(int)
-    df_groupB[colunas_para_converter] = df_groupB[colunas_para_converter].astype(int)
-
 # Formatando tabela de jogos
 def check_simulador(row):
-    log_function_entry()
+    # log_function_entry()
     
     dia_jogo = pd.to_datetime(row['DIA'], format='%Y-%m-%d', errors='coerce').date()
 
@@ -232,7 +235,7 @@ def generate_table_games(tables):
     df_games.rename(columns={'HORÁRIO': 'HORARIO'}, inplace=True)
     df_games.rename(columns={'EQUIPE Mandante': 'Mandante'}, inplace=True)
     df_games.rename(columns={'EQUIPE Visitante': 'Visitante'}, inplace=True)
-    df_games['SIMULADOR'] = False
+    df_games['SIMULADOR'] = df_games.apply(check_simulador, axis=1)
     return df_games
 
 # Jogos por time
@@ -259,7 +262,7 @@ def listar_confrontos(df_games, teamOne, teamTwo):
     else:
       return games_teamOne[games_teamOne['EQUIPE Visitante'].str.contains(teamTwo)]
 
-# Confronto direto
+# TODO - Confronto direto
 def update_confronto_direto(winner_team, loser_team, draw, confrontos_diretos):
     log_function_entry()
     if draw:
@@ -272,6 +275,7 @@ def update_confronto_direto(winner_team, loser_team, draw, confrontos_diretos):
     confrontos_diretos.setdefault(loser_team, {}).setdefault(winner_team, resultado)
     return confrontos_diretos
 
+# TODO - Confronto direto
 def remover_confronto_direto(winner_team, loser_team, confrontos_diretos):
     log_function_entry()
     # Registrar o resultado no dicionário
@@ -279,6 +283,7 @@ def remover_confronto_direto(winner_team, loser_team, confrontos_diretos):
     confrontos_diretos.setdefault(loser_team, {}).setdefault(winner_team, '')
     return confrontos_diretos
 
+# TODO - Confronto direto
 def gerar_confronto_direto(df_games, filepath):
     log_function_entry()
     confrontos_diretos = {}
@@ -307,6 +312,7 @@ def gerar_confronto_direto(df_games, filepath):
 
     return confrontos_diretos
 
+# TODO - Confronto direto
 def confrontos_to_df(confrontos_diretos):
     log_function_entry()
     # Criar um DataFrame a partir dos resultados dos confrontos diretos
@@ -353,7 +359,7 @@ def remover_df_games(matches_to_remove, simulador=True):
     # Remover os jogos do DataFrame original
     df_games.drop(indices_to_remove, inplace=True)
 
-### Dicionário de correção
+# TODO - Correções
 def verificar_listagem(set_output, set_default):
     log_function_entry()
     elementos_ausentes = set(set_output) - set(set_default)
@@ -361,9 +367,10 @@ def verificar_listagem(set_output, set_default):
         logging.critical("Os seguintes elementos não estão listados:")
         logging.critical(elementos_ausentes)
 
+# TODO - Correções
 def corrigir_local(df_games):
     log_function_entry()
-    locations = ['Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha', 'Mauro Pinheiro', 'Baby Barione', 'CERET', 'Mauro Pinheiro']
+    locations = ['Medicina USP', 'Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha', 'Mauro Pinheiro', 'Baby Barione', 'CERET', 'Mauro Pinheiro']
     correction_local = {
         'Pale stra': 'Palestra',
         'Idal ina': 'Idalina',
@@ -374,6 +381,7 @@ def corrigir_local(df_games):
         'Baby B arione' : 'Baby Barione',
         'CER ET' : 'CERET',
         'Mauro P inheiro' : 'Mauro Pinheiro',
+        'Medicin a USP' : 'Medicina USP',
     }
     # Função de validação e correção
     def correct_local(local):
@@ -389,11 +397,9 @@ def corrigir_local(df_games):
     verificar_listagem(df_games['LOCAL'].unique(), locations)
     return df_games
 
-def corrigir_times(tb_group, df_games):
+# TODO - Correções
+def corrigir_times(teams, df_games):
     log_function_entry()
-    teams = []
-    for col in tb_group.columns:
-        teams += tb_group[col].dropna().tolist()
 
     correction_teams = {
         'ArquiteturaMackenzie': 'Arquitetura Mackenzie',
@@ -457,7 +463,6 @@ def corrigir_times(tb_group, df_games):
         'Ma uá': 'Mauá',
         'Medici n a ABC': 'Medicina ABC',
         'Medici n a USP': 'Medicina USP',
-        'Medicin a ABC': 'Medicina ABC',
         'Medicin a ABC': 'Medicina ABC',
         'Medicin a Mauá': 'Medicina Mauá',
         'Medicin a Mogi': 'Medicina Mogi',
@@ -554,21 +559,31 @@ def atualizar_dados_times(df_nova, df_original):
 
 def get_rankings_zero_group(modality):
     log_function_entry()
-    ranking_A = load_json_data(f'files/{modality}/group/ranking_zero_A.json')
-    ranking_B = load_json_data(f'files/{modality}/group/ranking_zero_B.json')
-    return {
-        'A': ranking_A,
-        'B': ranking_B
-    }
+    
+    # Diretório base dos arquivos de ranking
+    directory = f'files/{modality}/group'
+    
+    # Dicionário para armazenar os rankings
+    rankings = {}
+    
+    # Listando os arquivos no diretório
+    for filename in os.listdir(directory):
+        if filename.startswith('ranking_zero_') and filename.endswith('.json'):
+            group = filename[len('ranking_zero_'):-len('.json')]
+            filepath = os.path.join(directory, filename)
+            rankings[group] = load_json_data(filepath)
+    
+    return rankings
 
 def get_index_teams(rankings):
     log_function_entry()
-    ranking_dict_A = {time_dict['Time']: index for index, time_dict in enumerate(rankings['A'])}
-    ranking_dict_B = {time_dict['Time']: index for index, time_dict in enumerate(rankings['B'])}
-    return {
-        'A': ranking_dict_A,
-        'B': ranking_dict_B
-    }
+    
+    index_teams = {}
+    
+    for group, ranking_list in rankings.items():
+        index_teams[group] = {time_dict['Time']: index for index, time_dict in enumerate(ranking_list)}
+    
+    return index_teams
 
 def generate_ranking_by_games(modality):
     log_function_entry()
@@ -622,13 +637,13 @@ def generate_ranking_by_games(modality):
         
     return rankings
 
-def update_ranking(tb_groups, df_confrontos_diretos):
+def update_ranking(rankings, df_confrontos_diretos):
     log_function_entry()
     df_groups = []
     idx = 1
     columns_to_convert = ['Pontos', 'Jogos', 'V', 'E', 'D', 'Gols_Pro', 'Gols_Contra', 'Saldo']
   
-    for tb_group in tb_groups: 
+    for group, tb_group in rankings.items():
         df_group = pd.DataFrame(tb_group)
         df_group[columns_to_convert] = df_group[columns_to_convert].astype(int)
         df_group.sort_values(by=['Pontos', 'Saldo', 'Gols_Pro'], ascending=[False, False, False], inplace=True)
@@ -660,13 +675,22 @@ def update_ranking(tb_groups, df_confrontos_diretos):
 
 def format_tb_group(tb_group):
     log_function_entry()
-    if list(tb_group.columns) != ['Grupo A', 'Grupo B']:
-        # Definir a primeira linha como cabeçalho da tabela
-        tb_group.columns = tb_group.iloc[0]
-        # Remover a primeira linha, que agora é o cabeçalho
-        return tb_group[1:]
+    header_zero = tb_group.columns[0]
+    if 'grupo' not in header_zero.lower():
+        logging.warning(f"header_zero inválido: {header_zero}")
+        logging.info(f"Colocando o header atual na última linha")
+        # Adicionar os cabeçalhos atuais à última linha de valores de cada coluna
+        tb_group.loc[len(tb_group)+1] = tb_group.columns
+
+        num_cols = tb_group.shape[1]
+        new_headers = [f'Grupo {chr(65 + i)}' for i in range(num_cols)]
+
+        logging.info(f"Atualizando headers")
+        # Atualizar os cabeçalhos do DataFrame
+        tb_group.columns = new_headers
     return tb_group
-    
+
+# TODO - Notebook
 def update_game(modality, game_id, home_goal, away_goal):
     log_function_entry()
     file_path = f'files/{modality}/games.json'
@@ -705,6 +729,7 @@ def update_game(modality, game_id, home_goal, away_goal):
 
     csv_to_json(f'{file_path_group}/ranking_{group}.csv', f'{file_path_group}/ranking_{group}.json') 
 
+# TODO - Exceções
 def format_DIA_HORARIO(games_data):
     log_function_entry()
     if 'DIA HORÁRIO' in games_data.columns:
@@ -727,6 +752,7 @@ def format_DIA_HORARIO(games_data):
 
     return games_data
 
+# TODO - Exceções
 def format_LOCAL_GRUPO(games_data):
     log_function_entry()
     if 'LOCAL GRUPO' in games_data.columns:
@@ -751,7 +777,6 @@ def execute_zero_ranking(dic_modalities_page):
     for key, value in dic_modalities_page.items():
         logging.info(f"modalidade: {key}")
         modality = key
-        # tables = tabula.read_pdf("files/Boletim.pdf", pages=dic_modalities_page[modality])
         tables = tabula.read_pdf("files/Boletim.pdf", pages=value)
         tb_group = format_tb_group(tables[0])
         tb_games = [tables[1], tables[2]]
@@ -765,6 +790,7 @@ def execute_zero_ranking(dic_modalities_page):
         create_files(df_games, filepath)
         gerar_confronto_direto(df_games, filepath)
 
+# TODO - TESTES
 def check_game_data(modality, filaname='games'):
     log_function_entry()
     file_path = f'files/{modality}/{filaname}.json'
@@ -806,6 +832,7 @@ def preencher_simulador(df):
     
     return df
 
+# TODO - PLAYOFF
 def corrigir_label(df_games): 
     log_function_entry()
     """Corrige os rótulos das equipes."""
@@ -823,6 +850,7 @@ def corrigir_label(df_games):
     df_games['label Visitante'] = df_games['label Visitante'].apply(correct_label)
     return df_games
 
+# TODO - PLAYOFF
 def corrigir_fase(df_games): 
     log_function_entry()
     """Corrige as fases dos jogos."""
@@ -841,7 +869,9 @@ def corrigir_fase(df_games):
     df_games['FASE'] = df_games['FASE'].apply(correct_fase)
     return df_games
 
+# TODO - PLAYOFF
 def generate_playoff_games(tables):
+    log_function_entry()
     """Gera uma tabela de jogos a partir dos dados fornecidos."""
     
     df = pd.DataFrame(tables)
@@ -882,27 +912,26 @@ def generate_playoff_games(tables):
     df_games[['GOLS_MANDANTE', 'GOLS_VISITANTE']] = df_games['PLACAR'].str.split('X', expand=True)
     return df_games
 
+# TODO - PLAYOFF
 def execute_update_data_playoff_by_modality(modality, page):
-
-    logging.info(f"**** update_data_playoff_by_modality ****")
-    logging.info(f"modalidade: {modality}")
+    log_function_entry()
+    logging.info(f"Modalidade: {modality}")
     tables = tabula.read_pdf("files/Boletim.pdf", pages=page)
 
     filepath = f'files/{modality}'
     df_games_playoff = generate_playoff_games(tables[0])
     df_games_playoff = corrigir_label(df_games_playoff)
     df_games_playoff = corrigir_fase(df_games_playoff)
-    # df_games_playoff = corrigir_times(df_games_playoff)
     df_games_playoff = corrigir_local(df_games_playoff)
     df_games_playoff = corrigir_horario(df_games_playoff)
     df_games_playoff = corrigir_dia(df_games_playoff)
     create_files(df_games_playoff, filepath, 'playoff')
     check_game_data(modality, 'playoff')
 
-def execute_update_data_by_modality(modality, pages):
+# TODO - Grupo A e Grupo B | csv
+def execute_update_data_by_modality_old(modality, pages):
     log_function_entry()
-    logging.info(f"**** execute_update_data_by_modality ****")
-    logging.info(f"modalidade: {modality}")
+    logging.info(f"Modalidade: {modality}")
     tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
     tb_group = format_tb_group(tables[0])
     tb_games = [tables[1], tables[2]]
@@ -938,11 +967,47 @@ def execute_update_data_by_modality(modality, pages):
     csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')
     check_game_data(modality)
 
+def get_all_teams_by_rankings(rankings):
+    teams = [team['Time'] for group in rankings.values() for team in group]
+    return teams
+
+def execute_update_data_by_modality(modality, pages):
+    log_function_entry()
+    logging.info(f"Modalidade: {modality}")
+    tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
+    rankings_zero_group = get_rankings_zero_group(modality)
+    teams = get_all_teams_by_rankings(rankings_zero_group)
+    tb_games = [tables[1], tables[2]]
+
+    filepath = f'files/{modality}'
+    df_games = generate_table_games(tb_games)
+    df_games = corrigir_times(teams, df_games)
+    df_games = corrigir_local(df_games)
+    df_games = corrigir_horario(df_games)
+    df_games = corrigir_dia(df_games)
+    df_games = preencher_simulador(df_games)
+    create_files(df_games, filepath)
+    
+    confrontos = gerar_confronto_direto(df_games, filepath)
+    df_confrontos_diretos = confrontos_to_df(confrontos)
+    rankings = generate_ranking_by_games(modality)
+    df_groups = update_ranking(rankings, df_confrontos_diretos)
+
+    idx_char = 65 # Letra A
+    for df_group in df_groups:
+        create_json_from_df(df_group, f'files/{modality}/group/ranking_{chr(idx_char)}.json')
+        idx_char = idx_char + 1
+    
+    check_game_data(modality)
+    # create_backup_zipped(modality)
+
 def execute_update_data(dic_modalities_page):
     log_function_entry()
     for key, value in dic_modalities_page.items():
         execute_update_data_by_modality(key, value)
         logging.info("----------------------------------------")
+    
+    create_backup_zipped()
 
 def execute_update_data_playoff(dic_modalities_page):
 
@@ -990,30 +1055,37 @@ def generate_dic_modalities_page(first_page, modalities):
     logging.info(dic_modalities_page)
     return dic_modalities_page
 
+initial_page = 48
+# initial_page = 72
+
 # Lista das modalidades
 modalities = [
     "FF/A", "FF/B", "FF/C", "FF/D", "FF/E",
-    "FM/A", "FM/B", "FM/C", "FM/D", "FM/E", "FM/F" 
+    "FM/A", 
+    "FM/B", "FM/C", "FM/D", "FM/E", "FM/F" 
 ]
 
-dic_modalities_page = generate_dic_modalities_page(48, modalities)
-
-execute_zero_ranking(dic_modalities_page)
+dic_modalities_page = generate_dic_modalities_page(initial_page, modalities)
 
 # dic_modalities_page = {
-# #         "FF/A" : "48-49",
-# #         "FF/B" : "50-51",
-# #         "FF/C" : "53-54",
-#         # "FF/D" : "60-61",
+#         "FF/A" : "48-49",
+#         "FF/B" : "50-51",
+#         "FF/C" : "53-54",
+#         "FF/D" : "60-61",
 #         "FF/E" : "64-65",
-# #         "FM/A" : "65-66",
-# #         "FM/B" : "69-70",
-# #         "FM/C" : "73-74",
-# #         "FM/E" : "81-82",
-# #         "FM/F" : "85-86",
-# #         "FM/D" : "77-78",
+#         # "FM/A" : "68-69",
+#         "FM/B" : "72-73",
+#         "FM/C" : "73-74",
+#         "FM/E" : "81-82",
+#         "FM/F" : "88-89",
+#         "FM/D" : "77-78",
 #     }
 
+# TODO - Runner
+execute_update_data(dic_modalities_page)
+
+# TODO - Runner
+# execute_zero_ranking(dic_modalities_page)
 
 # dic_modalities_page_playoff = {
 #         # "FF/A" : "48",
@@ -1029,8 +1101,11 @@ execute_zero_ranking(dic_modalities_page)
 #         # "FM/F" : "88",
 #     }
 
-# execute_update_data(dic_modalities_page)
+# TODO - Runner
 # execute_update_data_playoff(dic_modalities_page_playoff)
+
+# TODO - Runner
 # execute_update_data_by_modality("FM/F", "84-85")
-# execute_update_data_by_modality("FM/D", "76-77")
+
+# TODO - Runner
 # update_ranking_by_games("FM/F")

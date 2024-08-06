@@ -20,7 +20,7 @@ logging.basicConfig(filename=f'{log_dir}/log_db_modality_' + data_hora_atual.str
 load_dotenv()
 
 def get_json_data(json_file_path, group):
-    with open(json_file_path, 'r') as file:
+    with open(json_file_path, 'r', encoding='utf-8') as file:
         data = {
             "group": group,
             "ranking": json.load(file)
@@ -28,13 +28,13 @@ def get_json_data(json_file_path, group):
         return data
 
 def set_json_data(json_file_path, ref):
-    with open(json_file_path, 'r') as file:
+    with open(json_file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
         ref.set(data)
 
 def load_json_data(filepath_json):
     # Carregar o conteúdo do outro arquivo
-    with open(filepath_json, 'r') as file:
+    with open(filepath_json, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 cred = credentials.Certificate(f"{env_dir}/credentials.json")
@@ -55,20 +55,21 @@ def update_games_confrontation(ref, modality):
 
     logging.info(f'Games e Confrontation da modalidade {modality} atualizados com sucesso no Firebase Realtime Database.')
 
-def update_ranking(ref, modality):
-    groups = ['A', 'B']
+def update_ranking(ref, modality, groups):
     data = []
     for group in groups:
-        ranking_ref = ref.child(f'modalidades/{modality}/ranking/')
         ranking_json_file_path = f'{files_dir}/{modality}/group/ranking_{group}.json'
         data.append(get_json_data(ranking_json_file_path, group))
+
+    ranking_ref = ref.child(f'modalidades/{modality}/ranking/')
     ranking_ref.set(data)
     logging.info(f'Ranking da modalidade {modality} atualizados com sucesso no Firebase Realtime Database.')
 
 # Acessar o Realtime Database
 ref = db.reference('/')
 
-modality = 'FM/A'
+modality = 'FF/E'
+groups = ['A', 'B', 'C']
 
 update_games_confrontation(ref, modality)
-update_ranking(ref, modality)
+update_ranking(ref, modality, groups)

@@ -36,14 +36,15 @@ firebase_admin.initialize_app(cred, {
 ref = db.reference('/')
 
 data_json = load_json_data('../files/modalities.json')
-values_json = [item['value'] for item in data_json]
-groups = ['A', 'B']
 
-for modality in values_json:
+for item in data_json:
+    modality = item['value']
+    groups = item['groups']
     data = []
     for group in groups:
-        ranking_ref = ref.child(f'modalidades/{modality}/ranking/')
         ranking_json_file_path = f'../files/{modality}/group/ranking_{group}.json'
         data.append(get_json_data(ranking_json_file_path, group))
+    
+    ranking_ref = ref.child(f'modalidades/{modality}/ranking/')
     ranking_ref.set(data)
     logging.info(f'Ranking da modalidade ' + modality + ' atualizados com sucesso no Firebase Realtime Database.')
