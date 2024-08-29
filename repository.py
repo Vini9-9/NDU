@@ -2,6 +2,7 @@ import firebase_admin
 from firebase_admin import db, credentials
 from dotenv import load_dotenv
 import os
+from datetime import datetime, timedelta
 
 load_dotenv()
 
@@ -38,7 +39,7 @@ class FirebaseRepository:
         ranking_group = db.reference(f'modalidades/{modality}/{series}/ranking/{group}').get()
         return ranking_group
     
-    def get_next_games_by_local(self, dates, local):
+    def get_next_games_by_local(self, local):
         # Lista para armazenar todos os dados de jogos
         all_games = []
 
@@ -65,8 +66,26 @@ class FirebaseRepository:
             if games_data:
                 # Adicione os dados de jogos desta modalidade à lista all_games
                 for game_data in games_data:
-                    if (game_data['DIA'] == dates[0] or game_data['DIA'] == dates[1]) and game_data['LOCAL'] == local:
+                    if (self.check_date_between_week(game_data.get('DIA'))) and game_data.get('LOCAL') == local:
                         game_data['modalidade'] = modality
                         all_games.append(game_data)
 
         return all_games
+
+    def is_date_between(self, date_str, initial_date_str, final_date_str):
+        if date_str:
+            date = datetime.strptime(date_str, '%Y-%m-%d')
+            initial_date = datetime.strptime(initial_date_str, '%Y-%m-%d')
+            final_date = datetime.strptime(final_date_str, '%Y-%m-%d')
+            return initial_date <= date <= final_date
+        return False
+
+    def check_date_between_week(self, date_str):
+        current_date = datetime.now()
+        initial_date = current_date - timedelta(days=1)
+        final_date = current_date + timedelta(days=6 - current_date.weekday())
+
+        if current_date.weekday() == 6:
+            final_date = current_date
+
+        return self.is_date_between(date_str, initial_date.strftime('%Y-%m-%d'), final_date.strftime('%Y-%m-%d'))

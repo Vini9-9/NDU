@@ -1,7 +1,6 @@
 import pandas as pd
 from exception import *
 from repository import FirebaseRepository
-from datetime import datetime, timedelta
 
 class MyService:
     _instance = None
@@ -31,27 +30,8 @@ class MyService:
         return self.repository.get_games_by_team(modality, series, team)
     
     def get_next_games_by_local(self, local):
-        # Obtém a data atual
-        data_atual = datetime.now()
-
-        # Verifica se o dia atual é sábado ou domingo
-        if data_atual.weekday() == 5:  # sábado
-            proximo_sabado = data_atual
-            proximo_domingo = data_atual + timedelta(days=1)
-        elif data_atual.weekday() == 6:  # domingo
-            proximo_sabado = data_atual - timedelta(days=1)
-            proximo_domingo = data_atual
-
-        # Se não for sábado ou domingo, encontra o próximo sábado e domingo
-        else:
-            proximo_sabado = data_atual + timedelta((5 - data_atual.weekday()) % 7)
-            proximo_domingo = proximo_sabado + timedelta(days=1)
-
-        # Formata as datas no modelo YYYY-MM-DD
-        formato_data = "%Y-%m-%d"
-        sabado_formatado = proximo_sabado.strftime(formato_data)
-        domingo_formatado = proximo_domingo.strftime(formato_data)
-        return self.repository.get_next_games_by_local([sabado_formatado, domingo_formatado], local)
+        print('local', local)
+        return self.repository.get_next_games_by_local(local)
 
     @staticmethod
     def load_csv(filename):
@@ -89,6 +69,10 @@ class MyService:
         ff = self.generate_modality_series_data('Futsal', 'Feminino', 5)
         all_modalities = fm + ff
         return all_modalities
+    
+    def generate_all_localities(self):
+        locations = ['Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha', 'Baby Barione']
+        return locations
     
     def generate_all_rankings(self, modality, series, simulator=False):
         try:

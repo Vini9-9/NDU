@@ -12,7 +12,7 @@
                 "Visitante": "Getúlio Vargas",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "01a4a19b-949f-426c-ac74-eb0641e14b7c",
+                "ID": "b8a4bf4c-ff01-4ec6-a7d2-c43cc8a0c48b",
                 "SIMULADOR": "False"
             },
             {
@@ -25,7 +25,7 @@
                 "Visitante": "LEP Mackenzie",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "01",
-                "ID": "657703ee-9e1c-41a8-9e34-2ec3bbe42645",
+                "ID": "b3cb4975-adf9-4d62-bdf1-8b5823ec323a",
                 "SIMULADOR": "False"
             },
             {
@@ -38,7 +38,7 @@
                 "Visitante": "Mauá",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "a8ff5e41-3df6-43ee-8306-216ef5acb8e4",
+                "ID": "e4bef47c-3ddf-428e-9ee4-76182c48b677",
                 "SIMULADOR": "False"
             },
             {
@@ -51,7 +51,7 @@
                 "Visitante": "EEFE USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "08",
-                "ID": "095c1cd5-4079-4442-a010-5c198ad9ca64",
+                "ID": "dc57791f-e17a-432e-914a-31c03492447b",
                 "SIMULADOR": "False"
             },
             {
@@ -64,7 +64,7 @@
                 "Visitante": "Comunicação Metodista",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "d1c52e26-041f-4af6-9663-dd655713523c",
+                "ID": "b0c772e9-208a-4c67-8846-bac26357c4f2",
                 "SIMULADOR": "False"
             },
             {
@@ -77,7 +77,7 @@
                 "Visitante": "FEA USP",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "00",
-                "ID": "3beb9568-5841-4acb-a6e4-92ab592c84dc",
+                "ID": "22e099a5-4917-4742-b8e6-8d032161d525",
                 "SIMULADOR": "False"
             },
             {
@@ -90,7 +90,7 @@
                 "Visitante": "Medicina Paulista",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "75d409b5-f01f-4c27-a545-feeea1c30948",
+                "ID": "822a3a8d-8066-4554-a5f8-25a46f77ff2d",
                 "SIMULADOR": "False"
             },
             {
@@ -103,7 +103,7 @@
                 "Visitante": "FEA USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "01",
-                "ID": "6b836d4a-0819-4683-b157-dec4239cd359",
+                "ID": "4c15f8ef-7a01-40fc-a5ea-bd022e8b9a36",
                 "SIMULADOR": "False"
             },
             {
@@ -116,7 +116,7 @@
                 "Visitante": "EACH USP",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "00",
-                "ID": "8105f4f1-785f-4f53-8393-20351cd967c6",
+                "ID": "1929f047-c250-446b-9865-4efd2b9e203a",
                 "SIMULADOR": "False"
             },
             {
@@ -129,7 +129,7 @@
                 "Visitante": "ESPM",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "c3e6d192-fcbb-4422-b4eb-19c459705b19",
+                "ID": "6bf293cc-5d22-4d68-ad63-6ae59e57ee8c",
                 "SIMULADOR": "False"
             },
             {
@@ -142,7 +142,7 @@
                 "Visitante": "ESPM",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "00",
-                "ID": "510738da-05b0-4b52-9bfb-f63820a51738",
+                "ID": "71f0c57f-bf3f-4466-8941-e6b8dc0f0c3e",
                 "SIMULADOR": "False"
             },
             {
@@ -155,7 +155,7 @@
                 "Visitante": "Medicina Santo Amaro",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "00",
-                "ID": "3e8f145d-49f9-4e17-b772-0e6eac55379e",
+                "ID": "55e20e8b-7ca0-42ff-8abb-c2f494a0e528",
                 "SIMULADOR": "False"
             },
             {
@@ -168,7 +168,7 @@
                 "Visitante": "EACH USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "00",
-                "ID": "74b3c164-8cf6-4aac-9e7b-9f23a45a1fa6",
+                "ID": "07ed884a-00f6-4d6e-81ab-fb01f905d24c",
                 "SIMULADOR": "False"
             },
             {
@@ -181,7 +181,7 @@
                 "Visitante": "Politécnica USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "f2c6f61d-d04b-40f8-ade4-efdf547edba4",
+                "ID": "3e37f4ec-a386-4d5b-a5e6-ef8f3d27a918",
                 "SIMULADOR": "False"
             },
             {
@@ -194,11 +194,89 @@
                 "Visitante": "Medicina Santo Amaro",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "01",
-                "ID": "1d96daa4-bc70-452a-9edc-3e111788d99d",
+                "ID": "db4fafb8-d82b-4e91-acb8-8ca03acc9d32",
                 "SIMULADOR": "False"
             },
             {
-                "DIA": "2024-04-18",
+                "DIA": "2024-04-21",
+                "HORARIO": "18h20min",
+                "LOCAL": "SEMEF",
+                "GRUPO": "B",
+                "Mandante": "Mauá",
+                "PLACAR": "01X01",
+                "Visitante": "LEP Mackenzie",
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "01",
+                "ID": "1c9199f9-2501-4a96-9240-71efed980c82",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-27",
+                "HORARIO": "15h",
+                "LOCAL": "SEMEF",
+                "GRUPO": "A",
+                "Mandante": "Getúlio Vargas",
+                "PLACAR": "02X01",
+                "Visitante": "Politécnica USP",
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "01",
+                "ID": "d10c2d82-b004-40d1-9889-5d9cb3f5ecba",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-27",
+                "HORARIO": "19h",
+                "LOCAL": "SEMEF",
+                "GRUPO": "A",
+                "Mandante": "EACH USP",
+                "PLACAR": "00X03",
+                "Visitante": "Medicina ABC",
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "03",
+                "ID": "0928458b-967e-4a52-90e0-b241b71c8511",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-28",
+                "HORARIO": "08h",
+                "LOCAL": "SEMEF",
+                "GRUPO": "B",
+                "Mandante": "Medicina Santo Amaro",
+                "PLACAR": "00X01",
+                "Visitante": "ESPM",
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "01",
+                "ID": "56ed032e-19f1-4639-b146-5124b7ceeb36",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-28",
+                "HORARIO": "09h20min",
+                "LOCAL": "SEMEF",
+                "GRUPO": "B",
+                "Mandante": "Medicina Paulista",
+                "PLACAR": "02X02",
+                "Visitante": "Mauá",
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "02",
+                "ID": "dbdadc11-9e2a-425c-843f-00f855b96721",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-28",
+                "HORARIO": "12h",
+                "LOCAL": "SEMEF",
+                "GRUPO": "B",
+                "Mandante": "LEP Mackenzie",
+                "PLACAR": "00X03",
+                "Visitante": "Comunicação Metodista",
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "03",
+                "ID": "008a37d6-e49e-4c51-a952-5f92979e61d0",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-30",
                 "HORARIO": "22h30min",
                 "LOCAL": "Mané Garrincha",
                 "GRUPO": "A",
@@ -207,98 +285,7 @@
                 "Visitante": "EEFE USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "894c8fff-46e7-4e6c-b24e-0e26c3b15b5b",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-21",
-                "HORARIO": "18h20min",
-                "LOCAL": "SEMEF",
-                "GRUPO": "B",
-                "Mandante": "Mauá",
-                "PLACAR": "X",
-                "Visitante": "LEP Mackenzie",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "59e036e5-857f-4c23-ad67-2bf668ac6835",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-27",
-                "HORARIO": "15h",
-                "LOCAL": "SEMEF",
-                "GRUPO": "A",
-                "Mandante": "Getúlio Vargas",
-                "PLACAR": "X",
-                "Visitante": "Politécnica USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "ca4e12a4-7782-407b-b208-03b2ce7e8e68",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-27",
-                "HORARIO": "19h",
-                "LOCAL": "SEMEF",
-                "GRUPO": "A",
-                "Mandante": "EACH USP",
-                "PLACAR": "X",
-                "Visitante": "Medicina ABC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "750203bd-b6de-45b1-9c65-5824a3d17327",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-27",
-                "HORARIO": "20h20min",
-                "LOCAL": "SEMEF",
-                "GRUPO": "A",
-                "Mandante": "EEFE USP",
-                "PLACAR": "X",
-                "Visitante": "FEA USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "ce6b8989-9f0a-4c73-b118-c6bee500982e",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-28",
-                "HORARIO": "08h",
-                "LOCAL": "SEMEF",
-                "GRUPO": "B",
-                "Mandante": "Medicina Santo Amaro",
-                "PLACAR": "X",
-                "Visitante": "ESPM",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "e649c593-876b-4c37-8b58-fe769de05120",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-28",
-                "HORARIO": "09h20min",
-                "LOCAL": "SEMEF",
-                "GRUPO": "B",
-                "Mandante": "Medicina Paulista",
-                "PLACAR": "X",
-                "Visitante": "Mauá",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "65b6ee84-629f-4e17-9e28-d610ed4a9cda",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-28",
-                "HORARIO": "12h",
-                "LOCAL": "SEMEF",
-                "GRUPO": "B",
-                "Mandante": "LEP Mackenzie",
-                "PLACAR": "X",
-                "Visitante": "Comunicação Metodista",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "49121511-dec0-464b-ad93-25c4a92e0b68",
+                "ID": "cf05a792-4e47-4d45-b410-ef663864cf2c",
                 "SIMULADOR": "True"
             },
             {
@@ -311,7 +298,7 @@
                 "Visitante": "Politécnica USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "ff58dc2a-6540-4127-aeb0-5031ef7aa411",
+                "ID": "4aed431a-3d65-46e7-bd64-b27c28cd36fc",
                 "SIMULADOR": "True"
             },
             {
@@ -324,7 +311,7 @@
                 "Visitante": "Comunicação Metodista",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "14ad0f2b-6516-4563-9327-940196289808",
+                "ID": "66189c52-4ed3-4956-b2a1-b9084689e522",
                 "SIMULADOR": "True"
             },
             {
@@ -337,7 +324,20 @@
                 "Visitante": "Medicina Santo Amaro",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "21f66d79-b2e3-4740-a09d-07c7c51e8ecc",
+                "ID": "c73330dd-2f7a-4a52-a32b-8d825457f014",
+                "SIMULADOR": "True"
+            },
+            {
+                "DIA": "2024-05-05",
+                "HORARIO": "20h30min",
+                "LOCAL": "Palestra",
+                "GRUPO": "A",
+                "Mandante": "EEFE USP",
+                "PLACAR": "X",
+                "Visitante": "FEA USP",
+                "GOLS_MANDANTE": "",
+                "GOLS_VISITANTE": "",
+                "ID": "7e6b58bc-e8d8-4830-9dc5-afe09375cbb1",
                 "SIMULADOR": "True"
             },
             {
@@ -350,7 +350,7 @@
                 "Visitante": "Getúlio Vargas",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "771ea384-ea04-4f4c-97d1-ace919a32a84",
+                "ID": "da41aa32-dc9f-4175-a465-7e9e76d44462",
                 "SIMULADOR": "True"
             },
             {
@@ -363,7 +363,7 @@
                 "Visitante": "Medicina Paulista",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "41312934-16ee-41e8-83ca-fd6894f56c94",
+                "ID": "a6526140-fbe9-4474-bdf3-c371ce3252ce",
                 "SIMULADOR": "True"
             },
             {
@@ -376,12 +376,12 @@
                 "Visitante": "Medicina ABC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "ebdd4c1e-3192-452f-8675-1120e872432d",
+                "ID": "916f054b-2fcc-41d5-af99-b6376ca04aee",
                 "SIMULADOR": "True"
             },
             {
-                "DIA": "a definir",
-                "HORARIO": "",
+                "DIA": "",
+                "HORARIO": "a definir",
                 "LOCAL": "a definir",
                 "GRUPO": "A",
                 "Mandante": "Medicina ABC",
@@ -389,7 +389,7 @@
                 "Visitante": "EEFE USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "6929a285-604e-4353-b1b1-45249bd64488",
+                "ID": "99c8343a-952d-4718-95c2-065322c41678",
                 "SIMULADOR": "True"
             }
         ]
@@ -407,7 +407,7 @@
                 "Visitante": "Engenharia Mackenzie",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "0cc205af-4e79-4970-9d7c-f4859d5c83e9",
+                "ID": "14d0f82d-ddd3-45e6-a343-0644d50a4ccd",
                 "SIMULADOR": "False"
             },
             {
@@ -420,7 +420,7 @@
                 "Visitante": "Medicina Santos",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "03",
-                "ID": "2f31a753-05af-48be-af20-6f10f5332bb5",
+                "ID": "7a771680-20b9-47d5-b93b-49b21505967e",
                 "SIMULADOR": "False"
             },
             {
@@ -433,7 +433,7 @@
                 "Visitante": "Medicina Taubaté",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "ed5a6f58-b2f9-43c2-8920-84bbd401ae5f",
+                "ID": "b0dab724-e2d8-481f-8c78-600596deb63f",
                 "SIMULADOR": "False"
             },
             {
@@ -446,7 +446,7 @@
                 "Visitante": "Direito PUC",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "c7f63387-a34e-4b04-8dbc-d166aeadd2f5",
+                "ID": "504610a7-32e4-4cf6-8b76-f44571f5009e",
                 "SIMULADOR": "False"
             },
             {
@@ -459,7 +459,7 @@
                 "Visitante": "FECAP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "6567b3c3-575d-4d03-9439-48ed41817166",
+                "ID": "98ce737d-0077-4b93-b404-9b23bd195271",
                 "SIMULADOR": "False"
             },
             {
@@ -472,7 +472,7 @@
                 "Visitante": "Farmácia USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "e4aea169-1e4a-46e3-856f-779329f20114",
+                "ID": "4299b746-f041-4168-b6b7-7c7a455d538a",
                 "SIMULADOR": "False"
             },
             {
@@ -485,7 +485,7 @@
                 "Visitante": "Medicina Taubaté",
                 "GOLS_MANDANTE": "06",
                 "GOLS_VISITANTE": "01",
-                "ID": "e1ed993f-d895-4794-b328-cae79fd837de",
+                "ID": "ba85d7db-c1be-4453-8ab1-d85abd8e35f7",
                 "SIMULADOR": "False"
             },
             {
@@ -498,7 +498,7 @@
                 "Visitante": "Medicina USP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "ff575852-fcc0-470f-9c53-79a86dca10f8",
+                "ID": "7979f513-7815-43bb-96e3-b0bf41530481",
                 "SIMULADOR": "False"
             },
             {
@@ -511,7 +511,7 @@
                 "Visitante": "Medicina Jundiaí",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "07",
-                "ID": "292755d0-30cd-49a1-b9e4-e9cf52bfadc6",
+                "ID": "75f07266-ed9b-45b7-82c1-73fd41681f42",
                 "SIMULADOR": "False"
             },
             {
@@ -524,7 +524,7 @@
                 "Visitante": "Medicina UNINOVE",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "043a055d-0966-4436-bc36-d04bba7ca68b",
+                "ID": "13afb9a8-8109-4fb1-b56b-1eb8f96ab211",
                 "SIMULADOR": "False"
             },
             {
@@ -537,7 +537,7 @@
                 "Visitante": "Veterinária USP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "19b721ce-67ad-42a4-826d-18113d12c0bb",
+                "ID": "d6a79daf-2a5a-4b43-9c6a-d1e2aa665167",
                 "SIMULADOR": "False"
             },
             {
@@ -550,7 +550,7 @@
                 "Visitante": "Medicina Santa Casa",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "2936e1ef-5177-4cfb-b9ed-a4574f87f497",
+                "ID": "49b9f828-4b63-4ee9-8c0b-7131c789084b",
                 "SIMULADOR": "False"
             },
             {
@@ -563,7 +563,7 @@
                 "Visitante": "Direito PUC",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "02",
-                "ID": "4d77d2b2-93cb-43f7-b795-7dbcec0326dd",
+                "ID": "0c241e22-9d88-4a98-9088-ee0e1ce33607",
                 "SIMULADOR": "False"
             },
             {
@@ -576,7 +576,7 @@
                 "Visitante": "Medicina USP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "62945168-b48d-45c3-ae67-d448437efd94",
+                "ID": "366128ea-8f36-433f-80a8-f03bf224cd69",
                 "SIMULADOR": "False"
             },
             {
@@ -589,21 +589,21 @@
                 "Visitante": "FECAP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "47b36a3d-febc-4e11-8066-5b2201cd994d",
+                "ID": "62641dd3-f632-48a7-898c-bdba8557fbb1",
                 "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
-                "HORARIO": "17h",
-                "LOCAL": "SEMEF",
+                "HORARIO": "11h10min",
+                "LOCAL": "USCS",
                 "GRUPO": "A",
                 "Mandante": "Farmácia USP",
-                "PLACAR": "X",
+                "PLACAR": "01X01",
                 "Visitante": "Engenharia Mackenzie",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "ae101bbe-c3b6-4fcf-b12a-9caa31d62c79",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "01",
+                "ID": "31c3b109-54fc-4da5-9759-9f84394c6ac2",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -611,12 +611,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "A",
                 "Mandante": "FECAP",
-                "PLACAR": "X",
+                "PLACAR": "01X03",
                 "Visitante": "Arquitetura Mackenzie",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "478092a9-463f-45ad-8ab3-219a94363e70",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "03",
+                "ID": "3b08447f-92d0-4460-8b22-f0c1c4dba2c3",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -624,12 +624,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "A",
                 "Mandante": "Medicina Jundiaí",
-                "PLACAR": "X",
+                "PLACAR": "00X02",
                 "Visitante": "Medicina Santa Casa",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "3a98d7e0-c6d2-4e7c-b8f9-4616bbdeee0d",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "02",
+                "ID": "ea59bdb1-fb6f-4a90-9f32-69db74d9aa0a",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -637,12 +637,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "B",
                 "Mandante": "Medicina Santos",
-                "PLACAR": "X",
+                "PLACAR": "01X02",
                 "Visitante": "Medicina Taubaté",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "19fa6e90-d8cc-48bf-a5f7-e7a9053f6f23",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "02",
+                "ID": "0eae2828-d9bb-4732-8c7f-434f37981d9f",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -650,12 +650,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "B",
                 "Mandante": "Medicina UNINOVE",
-                "PLACAR": "X",
+                "PLACAR": "02X04",
                 "Visitante": "Direito PUC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "a888f399-8f8e-46cc-8b58-c707c9a8321a",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "04",
+                "ID": "9d13266f-080b-4c4b-847a-db050ff64710",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -663,12 +663,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "B",
                 "Mandante": "Medicina USP",
-                "PLACAR": "X",
+                "PLACAR": "04X00",
                 "Visitante": "Veterinária USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "d1d6e543-c49a-430d-8b2e-3795b1d81f4a",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "04",
+                "GOLS_VISITANTE": "00",
+                "ID": "732310a2-b47f-418a-b1c7-ed87ba8eb61d",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-04",
@@ -680,7 +680,7 @@
                 "Visitante": "Medicina Jundiaí",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "a311c77c-45da-4cec-87ae-4a78ab0670bd",
+                "ID": "40a78adc-5f5c-4ed0-8475-78babbbeea1d",
                 "SIMULADOR": "True"
             },
             {
@@ -693,7 +693,7 @@
                 "Visitante": "Arquitetura Mackenzie",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "67c21d14-e3d3-42a9-8aa4-c65aa5c3290f",
+                "ID": "81670ae6-77a0-4857-aa75-e6941b94115e",
                 "SIMULADOR": "True"
             },
             {
@@ -706,7 +706,7 @@
                 "Visitante": "Medicina Santa Casa",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "56a6785b-5fd6-4c0b-8f5e-edeaf3e5f71c",
+                "ID": "f75e7162-f2da-44c6-b984-3d02524a9bf8",
                 "SIMULADOR": "True"
             },
             {
@@ -719,7 +719,7 @@
                 "Visitante": "Farmácia USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "2648251c-8441-415e-b3c8-cf2e4a62bfba",
+                "ID": "2a7432c2-ac83-432c-9bef-96b74d9242f0",
                 "SIMULADOR": "True"
             },
             {
@@ -732,7 +732,7 @@
                 "Visitante": "Medicina USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "03f7b851-50e8-4edf-b66e-a0130371b22f",
+                "ID": "adafc64e-e4cd-489e-a42a-504c999c0bd6",
                 "SIMULADOR": "True"
             },
             {
@@ -745,7 +745,7 @@
                 "Visitante": "Medicina Santos",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "14d04f46-af77-405b-a1e1-38847744b5ab",
+                "ID": "3a263611-64fc-44fc-8185-146c0ca40407",
                 "SIMULADOR": "True"
             },
             {
@@ -758,7 +758,7 @@
                 "Visitante": "Medicina UNINOVE",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "6dd6714c-5eb9-4b7e-8f2a-2a64e8862f8c",
+                "ID": "341b2523-cb88-4d75-8518-f51598debd9a",
                 "SIMULADOR": "True"
             },
             {
@@ -771,12 +771,12 @@
                 "Visitante": "Farmácia USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "31d91efd-7419-457b-9132-6926fe89c4b2",
+                "ID": "ecfd296b-d876-4d4b-be6c-23be683cb185",
                 "SIMULADOR": "True"
             },
             {
-                "DIA": "a definir",
-                "HORARIO": "",
+                "DIA": "",
+                "HORARIO": "a definir",
                 "LOCAL": "a definir",
                 "GRUPO": "A",
                 "Mandante": "Medicina Santa Casa",
@@ -784,7 +784,7 @@
                 "Visitante": "Engenharia Mackenzie",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "6d18cc98-8fed-41a2-910a-92cb3b2b62a5",
+                "ID": "4e7f1d61-50d2-4c66-b5af-0197b28cea0b",
                 "SIMULADOR": "True"
             }
         ]
@@ -802,7 +802,7 @@
                 "Visitante": "Federal do ABC",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "114ce40d-1b11-42c0-a872-a3cb37e0f6eb",
+                "ID": "95a37080-2121-48c4-8992-3a6f7717c67d",
                 "SIMULADOR": "False"
             },
             {
@@ -815,7 +815,7 @@
                 "Visitante": "Medicina Einstein",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "96d6f252-a159-4887-8117-14fee7f8f3cd",
+                "ID": "d45df973-fe6b-4371-bb62-05d4714d4c83",
                 "SIMULADOR": "False"
             },
             {
@@ -828,7 +828,7 @@
                 "Visitante": "Medicina São Bernardo",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "57bfdd1e-c382-4a42-8d98-aef7fd1e7e38",
+                "ID": "0b754887-4ed8-4dd2-a21e-200fc5d95ac1",
                 "SIMULADOR": "False"
             },
             {
@@ -841,7 +841,7 @@
                 "Visitante": "INSPER",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "2eace7b2-79ab-40b3-8154-5790b296c18d",
+                "ID": "514dbc3b-2d5a-4b65-ac99-d7481db72c44",
                 "SIMULADOR": "False"
             },
             {
@@ -854,7 +854,7 @@
                 "Visitante": "Engenharia Anhembi",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "04",
-                "ID": "df9df2f9-e870-4358-8a3b-6852ad6ad56a",
+                "ID": "10c46bad-6feb-4442-9ae7-86ec1e6f3cf2",
                 "SIMULADOR": "False"
             },
             {
@@ -867,7 +867,7 @@
                 "Visitante": "Unifesp São Paulo",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "a0bef6b6-c667-48f5-a781-0e2ec69a4077",
+                "ID": "22314bcc-1383-4483-a5e4-7747a1c65690",
                 "SIMULADOR": "False"
             },
             {
@@ -880,7 +880,7 @@
                 "Visitante": "Medicina UNICAMP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "184138a6-3555-49de-b566-64bc6ff93fa3",
+                "ID": "964ed01a-0e37-4abf-b154-ddb2366e510d",
                 "SIMULADOR": "False"
             },
             {
@@ -893,7 +893,7 @@
                 "Visitante": "Medicina São Bernardo",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "dbef079c-0ac4-4049-98d0-f6a94aecd94b",
+                "ID": "58a07446-c747-42aa-826f-688bcbc8a63e",
                 "SIMULADOR": "False"
             },
             {
@@ -906,7 +906,7 @@
                 "Visitante": "Medicina Santa Marcelina",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "00",
-                "ID": "9051e60d-9322-48e7-a1ac-a591987cb51d",
+                "ID": "f41104d1-d4b4-4f21-b9e1-06e431c85ecd",
                 "SIMULADOR": "False"
             },
             {
@@ -919,7 +919,7 @@
                 "Visitante": "Federal do ABC",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "05",
-                "ID": "908ed4d4-94d6-4259-b355-9bf5e61dc12e",
+                "ID": "f6acd4a8-5da9-4c98-aea2-9ae85a84e140",
                 "SIMULADOR": "False"
             },
             {
@@ -932,7 +932,7 @@
                 "Visitante": "Psicologia da PUC SP",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "00",
-                "ID": "a85c1f60-ae97-4e75-8e24-78cf79f815b7",
+                "ID": "c0ca0b04-dc71-4bed-900c-4fb68c457f03",
                 "SIMULADOR": "False"
             },
             {
@@ -945,7 +945,7 @@
                 "Visitante": "Engenharia São Judas",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "8814718b-8df5-4821-84b1-753ffdc0cf19",
+                "ID": "4e35eba9-5cb5-4271-922b-223760bcd914",
                 "SIMULADOR": "False"
             },
             {
@@ -958,7 +958,7 @@
                 "Visitante": "Medicina UNICAMP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "00",
-                "ID": "6cfef41e-4cd5-43bf-a544-bc89cd956505",
+                "ID": "02f7523a-75aa-4445-b54b-1dd1a6b1bbbc",
                 "SIMULADOR": "False"
             },
             {
@@ -971,7 +971,7 @@
                 "Visitante": "SENAC",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "01",
-                "ID": "7aabb0b2-c657-492e-bd5c-6e5e52c9f0a0",
+                "ID": "30dd590e-1a70-44be-9a3c-3f407a16e766",
                 "SIMULADOR": "False"
             },
             {
@@ -984,7 +984,7 @@
                 "Visitante": "Medicina São Bernardo",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "c700163a-064a-47a3-ab18-78b4b7ddfaa8",
+                "ID": "2da6f742-3b17-4496-9d7a-f302260b66c2",
                 "SIMULADOR": "False"
             },
             {
@@ -997,7 +997,7 @@
                 "Visitante": "FFLCH USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "47e0aa28-d867-498b-998d-ed7e67fd4130",
+                "ID": "e2ddeaf5-c322-4178-a1bf-173a997f51a0",
                 "SIMULADOR": "False"
             },
             {
@@ -1010,7 +1010,7 @@
                 "Visitante": "INSPER",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "88f23265-cbb7-40bb-a5ea-2ea7f1a5d959",
+                "ID": "cbb24b0a-0b7b-43c5-bdd4-d23c18b5b043",
                 "SIMULADOR": "False"
             },
             {
@@ -1019,12 +1019,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Engenharia São Judas",
-                "PLACAR": "X",
+                "PLACAR": "03X00",
                 "Visitante": "Medicina UNICAMP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "f07488d5-87a9-478f-a52b-c22fe2df1b4f",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "00",
+                "ID": "be9fc857-5a8a-4ede-948f-1637f4500629",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
@@ -1032,12 +1032,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "A",
                 "Mandante": "Medicina São Bernardo",
-                "PLACAR": "X",
+                "PLACAR": "02X01",
                 "Visitante": "Medicina Einstein",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "471a16d9-84b3-4f72-9b15-79c076ea7b1c",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "01",
+                "ID": "498bf865-d958-4a8b-8846-4abab7ff8fa7",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -1045,12 +1045,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "B",
                 "Mandante": "INSPER",
-                "PLACAR": "X",
+                "PLACAR": "05X00",
                 "Visitante": "Unifesp São Paulo",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "ebd731b7-fd7f-4d97-99e4-d2bd796070f0",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "05",
+                "GOLS_VISITANTE": "00",
+                "ID": "0c47d13e-7f86-470e-acf1-65f89f636ff2",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -1058,12 +1058,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "B",
                 "Mandante": "FFLCH USP",
-                "PLACAR": "X",
+                "PLACAR": "01X01",
                 "Visitante": "Federal do ABC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "cfa8d4ba-01fd-4d2d-80d4-314938f382ba",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "01",
+                "ID": "751c0415-13fa-455a-9b5d-e1d3858d0840",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -1071,12 +1071,12 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "A",
                 "Mandante": "Psicologia da PUC SP",
-                "PLACAR": "X",
+                "PLACAR": "02X03",
                 "Visitante": "SENAC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "f0fa5244-62f7-4f2a-9eb4-899c087b1492",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "03",
+                "ID": "cc9c430f-b34c-4656-9830-f4cfeb9845ff",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -1084,24 +1084,37 @@
                 "LOCAL": "SEMEF",
                 "GRUPO": "A",
                 "Mandante": "Medicina Santa Marcelina",
-                "PLACAR": "X",
+                "PLACAR": "00X00",
                 "Visitante": "Engenharia Anhembi",
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "00",
+                "ID": "f0f76318-79c0-4ae0-a222-ac3c3ab42e17",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-05-02",
+                "HORARIO": "21h40min",
+                "LOCAL": "Baby Barione",
+                "GRUPO": "A",
+                "Mandante": "Psicologia da PUC SP",
+                "PLACAR": "X",
+                "Visitante": "Medicina Santa Marcelina",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "214296a3-8e8b-4f76-a114-990ba2076502",
+                "ID": "b4bbd71d-9d3d-4c9b-933d-a5326ee2f813",
                 "SIMULADOR": "True"
             },
             {
-                "DIA": "2024-05-04",
-                "HORARIO": "17h",
-                "LOCAL": "SEMEF",
+                "DIA": "2024-05-05",
+                "HORARIO": "13h20min",
+                "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Medicina Einstein",
                 "PLACAR": "X",
                 "Visitante": "Engenharia Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "6bcf0453-fb8c-48f2-80a7-534a01d7cfbc",
+                "ID": "5ce33885-a548-4692-889c-edac28640420",
                 "SIMULADOR": "True"
             },
             {
@@ -1114,7 +1127,7 @@
                 "Visitante": "INSPER",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "af29d451-2689-40fa-a123-3706d0cd440b",
+                "ID": "e7c3690c-b2db-4027-b7f0-997d21766799",
                 "SIMULADOR": "True"
             },
             {
@@ -1127,7 +1140,7 @@
                 "Visitante": "FFLCH USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "d9f97dd1-edf9-45aa-bb35-157b4f079e66",
+                "ID": "5c055364-f863-4e2b-84c8-0a936161594c",
                 "SIMULADOR": "True"
             },
             {
@@ -1140,7 +1153,7 @@
                 "Visitante": "Psicologia da PUC SP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "4b3d7d02-0b64-44b0-a577-3cf2efcfa270",
+                "ID": "5d3b83aa-bdaf-4daf-8877-b36ece90f9b7",
                 "SIMULADOR": "True"
             },
             {
@@ -1153,7 +1166,7 @@
                 "Visitante": "Engenharia São Judas",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "401033af-60ba-4e39-a245-4bc86015751d",
+                "ID": "c01b8392-66c8-4697-8bac-e86bfddb6b02",
                 "SIMULADOR": "True"
             },
             {
@@ -1166,20 +1179,7 @@
                 "Visitante": "Medicina Santa Marcelina",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "a3e6db34-c3f3-4b4a-b6dc-b5eb83d6e0c2",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "a definir",
-                "HORARIO": "",
-                "LOCAL": "a definir",
-                "GRUPO": "A",
-                "Mandante": "Psicologia da PUC SP",
-                "PLACAR": "X",
-                "Visitante": "Medicina Santa Marcelina",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "41c7ee91-e506-4d69-be02-a97593618ea0",
+                "ID": "dd8c7a31-2d07-4255-89fd-b903696c6271",
                 "SIMULADOR": "True"
             }
         ]
@@ -1197,7 +1197,7 @@
                 "Visitante": "UNIFESP Osasco",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "567a9778-641b-4a79-8bad-265e30406d3d",
+                "ID": "5e693846-e22e-469c-b83a-4eeebc32e1db",
                 "SIMULADOR": "False"
             },
             {
@@ -1210,7 +1210,7 @@
                 "Visitante": "ICBIÓ USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "04",
-                "ID": "1f21d731-0441-4177-b6e3-7df200287eb2",
+                "ID": "c69451f0-f368-4c01-9ca3-d6a2dc409889",
                 "SIMULADOR": "False"
             },
             {
@@ -1223,7 +1223,7 @@
                 "Visitante": "Medicina PUC Campinas",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "06",
-                "ID": "43a4eb26-c902-4475-87bf-25a9eec6a034",
+                "ID": "8fc7368d-8980-47f6-8368-acd6180db996",
                 "SIMULADOR": "False"
             },
             {
@@ -1236,7 +1236,7 @@
                 "Visitante": "ITA",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "04",
-                "ID": "ea15c814-5dc4-4630-9edc-3be907300daa",
+                "ID": "2a39afe7-2af7-40db-8588-cbee407c109d",
                 "SIMULADOR": "False"
             },
             {
@@ -1249,7 +1249,7 @@
                 "Visitante": "Direito USP",
                 "GOLS_MANDANTE": "06",
                 "GOLS_VISITANTE": "00",
-                "ID": "5a1ea4a8-01c5-4fa2-a20d-cd4836a397bb",
+                "ID": "c558cd94-7be7-4541-8616-be268eab612f",
                 "SIMULADOR": "False"
             },
             {
@@ -1262,7 +1262,7 @@
                 "Visitante": "Direito Mackenzie",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "00",
-                "ID": "7e2f792f-4519-407b-9afa-b9ffda7d7650",
+                "ID": "d6597af3-8959-4254-9704-abc0a5e7ce40",
                 "SIMULADOR": "False"
             },
             {
@@ -1275,7 +1275,7 @@
                 "Visitante": "Comunicação Anhembi",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "4bd467d4-3645-411e-80e6-cb139a4ccbdf",
+                "ID": "3b13611d-8698-4f30-9ace-682d639de79b",
                 "SIMULADOR": "False"
             },
             {
@@ -1288,7 +1288,7 @@
                 "Visitante": "Medicina PUC Campinas",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "06",
-                "ID": "1ef526a2-a05a-4c15-a843-bfad399e9f46",
+                "ID": "25d92ea4-bd71-4615-ba49-14953fdf0e39",
                 "SIMULADOR": "False"
             },
             {
@@ -1301,7 +1301,7 @@
                 "Visitante": "ITA",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "11",
-                "ID": "dd6a9be7-fe26-41ed-a589-c1cf5352d68a",
+                "ID": "93ad84fc-519d-4c36-b4ae-e039b1c6a1c3",
                 "SIMULADOR": "False"
             },
             {
@@ -1314,7 +1314,7 @@
                 "Visitante": "FMU",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "05",
-                "ID": "eefb901a-23e5-4bd9-af7a-69641cf2ccc4",
+                "ID": "9a6076c0-2df2-4ab6-a2ca-3dfdecb0fc8d",
                 "SIMULADOR": "False"
             },
             {
@@ -1327,7 +1327,7 @@
                 "Visitante": "Fatec São Paulo",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "3d3ad255-55a1-49fd-a177-b185971bc269",
+                "ID": "474ed19b-d08b-4418-bb6d-bcb0e913152c",
                 "SIMULADOR": "False"
             },
             {
@@ -1340,7 +1340,7 @@
                 "Visitante": "FEI",
                 "GOLS_MANDANTE": "07",
                 "GOLS_VISITANTE": "01",
-                "ID": "29c5a925-6557-4201-8011-cb32f250aaee",
+                "ID": "204ff9ab-beb4-4bfe-a47b-fd6dba5950ee",
                 "SIMULADOR": "False"
             },
             {
@@ -1353,7 +1353,7 @@
                 "Visitante": "Direito USP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "e0af0aaa-b4d0-438b-b9b9-a8c314feea91",
+                "ID": "ea1e8ebe-1804-4488-b9d5-5c29a9ee8da1",
                 "SIMULADOR": "False"
             },
             {
@@ -1366,7 +1366,7 @@
                 "Visitante": "Direito Mackenzie",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "00",
-                "ID": "c8cc73cb-2773-4976-87b4-a27ad0114581",
+                "ID": "1c7ef9d0-b3e0-4bc2-91de-1a226d9be102",
                 "SIMULADOR": "False"
             },
             {
@@ -1379,7 +1379,7 @@
                 "Visitante": "Medicina Anhembi",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "e8c2d338-9ef7-4312-98a7-4de8965bb285",
+                "ID": "0c319f91-31c5-48b6-b06d-4adab2606f63",
                 "SIMULADOR": "False"
             },
             {
@@ -1392,7 +1392,7 @@
                 "Visitante": "FMU",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "06",
-                "ID": "cbbaac96-19a9-4b8b-a4fa-01ea5f69e2e1",
+                "ID": "9839d962-6337-47df-a9b0-6b306b6d196f",
                 "SIMULADOR": "False"
             },
             {
@@ -1405,7 +1405,7 @@
                 "Visitante": "Medicina UNIMES",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "00",
-                "ID": "f878c980-8e2a-46f0-98f2-1a3c540d8f1d",
+                "ID": "83dbf50e-d87d-4adc-83dc-04f593b45d17",
                 "SIMULADOR": "False"
             },
             {
@@ -1414,16 +1414,16 @@
                 "LOCAL": "GETA",
                 "GRUPO": "B",
                 "Mandante": "Direito Mackenzie",
-                "PLACAR": "X",
+                "PLACAR": "01X03",
                 "Visitante": "ICBIÓ USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "feecc805-d64c-4719-9317-b01bbfc11abd",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "03",
+                "ID": "b5c8cf8d-c758-460b-ac5b-65292945c616",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-04",
-                "HORARIO": "18h20min",
+                "HORARIO": "17h",
                 "LOCAL": "SEMEF",
                 "GRUPO": "A",
                 "Mandante": "Direito USP",
@@ -1431,7 +1431,7 @@
                 "Visitante": "Medicina UNIMES",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "439b18cb-8e12-47ce-97b5-0563d933ad02",
+                "ID": "ccd93d98-4624-4333-8958-f5264bfbe1f2",
                 "SIMULADOR": "True"
             },
             {
@@ -1444,7 +1444,7 @@
                 "Visitante": "FEI",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "834d5612-57a4-4e9a-ade4-82e3eb1a57eb",
+                "ID": "a33b6413-0a47-4364-a0e8-79c1120e3318",
                 "SIMULADOR": "True"
             },
             {
@@ -1457,7 +1457,7 @@
                 "Visitante": "ICBIÓ USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "0bc4076f-88a5-429d-a533-03416561f001",
+                "ID": "df4b8913-bdc7-468b-80c0-404472ed13ae",
                 "SIMULADOR": "True"
             },
             {
@@ -1470,7 +1470,7 @@
                 "Visitante": "Medicina Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "1a67268f-a82a-4b77-aec8-1806d5fd1d85",
+                "ID": "cae10f66-2910-4d99-91b2-14fc858cc150",
                 "SIMULADOR": "True"
             },
             {
@@ -1483,7 +1483,7 @@
                 "Visitante": "FMU",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "145cadcb-4a0f-4454-81b8-0a71f38d66e9",
+                "ID": "4af62d1c-bfb1-4823-9ea2-85d0d37d2f18",
                 "SIMULADOR": "True"
             },
             {
@@ -1496,7 +1496,7 @@
                 "Visitante": "Direito USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "c95178f3-8d44-4f31-b20a-402b95d6eb94",
+                "ID": "cc70e3aa-66ab-4258-8225-08df88b2fdbf",
                 "SIMULADOR": "True"
             },
             {
@@ -1509,7 +1509,7 @@
                 "Visitante": "Medicina PUC Campinas",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "b2e151b2-b278-4d62-95ae-8a538470455d",
+                "ID": "dc8ba0f5-b1cd-4a6f-aa44-e9f543d459ba",
                 "SIMULADOR": "True"
             },
             {
@@ -1522,7 +1522,7 @@
                 "Visitante": "ITA",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "6dcdfa9e-273f-4e6d-b4cb-cb81b33df226",
+                "ID": "962734d5-e395-41b1-8f40-b30588db2e18",
                 "SIMULADOR": "True"
             },
             {
@@ -1535,7 +1535,7 @@
                 "Visitante": "Comunicação Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "0aeb8118-8d8d-4eb6-9202-1426f43e6614",
+                "ID": "c519735e-28b5-491c-ad6b-6d3b54c2db79",
                 "SIMULADOR": "True"
             },
             {
@@ -1548,7 +1548,7 @@
                 "Visitante": "UNIFESP Osasco",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "5b8024e8-9dda-4a2b-90d3-517a074f5f01",
+                "ID": "fd201067-af32-4ef2-9b73-e773f7108da9",
                 "SIMULADOR": "True"
             },
             {
@@ -1561,7 +1561,7 @@
                 "Visitante": "Fatec São Paulo",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "0b18fee7-199a-4adc-a808-c9fa8eea14b4",
+                "ID": "1b36bcb7-0778-4306-8529-ee291b602574",
                 "SIMULADOR": "True"
             },
             {
@@ -1574,7 +1574,7 @@
                 "Visitante": "Medicina Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "2f43ed49-4d63-4ade-a4e0-a75fc0f2bd93",
+                "ID": "91ea03ab-3f8b-4e6a-9fb8-e457299883ac",
                 "SIMULADOR": "True"
             }
         ]
@@ -1592,7 +1592,7 @@
                 "Visitante": "Medicina Bragança",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "00",
-                "ID": "828a74a4-2be8-45a6-9b94-c3989c558862",
+                "ID": "e5df17bf-6e68-46d7-b265-a6f5e133df38",
                 "SIMULADOR": "False"
             },
             {
@@ -1605,7 +1605,7 @@
                 "Visitante": "Medicina UNESP Botucatu",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "09",
-                "ID": "68f04f01-de65-4b2b-9bcc-e64aa82ced03",
+                "ID": "d8818572-bd80-44ff-b53c-a901b84f5a6e",
                 "SIMULADOR": "False"
             },
             {
@@ -1618,7 +1618,7 @@
                 "Visitante": "Medicina Bela Vista",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "02",
-                "ID": "59a184f7-d3e3-4e67-8689-4c0f462a50ae",
+                "ID": "92b417cd-17f6-4ccb-85ca-a2b7c44449db",
                 "SIMULADOR": "False"
             },
             {
@@ -1631,7 +1631,7 @@
                 "Visitante": "Medicina UNICID",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "2130ef0a-fd3f-4f65-9b83-e5e5df06d97c",
+                "ID": "e6156227-2122-444e-9db8-690fa557eaba",
                 "SIMULADOR": "False"
             },
             {
@@ -1644,7 +1644,7 @@
                 "Visitante": "Comunicação PUC",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "02",
-                "ID": "b4f62709-16fb-44df-b3a3-fd7b4e6b6687",
+                "ID": "530c5bf3-f59b-433f-98dc-f90936cec7b2",
                 "SIMULADOR": "False"
             },
             {
@@ -1657,7 +1657,7 @@
                 "Visitante": "CAAP UFABC",
                 "GOLS_MANDANTE": "16",
                 "GOLS_VISITANTE": "00",
-                "ID": "e40dea5f-a8eb-4410-8ac6-876caa68d016",
+                "ID": "8737636f-0988-4104-ad7a-3dc07ca83107",
                 "SIMULADOR": "False"
             },
             {
@@ -1670,7 +1670,7 @@
                 "Visitante": "Comunicação Mackenzie",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "4207ea0a-a806-4be6-a65d-7347b87c85aa",
+                "ID": "6e1c338d-a796-485e-bf04-8406602972f3",
                 "SIMULADOR": "False"
             },
             {
@@ -1683,7 +1683,7 @@
                 "Visitante": "Comunicação PUC",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "01",
-                "ID": "9b819b43-cb0b-4d97-a0c2-b50d75890554",
+                "ID": "cbb5d31e-5608-42d3-a308-be6c62f4c5d6",
                 "SIMULADOR": "False"
             },
             {
@@ -1696,7 +1696,7 @@
                 "Visitante": "Medicina UNESP Botucatu",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "1a6b79be-b39c-4a2e-a532-23aef1783928",
+                "ID": "24ec71c2-260c-4c0c-8346-fc6862788f61",
                 "SIMULADOR": "False"
             },
             {
@@ -1709,7 +1709,7 @@
                 "Visitante": "Medicina MANDIC",
                 "GOLS_MANDANTE": "06",
                 "GOLS_VISITANTE": "04",
-                "ID": "77da534b-7554-4aad-a9c7-420b8cae938b",
+                "ID": "1b9d0a7a-c7f4-4ba9-8b29-da9eb9887ca0",
                 "SIMULADOR": "False"
             },
             {
@@ -1722,7 +1722,7 @@
                 "Visitante": "USCS",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "01",
-                "ID": "f7d64c7d-1ad8-4494-a885-2ed2e22889b2",
+                "ID": "cd8dcec4-1840-44dd-9141-64653e075e03",
                 "SIMULADOR": "False"
             },
             {
@@ -1735,7 +1735,7 @@
                 "Visitante": "Medicina UNICID",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "01",
-                "ID": "161cc7d3-39f4-4a7d-9d2c-766d90821853",
+                "ID": "e5b7672b-716d-4bf3-9b87-e423cdc1c248",
                 "SIMULADOR": "False"
             },
             {
@@ -1748,7 +1748,7 @@
                 "Visitante": "FEA São Judas",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "10",
-                "ID": "537792e0-4ec7-4183-8cb2-6628e212aaea",
+                "ID": "ed195ed7-0c4f-4a9d-ad6a-4e7bf1ddccbf",
                 "SIMULADOR": "False"
             },
             {
@@ -1761,7 +1761,7 @@
                 "Visitante": "FAU USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "339098db-96d8-4fc3-8692-cdb195769b08",
+                "ID": "16592318-6f1f-4c8c-b799-768a1f7f9078",
                 "SIMULADOR": "False"
             },
             {
@@ -1774,7 +1774,7 @@
                 "Visitante": "FEA São Judas",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "761c8780-f46a-452a-a775-8bed1c61dd7c",
+                "ID": "333e2310-2b15-4235-9bea-42e949e9ea6a",
                 "SIMULADOR": "False"
             },
             {
@@ -1787,7 +1787,7 @@
                 "Visitante": "Comunicação Mackenzie",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "04",
-                "ID": "54fe3417-f721-4d14-b5b3-37638b32a043",
+                "ID": "b58c7712-01fb-4973-aa65-d42fb1c8628e",
                 "SIMULADOR": "False"
             },
             {
@@ -1800,7 +1800,7 @@
                 "Visitante": "Cásper Líbero",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "b8fee7ab-e378-48ac-a6ae-d613602d44a9",
+                "ID": "ad408a94-c2a7-4326-8b57-0872419d7829",
                 "SIMULADOR": "False"
             },
             {
@@ -1813,7 +1813,7 @@
                 "Visitante": "Direito FMU",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "08",
-                "ID": "d400275b-675d-4cae-92ba-933504690a83",
+                "ID": "3d022279-b654-4f9e-bbd4-4209536e0524",
                 "SIMULADOR": "False"
             },
             {
@@ -1826,7 +1826,7 @@
                 "Visitante": "USCS",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "02",
-                "ID": "f5e87fe8-4e1e-46a2-b220-ce978fc29ca8",
+                "ID": "a3fda374-c51c-42b2-ba29-6ada4747f111",
                 "SIMULADOR": "False"
             },
             {
@@ -1839,7 +1839,7 @@
                 "Visitante": "Medicina São Caetano",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "00",
-                "ID": "be9d6af4-6f4e-48b0-b953-86e220d1c652",
+                "ID": "970713ec-1d3f-49fa-9422-4a68ece7d651",
                 "SIMULADOR": "False"
             },
             {
@@ -1852,7 +1852,7 @@
                 "Visitante": "Comunicação PUC",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "00",
-                "ID": "70eed568-525d-47f1-8a4b-21be1b40971d",
+                "ID": "8743622b-7f3e-4f31-997b-3584db079bd3",
                 "SIMULADOR": "False"
             },
             {
@@ -1865,7 +1865,7 @@
                 "Visitante": "FAU USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "c7a51ae2-a0c1-41fb-ba59-f043fca4be5c",
+                "ID": "0ebacff5-d61c-4f06-94ce-565e7d149d76",
                 "SIMULADOR": "False"
             },
             {
@@ -1878,7 +1878,7 @@
                 "Visitante": "Comunicação Mackenzie",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "15",
-                "ID": "263e1c2a-925c-471e-9155-57aaed788143",
+                "ID": "f7ce9ba5-f01b-410b-aa18-dca5c3382179",
                 "SIMULADOR": "False"
             },
             {
@@ -1891,7 +1891,7 @@
                 "Visitante": "Medicina UNESP Botucatu",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "f7908e4d-5392-4011-8d9b-8e6116717f56",
+                "ID": "9de6c126-75ea-4a40-aa16-b0751d6200e4",
                 "SIMULADOR": "False"
             },
             {
@@ -1904,7 +1904,7 @@
                 "Visitante": "Medicina MANDIC",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "08",
-                "ID": "b159cd37-d0d5-4fc8-8632-05289e865e52",
+                "ID": "75ebeb4c-0997-494b-8315-83dcd3c86a3c",
                 "SIMULADOR": "False"
             },
             {
@@ -1913,12 +1913,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "USCS",
-                "PLACAR": "X",
+                "PLACAR": "00X02",
                 "Visitante": "Direito FMU",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "4634dc30-b72c-4578-91c7-557c3c7a628d",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "02",
+                "ID": "a0d97bd9-8b39-4e26-a7ae-428346cca183",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -1926,12 +1926,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "Comunicação PUC",
-                "PLACAR": "X",
+                "PLACAR": "03X02",
                 "Visitante": "Medicina São Caetano",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "6f8263f4-6381-4bc2-b9d9-7dc84921c1aa",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "02",
+                "ID": "ed56176a-8f15-4564-a5e4-1b991d5189e9",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -1939,12 +1939,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "Medicina UNESP Botucatu",
-                "PLACAR": "X",
+                "PLACAR": "13X00",
                 "Visitante": "Medicina MANDIC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "0b94932a-12d9-4c98-bf0c-1c1d09e02f59",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "13",
+                "GOLS_VISITANTE": "00",
+                "ID": "812fbb28-58b0-492f-8107-56ac54323ec3",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -1952,12 +1952,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "CAAP UFABC",
-                "PLACAR": "X",
+                "PLACAR": "01X05",
                 "Visitante": "Medicina Bela Vista",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "6c1c4df9-6cb0-4286-a955-a6470bcdd197",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "05",
+                "ID": "1e469181-7ede-422d-bd75-deaefaa795ec",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -1965,12 +1965,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "FEA São Judas",
-                "PLACAR": "X",
+                "PLACAR": "01X00",
                 "Visitante": "Cásper Líbero",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "dfbfbc6e-cb5c-490f-91d8-4b06dfcf74e8",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "00",
+                "ID": "be8196ca-3e94-475d-b6d3-8d094759293c",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -1978,12 +1978,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Medicina UNICID",
-                "PLACAR": "X",
+                "PLACAR": "00X01",
                 "Visitante": "Medicina Bragança",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "e61d8388-d159-4aae-94dc-6c07408170e2",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "01",
+                "ID": "08afb2ac-6f97-4686-ae47-9ea89a204c80",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-11",
@@ -1995,7 +1995,7 @@
                 "Visitante": "FEA São Judas",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "fb3f7f3b-ed54-4cc8-ba79-4803a291325f",
+                "ID": "b8e508b0-7409-4a04-8fda-978b3e336606",
                 "SIMULADOR": "True"
             },
             {
@@ -2008,7 +2008,7 @@
                 "Visitante": "USCS",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "e6b5e1ba-f994-4fd8-a7c0-163cb47dbbf8",
+                "ID": "1d467354-9cd1-478e-b11b-2e594f62ccf6",
                 "SIMULADOR": "True"
             },
             {
@@ -2021,7 +2021,7 @@
                 "Visitante": "CAAP UFABC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "f163ea9a-d126-4bf9-8f88-c651757fcfd0",
+                "ID": "b595da51-242a-4fdc-bd71-9cf100b91304",
                 "SIMULADOR": "True"
             },
             {
@@ -2034,7 +2034,7 @@
                 "Visitante": "FAU USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "fb8a460e-c5ce-45ad-8cc8-c68d9ccd194f",
+                "ID": "db931754-b836-4e16-ac44-db47802fdece",
                 "SIMULADOR": "True"
             },
             {
@@ -2047,7 +2047,7 @@
                 "Visitante": "Direito FMU",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "d4393986-1fe8-486a-acba-052c989b0e30",
+                "ID": "9e300554-2ae4-4ae9-be34-decedd0c9b92",
                 "SIMULADOR": "True"
             },
             {
@@ -2060,7 +2060,7 @@
                 "Visitante": "Cásper Líbero",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "08c5d9af-fbde-4485-a383-6a60e3e1799a",
+                "ID": "59866778-aee1-4bcc-a669-5277a6580c00",
                 "SIMULADOR": "True"
             },
             {
@@ -2073,7 +2073,7 @@
                 "Visitante": "Medicina Bela Vista",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "115c50c9-2d73-474e-bee0-25bd7a7f7ab9",
+                "ID": "fc4f6d7f-3a95-4066-9b86-9d3fb8d50472",
                 "SIMULADOR": "True"
             },
             {
@@ -2086,7 +2086,7 @@
                 "Visitante": "CAAP UFABC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "68e875a8-2c42-41d6-8914-8798321c3881",
+                "ID": "955beb2b-766d-4c06-9c43-36256323ebd4",
                 "SIMULADOR": "True"
             },
             {
@@ -2099,7 +2099,7 @@
                 "Visitante": "Medicina Bragança",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "e79d57cf-ce79-4eeb-9e3e-3f78037959d8",
+                "ID": "46e9c70a-d558-4541-844d-d67a90bcc893",
                 "SIMULADOR": "True"
             },
             {
@@ -2112,12 +2112,12 @@
                 "Visitante": "Medicina UNICID",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "dc03ea0f-a9fc-4bf4-9f65-255532ee5a35",
+                "ID": "a68c60a3-6878-4089-9c73-4f09b81b529f",
                 "SIMULADOR": "True"
             },
             {
-                "DIA": "a definir",
-                "HORARIO": "",
+                "DIA": "",
+                "HORARIO": "a definir",
                 "LOCAL": "a definir",
                 "GRUPO": "A",
                 "Mandante": "Medicina Bragança",
@@ -2125,7 +2125,7 @@
                 "Visitante": "Medicina São Caetano",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "3ab20b62-7eea-4441-8e04-a2834fa920f6",
+                "ID": "30513e40-7e5d-4b5c-8d7b-bf184db71a79",
                 "SIMULADOR": "True"
             }
         ]
@@ -2143,7 +2143,7 @@
                 "Visitante": "FEA PUC",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "03",
-                "ID": "899920a3-980d-4084-a9e2-2ab58044d605",
+                "ID": "20dd66ee-85ef-4b76-b43b-66bf0c27e567",
                 "SIMULADOR": "False"
             },
             {
@@ -2156,7 +2156,7 @@
                 "Visitante": "ESPM",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "04",
-                "ID": "426cf90c-87cd-420b-9072-f627276e79a6",
+                "ID": "9f12bc00-2638-4a64-9b8e-e25a769cd76e",
                 "SIMULADOR": "False"
             },
             {
@@ -2169,7 +2169,7 @@
                 "Visitante": "FECAP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "c283681d-51fa-4f8e-96dc-f5f1a09aa9ea",
+                "ID": "3a64928b-e9c3-490d-ae57-b73a6d46465d",
                 "SIMULADOR": "False"
             },
             {
@@ -2182,7 +2182,7 @@
                 "Visitante": "Getúlio Vargas",
                 "GOLS_MANDANTE": "08",
                 "GOLS_VISITANTE": "03",
-                "ID": "8c78c7b9-78de-423d-89d2-6601f769f923",
+                "ID": "52ceede0-5b1d-4bd5-b17c-9928ef678878",
                 "SIMULADOR": "False"
             },
             {
@@ -2195,7 +2195,7 @@
                 "Visitante": "FEA São Judas",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "01",
-                "ID": "df5c1b5b-130e-4a73-88c7-7a8c81c8eada",
+                "ID": "0ed4dad8-3929-49b7-a1ba-df93ab7f345d",
                 "SIMULADOR": "False"
             },
             {
@@ -2208,7 +2208,7 @@
                 "Visitante": "FECAP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "02",
-                "ID": "84690c4e-aeba-468f-98d3-566627a46753",
+                "ID": "660508dc-b62b-44c2-a623-b5a63a154b75",
                 "SIMULADOR": "False"
             },
             {
@@ -2221,7 +2221,7 @@
                 "Visitante": "Engenharia São Judas",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "04",
-                "ID": "2d4d078e-220d-45a8-a990-768d76b95cdf",
+                "ID": "762558f5-67d5-41b9-b0ce-34f877bb1f6a",
                 "SIMULADOR": "False"
             },
             {
@@ -2234,7 +2234,7 @@
                 "Visitante": "FEI",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "45f6e496-dbe8-447e-88a3-e80483ab2774",
+                "ID": "adac906c-d409-4d22-bc54-2c7140d3c055",
                 "SIMULADOR": "False"
             },
             {
@@ -2247,7 +2247,7 @@
                 "Visitante": "EEFE USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "7d0b7fda-63bf-4240-8fc3-b02b1eb96c36",
+                "ID": "5c76a87b-aff4-47a3-ab84-f51487bf9c37",
                 "SIMULADOR": "False"
             },
             {
@@ -2260,7 +2260,7 @@
                 "Visitante": "FEA São Judas",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "add3d964-602c-43d5-ba7e-abec4283b6ec",
+                "ID": "92a1a9db-f08b-46cc-9c4b-d4361d83edf4",
                 "SIMULADOR": "False"
             },
             {
@@ -2273,7 +2273,7 @@
                 "Visitante": "FEA USP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "02",
-                "ID": "fa041e08-9cbb-44ad-b822-920021b07cbc",
+                "ID": "86c3b135-d025-4712-966d-6bcd0e6957f6",
                 "SIMULADOR": "False"
             },
             {
@@ -2286,7 +2286,7 @@
                 "Visitante": "Getúlio Vargas",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "17befa69-d6a9-482c-b961-d093de14206c",
+                "ID": "a2bcfd58-2baf-40d6-89f7-42b508ad90b3",
                 "SIMULADOR": "False"
             },
             {
@@ -2299,7 +2299,7 @@
                 "Visitante": "INSPER",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "0b425ce4-9766-486c-961f-ae1840c01142",
+                "ID": "c1a82a92-ea78-4b59-b00c-2cf87e85d41e",
                 "SIMULADOR": "False"
             },
             {
@@ -2312,7 +2312,7 @@
                 "Visitante": "FECAP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "03",
-                "ID": "1ad4b356-338c-4391-a59c-ffdf8e90db52",
+                "ID": "ecd9d798-ada6-45a2-8941-2583a3a5e6d2",
                 "SIMULADOR": "False"
             },
             {
@@ -2325,7 +2325,7 @@
                 "Visitante": "EEFE USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "05",
-                "ID": "e1371336-bd1d-45f6-a4a8-d4384c3f6679",
+                "ID": "3c1a6f9e-18a6-4474-ad12-dc699e0ef4cc",
                 "SIMULADOR": "False"
             },
             {
@@ -2338,7 +2338,7 @@
                 "Visitante": "Engenharia São Judas",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "04",
-                "ID": "a5d3e98f-69e2-4373-a791-6bc85114b25f",
+                "ID": "596e3823-ed2d-429b-82ec-370e9a2767fa",
                 "SIMULADOR": "False"
             },
             {
@@ -2351,7 +2351,7 @@
                 "Visitante": "FEA São Judas",
                 "GOLS_MANDANTE": "07",
                 "GOLS_VISITANTE": "03",
-                "ID": "99f6a758-f910-4259-8504-73879f0443ef",
+                "ID": "7ae6ac73-788d-44ab-8f35-c3b449bcf87d",
                 "SIMULADOR": "False"
             },
             {
@@ -2364,7 +2364,7 @@
                 "Visitante": "Federal do ABC",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "04",
-                "ID": "cb202438-5091-441c-8eb7-0afbddd22377",
+                "ID": "bd740d38-0c05-4cc9-b027-349e411f62c1",
                 "SIMULADOR": "False"
             },
             {
@@ -2373,12 +2373,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "INSPER",
-                "PLACAR": "X",
+                "PLACAR": "02X02",
                 "Visitante": "FEA PUC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "a491a2b6-a05b-448e-acba-e8153a17daff",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "02",
+                "ID": "74bbc3f0-1a33-463b-b2c2-db63d1ef74dc",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
@@ -2386,12 +2386,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "FEI",
-                "PLACAR": "X",
+                "PLACAR": "02X03",
                 "Visitante": "Federal do ABC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "e6890bc3-8fb4-4254-a42b-430f638af63b",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "03",
+                "ID": "f796bebd-070f-469e-a032-c65549ab0435",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -2399,12 +2399,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Getúlio Vargas",
-                "PLACAR": "X",
+                "PLACAR": "02X02",
                 "Visitante": "Direito PUC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "fe6ff746-35b9-4eb0-bd34-8fece88393a0",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "02",
+                "ID": "ff293bb0-5ee9-45d9-af53-cd372192a048",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -2412,12 +2412,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Engenharia São Judas",
-                "PLACAR": "X",
+                "PLACAR": "02X02",
                 "Visitante": "FEA USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "fd87b1eb-5f8f-46d2-ac31-2eccc15ff79d",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "02",
+                "ID": "71bd3efa-d780-48d2-94d7-47c58a479243",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -2425,12 +2425,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "FEA São Judas",
-                "PLACAR": "X",
+                "PLACAR": "01X04",
                 "Visitante": "EEFE USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "78fd0570-3c9c-4a02-86fc-81ac2fb282aa",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "04",
+                "ID": "c2a90209-a05f-4065-b09d-3ac346315c3e",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -2438,12 +2438,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "FECAP",
-                "PLACAR": "X",
+                "PLACAR": "02X00",
                 "Visitante": "ESPM",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "7998fd21-91c6-4b28-a7b3-fddc8ba96fdb",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "00",
+                "ID": "14b01f5b-b206-446e-8362-89834285df43",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-05",
@@ -2455,7 +2455,7 @@
                 "Visitante": "FEA PUC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "7cc56405-f44a-46f3-9c74-2fb2994ba2d7",
+                "ID": "ee8cd77a-d685-4b8f-b049-ff8679dbd679",
                 "SIMULADOR": "True"
             },
             {
@@ -2468,7 +2468,7 @@
                 "Visitante": "FEI",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "21fa1d3f-0f64-49c4-9fea-2160643a97cd",
+                "ID": "e99e327c-d1ac-40d3-862b-1cd1f17a3f48",
                 "SIMULADOR": "True"
             },
             {
@@ -2481,7 +2481,7 @@
                 "Visitante": "FEA USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "0bfa6a97-c677-462b-823f-797189b0ac01",
+                "ID": "6d116a03-60c5-4457-b112-d54f2d0a4c49",
                 "SIMULADOR": "True"
             },
             {
@@ -2494,7 +2494,7 @@
                 "Visitante": "Direito PUC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "867ce42a-46c8-4cd5-86c4-9501c630929d",
+                "ID": "bf457c62-3d3c-4a21-b98d-169076a72673",
                 "SIMULADOR": "True"
             },
             {
@@ -2507,7 +2507,7 @@
                 "Visitante": "INSPER",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "a5fc0fd9-c5c0-48ad-82d7-73ad9c01af64",
+                "ID": "34c0984c-248c-4241-9319-28caba85c1ad",
                 "SIMULADOR": "True"
             },
             {
@@ -2520,7 +2520,7 @@
                 "Visitante": "Engenharia São Judas",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "4c8a025e-59fd-4be0-a5a6-def6aaf397f8",
+                "ID": "1221717b-e5b4-4ca7-9bed-f6a7717fd146",
                 "SIMULADOR": "True"
             }
         ]
@@ -2538,7 +2538,7 @@
                 "Visitante": "Medicina USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "05",
-                "ID": "a8e4079f-b38c-4632-a273-4a50a4a9033d",
+                "ID": "d90ed322-e868-4a22-8a5e-c810994e8186",
                 "SIMULADOR": "False"
             },
             {
@@ -2551,7 +2551,7 @@
                 "Visitante": "Engenharia Anhembi",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "5f039060-1ccb-4e50-8183-7a4076e13c93",
+                "ID": "0189fca7-b017-411a-90d9-b5d2ae9f3d04",
                 "SIMULADOR": "False"
             },
             {
@@ -2564,7 +2564,7 @@
                 "Visitante": "Economia Mackenzie",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "4a54f967-fac3-42ff-921f-a85237aa0aaf",
+                "ID": "94112466-b034-4c23-85f5-2a2f96adb546",
                 "SIMULADOR": "False"
             },
             {
@@ -2577,7 +2577,7 @@
                 "Visitante": "Engenharia Mackenzie",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "01",
-                "ID": "0a1c4179-8dba-4621-97a3-d0b46b728b7a",
+                "ID": "689980bd-b885-4347-bda5-38338ba1e941",
                 "SIMULADOR": "False"
             },
             {
@@ -2590,7 +2590,7 @@
                 "Visitante": "Medicina ABC",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "02",
-                "ID": "e1318fdd-5d5f-4a24-9748-cb74bdc9e930",
+                "ID": "5ce7bdd9-748e-4179-9972-28f4b93b7f5f",
                 "SIMULADOR": "False"
             },
             {
@@ -2603,7 +2603,7 @@
                 "Visitante": "Medicina Taubaté",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "854a18ca-40b3-46f1-afca-cc6a8a3a4242",
+                "ID": "56ea1f81-d719-4c53-af70-37fa919c778d",
                 "SIMULADOR": "False"
             },
             {
@@ -2616,7 +2616,7 @@
                 "Visitante": "UNIFESP Osasco",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "01",
-                "ID": "4c1228aa-741b-4526-8a37-f1f4f23c7200",
+                "ID": "e329d368-364c-4199-9e54-ed83d1290f07",
                 "SIMULADOR": "False"
             },
             {
@@ -2629,7 +2629,7 @@
                 "Visitante": "Economia Mackenzie",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "06",
-                "ID": "c2588cc2-fcfd-46be-b04f-004b9cf1fa40",
+                "ID": "801d2670-b050-4f38-a7ec-447dacd3eccc",
                 "SIMULADOR": "False"
             },
             {
@@ -2642,7 +2642,7 @@
                 "Visitante": "Medicina ABC",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "e7e5e672-9ba2-4ece-94c9-d0eb96206869",
+                "ID": "fd640248-c5b7-4351-ad31-95784624ab76",
                 "SIMULADOR": "False"
             },
             {
@@ -2655,7 +2655,7 @@
                 "Visitante": "Medicina USP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "02",
-                "ID": "fa272ada-adde-4b5f-8bfc-319126b32d37",
+                "ID": "6b0c281b-926a-4b9b-817f-b5cdcfedd718",
                 "SIMULADOR": "False"
             },
             {
@@ -2668,7 +2668,7 @@
                 "Visitante": "Comunicação Anhembi",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "efb886c5-a990-449f-8a30-f94e702b4672",
+                "ID": "147aea04-cafc-465f-a07b-995ff4c3a3e4",
                 "SIMULADOR": "False"
             },
             {
@@ -2681,7 +2681,7 @@
                 "Visitante": "EACH USP",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "02",
-                "ID": "5a96189b-3aa7-40c7-8b36-60fb042c01a9",
+                "ID": "bf014891-5c5e-4118-a939-3b28af252d98",
                 "SIMULADOR": "False"
             },
             {
@@ -2694,7 +2694,7 @@
                 "Visitante": "Medicina ABC",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "298a3cfb-e4c1-4236-b4ad-45c13e81dc8b",
+                "ID": "cea589aa-0651-44e5-9626-7530572edb96",
                 "SIMULADOR": "False"
             },
             {
@@ -2707,7 +2707,7 @@
                 "Visitante": "EACH USP",
                 "GOLS_MANDANTE": "08",
                 "GOLS_VISITANTE": "01",
-                "ID": "d85b5264-0687-4f5f-8300-60393167aff0",
+                "ID": "17bab244-744d-492d-9e32-ff9c862f99ec",
                 "SIMULADOR": "False"
             },
             {
@@ -2720,7 +2720,7 @@
                 "Visitante": "FMU",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "02",
-                "ID": "831ed3a1-3960-4d63-8548-c26021addcf1",
+                "ID": "4f769633-75fc-47dc-b947-c0e2255172ee",
                 "SIMULADOR": "False"
             },
             {
@@ -2733,7 +2733,7 @@
                 "Visitante": "Economia Mackenzie",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "08",
-                "ID": "187f16f1-e240-41a8-8cad-13a9637681fd",
+                "ID": "07898cd9-05b4-43ff-9e90-18c41baa3780",
                 "SIMULADOR": "False"
             },
             {
@@ -2746,7 +2746,7 @@
                 "Visitante": "Comunicação Mackenzie",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "bcde948c-6697-4b68-aee1-ac3324f0d739",
+                "ID": "388c87e4-915d-4add-9a4e-16ceade0940e",
                 "SIMULADOR": "False"
             },
             {
@@ -2759,7 +2759,7 @@
                 "Visitante": "Politécnica USP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "04",
-                "ID": "e3d6f939-11ec-4a34-9e9d-178882a2089e",
+                "ID": "01ad9fde-f983-4ed6-9b69-9068f89d8d13",
                 "SIMULADOR": "False"
             },
             {
@@ -2768,12 +2768,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "EACH USP",
-                "PLACAR": "X",
+                "PLACAR": "02X01",
                 "Visitante": "Engenharia Anhembi",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "2117e28a-c36c-40ca-bdb4-f5bc11eeef84",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "01",
+                "ID": "a7a65cd4-a751-4b13-b50e-126fb14e11f6",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
@@ -2781,12 +2781,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Comunicação Anhembi",
-                "PLACAR": "X",
+                "PLACAR": "02X01",
                 "Visitante": "Medicina USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "d6343933-29f5-41be-b448-aa44c9b98e89",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "01",
+                "ID": "6801421d-8944-4e73-a7bd-d7fa8f4f67be",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -2794,12 +2794,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Comunicação Mackenzie",
-                "PLACAR": "X",
+                "PLACAR": "03X04",
                 "Visitante": "Politécnica USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "9c078d0f-aa5f-4d2e-a481-18cad8d64c85",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "04",
+                "ID": "ab7b91fb-90e2-4659-ac83-90177d636c97",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -2807,12 +2807,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "FMU",
-                "PLACAR": "X",
+                "PLACAR": "06X02",
                 "Visitante": "UNIFESP Osasco",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "cac50fb9-b8df-4dc5-accb-8b76477f8916",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "06",
+                "GOLS_VISITANTE": "02",
+                "ID": "06c627bd-0c03-445f-84ca-198b389b7267",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -2820,12 +2820,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Medicina ABC",
-                "PLACAR": "X",
+                "PLACAR": "05X01",
                 "Visitante": "Engenharia Mackenzie",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "5cad8126-764a-488b-bfdb-565ce13a9f01",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "05",
+                "GOLS_VISITANTE": "01",
+                "ID": "a4bb3106-eac4-4648-962c-e14e850513b7",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -2833,24 +2833,24 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Economia Mackenzie",
-                "PLACAR": "X",
+                "PLACAR": "05X02",
                 "Visitante": "Medicina Taubaté",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "065c0256-93b1-4057-8db8-fb0956c00e8a",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "05",
+                "GOLS_VISITANTE": "02",
+                "ID": "886a0298-57c0-42e4-ad33-0ea561babecb",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-04",
-                "HORARIO": "nan",
-                "LOCAL": "",
+                "HORARIO": "18h20min",
+                "LOCAL": "SEMEF",
                 "GRUPO": "B",
                 "Mandante": "UNIFESP Osasco",
                 "PLACAR": "X",
                 "Visitante": "EACH USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "e6bf74ce-ced3-4ba4-8c2e-1f5758e9393c",
+                "ID": "f1eba69c-4310-45d6-a18e-f8f58107a63d",
                 "SIMULADOR": "True"
             },
             {
@@ -2863,7 +2863,7 @@
                 "Visitante": "FMU",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "cb0d3c5c-268b-442e-943e-04888832f7c1",
+                "ID": "6213760b-45d6-492a-ab54-74ad88d13390",
                 "SIMULADOR": "True"
             },
             {
@@ -2876,7 +2876,7 @@
                 "Visitante": "Comunicação Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "daf21b0b-9376-499f-af5f-10e1840f22c2",
+                "ID": "6d1f7ecd-277a-4e58-b260-9b6923c2dcf1",
                 "SIMULADOR": "True"
             },
             {
@@ -2889,7 +2889,7 @@
                 "Visitante": "Comunicação Mackenzie",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "5df5793b-6620-4b7f-8fb4-4fbd199bb2ab",
+                "ID": "d364e599-dfc8-43d6-bc3d-0bcda97b1f6c",
                 "SIMULADOR": "True"
             },
             {
@@ -2902,7 +2902,7 @@
                 "Visitante": "Politécnica USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "54e27bb5-13db-400b-8d01-f2dc43d0c7ea",
+                "ID": "7ce4cf4c-a03e-4585-a65e-694b5858fc7d",
                 "SIMULADOR": "True"
             },
             {
@@ -2915,7 +2915,7 @@
                 "Visitante": "Engenharia Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "97a2ff01-f653-4bcd-a77b-d50b1c7a1554",
+                "ID": "9231c881-1ce5-4513-838b-946eff131195",
                 "SIMULADOR": "True"
             }
         ]
@@ -2933,7 +2933,7 @@
                 "Visitante": "Direito Mackenzie",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "988d45ed-be2e-4da1-bf0d-76a2a5150d28",
+                "ID": "1b79d73d-1dc5-4d72-a55a-05c1fd6700cc",
                 "SIMULADOR": "False"
             },
             {
@@ -2946,7 +2946,7 @@
                 "Visitante": "Sistema de Informação USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "f9551b89-9b47-436b-8f3b-e4c67e701081",
+                "ID": "ece479f1-284b-46c8-949c-b271ef2bc266",
                 "SIMULADOR": "False"
             },
             {
@@ -2959,7 +2959,7 @@
                 "Visitante": "Medicina Jundiaí",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "04",
-                "ID": "3250b54d-fe7a-477d-8b6d-6938564dd0c6",
+                "ID": "c208f953-a035-49b3-b07f-1a83495f420e",
                 "SIMULADOR": "False"
             },
             {
@@ -2972,7 +2972,7 @@
                 "Visitante": "Medicina Santa Casa",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "03",
-                "ID": "4a07a4e8-e7b1-4bec-9a96-774f9a760483",
+                "ID": "4a46517f-8a0d-46cd-95d5-4187ac12a2dc",
                 "SIMULADOR": "False"
             },
             {
@@ -2985,7 +2985,7 @@
                 "Visitante": "Medicina Santos",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "01",
-                "ID": "ec3a6f97-28e0-4d80-bdb2-be661ac973ba",
+                "ID": "bd3bc7c4-313b-4fe8-b610-475983360aea",
                 "SIMULADOR": "False"
             },
             {
@@ -2998,7 +2998,7 @@
                 "Visitante": "SENAC",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "2d58046d-a835-494e-aa72-e3f27c2cdda3",
+                "ID": "d959e065-ea1c-4aa3-bd3e-d4e6a98acc90",
                 "SIMULADOR": "False"
             },
             {
@@ -3011,7 +3011,7 @@
                 "Visitante": "Medicina UNINOVE",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "05",
-                "ID": "f66dda0c-08d7-4aa2-8655-74e0bb9533a6",
+                "ID": "9be65dbf-ecb8-4674-9566-1f7a6bfea108",
                 "SIMULADOR": "False"
             },
             {
@@ -3024,7 +3024,7 @@
                 "Visitante": "Medicina São Bernardo",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "05",
-                "ID": "3a03d254-03c2-413b-b92f-d89fc3f1aa90",
+                "ID": "7962656a-9f0e-453c-9c7e-76c4204bb6a2",
                 "SIMULADOR": "False"
             },
             {
@@ -3037,7 +3037,7 @@
                 "Visitante": "Cásper Líbero",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "01",
-                "ID": "ccd2a571-5fec-48e2-b87c-c52594212629",
+                "ID": "227b08dc-cdea-4531-ad12-badfd4edc4a7",
                 "SIMULADOR": "False"
             },
             {
@@ -3050,7 +3050,7 @@
                 "Visitante": "Medicina Einstein",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "5a5b3897-0247-4a44-a935-0064c5378946",
+                "ID": "7b64b65e-53dd-4170-907c-186849345d79",
                 "SIMULADOR": "False"
             },
             {
@@ -3063,7 +3063,7 @@
                 "Visitante": "Medicina Santa Casa",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "04",
-                "ID": "b211830a-0628-4142-b517-01813d19101a",
+                "ID": "81a5f6ca-b402-43f2-a37b-4cc927b5e6ec",
                 "SIMULADOR": "False"
             },
             {
@@ -3076,7 +3076,7 @@
                 "Visitante": "Sistema de Informação USP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "01",
-                "ID": "4d2507f3-de10-4d41-b284-880d05538ff7",
+                "ID": "40284951-ae11-4872-af24-2d7341a62185",
                 "SIMULADOR": "False"
             },
             {
@@ -3089,7 +3089,7 @@
                 "Visitante": "Medicina Jundiaí",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "be04a92b-ffd6-420d-a65f-efc5b8118899",
+                "ID": "4775bcf5-e812-48c9-b77e-7a340eabb424",
                 "SIMULADOR": "False"
             },
             {
@@ -3102,7 +3102,7 @@
                 "Visitante": "Educação Física Anhembi",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "6e70c052-6d87-4ce1-b9c5-3faa3466fe88",
+                "ID": "080a2bb7-58d6-46bb-9127-df656180ad2f",
                 "SIMULADOR": "False"
             },
             {
@@ -3115,7 +3115,7 @@
                 "Visitante": "Medicina Einstein",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "05",
-                "ID": "bf315867-b853-468a-a9ef-dfb0b3077e3b",
+                "ID": "7b9e6f23-7115-4f71-a23a-ae154f70476a",
                 "SIMULADOR": "False"
             },
             {
@@ -3128,7 +3128,7 @@
                 "Visitante": "Medicina UNINOVE",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "05",
-                "ID": "21eb35c7-f8f5-431b-bfca-cef0987c4c83",
+                "ID": "4dbd024c-f254-471b-be81-402bcf0e01bf",
                 "SIMULADOR": "False"
             },
             {
@@ -3141,7 +3141,7 @@
                 "Visitante": "SENAC",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "08d8ca40-894d-40f7-a4db-51fe0e2a42c9",
+                "ID": "df360600-bf53-4fbf-b46c-521c5568a8e4",
                 "SIMULADOR": "False"
             },
             {
@@ -3154,7 +3154,7 @@
                 "Visitante": "Sistema de Informação USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "5bd4599c-424e-4f71-807a-dfce04107a04",
+                "ID": "1031fc3c-9439-420a-8a40-c73856a47b4c",
                 "SIMULADOR": "False"
             },
             {
@@ -3163,12 +3163,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Direito Mackenzie",
-                "PLACAR": "X",
+                "PLACAR": "02X06",
                 "Visitante": "Medicina Santos",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "fa3fa473-905a-4f91-ba4c-691a706240c3",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "06",
+                "ID": "ecdc0843-a899-495e-b4b2-281945027fdc",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
@@ -3176,12 +3176,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "SENAC",
-                "PLACAR": "X",
+                "PLACAR": "00X04",
                 "Visitante": "Medicina Santa Casa",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "6e23c4e1-7dfa-476a-8fd6-bc36b61d68de",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "04",
+                "ID": "4dfb08ff-0bdc-48f0-9582-7839b7645862",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -3189,12 +3189,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Medicina Jundiaí",
-                "PLACAR": "X",
+                "PLACAR": "03X02",
                 "Visitante": "Cásper Líbero",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "516c0007-b8fd-47ea-a729-bbe76f1fc7e5",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "02",
+                "ID": "d4ee261d-c19f-4beb-859b-768901003048",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -3202,12 +3202,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Sistema de Informação USP",
-                "PLACAR": "X",
+                "PLACAR": "03X01",
                 "Visitante": "Medicina São Bernardo",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "af6e9c0d-a244-4839-8490-dec45b41f4f6",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "01",
+                "ID": "86163179-9fa1-4a5f-9039-6223df45b63e",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3215,12 +3215,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Medicina UNINOVE",
-                "PLACAR": "X",
+                "PLACAR": "08X01",
                 "Visitante": "Mauá",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "a73882aa-349f-47c4-b82d-fc30f56f43e3",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "08",
+                "GOLS_VISITANTE": "01",
+                "ID": "76ed748f-42e4-473d-8534-1e77bfd34f4d",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3228,12 +3228,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Educação Física Anhembi",
-                "PLACAR": "X",
+                "PLACAR": "00X02",
                 "Visitante": "Medicina Einstein",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "5ed9f4e3-9656-44ca-b410-1088883f4b86",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "02",
+                "ID": "f6b1d4bd-687b-4ae5-9dd9-4c839e34d202",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-05",
@@ -3245,7 +3245,7 @@
                 "Visitante": "Medicina UNINOVE",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "bda3b802-577f-4813-94e3-a4de861d7f2d",
+                "ID": "b3bec9f3-12be-4398-9531-8fccf94c636f",
                 "SIMULADOR": "True"
             },
             {
@@ -3258,7 +3258,7 @@
                 "Visitante": "Educação Física Anhembi",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "d488f531-f6b4-4699-b485-6e7a926ee706",
+                "ID": "140623f5-9d3c-40e5-9f0f-0627e2398d45",
                 "SIMULADOR": "True"
             },
             {
@@ -3271,7 +3271,7 @@
                 "Visitante": "Direito Mackenzie",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "5f99a419-987a-4954-aff5-991a95e39a36",
+                "ID": "916f1063-b2a6-4850-9c53-7f09391c52e8",
                 "SIMULADOR": "True"
             },
             {
@@ -3284,7 +3284,7 @@
                 "Visitante": "Medicina Santos",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "d1a9b4a4-9289-407c-a8ed-7fe59517774e",
+                "ID": "c3b983f4-5895-4958-babf-37fbfaa1dce3",
                 "SIMULADOR": "True"
             },
             {
@@ -3297,7 +3297,7 @@
                 "Visitante": "Mauá",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "9b3c4d6a-b88c-4271-8aa8-2a441affa42b",
+                "ID": "eb9224a9-457a-4142-8c02-1c82cb81d20a",
                 "SIMULADOR": "True"
             },
             {
@@ -3310,7 +3310,7 @@
                 "Visitante": "Cásper Líbero",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "51625e75-7d3e-49e6-b691-fff5260b18e8",
+                "ID": "67924284-ab7d-419b-b20c-3f974f5b5fbf",
                 "SIMULADOR": "True"
             }
         ]
@@ -3328,7 +3328,7 @@
                 "Visitante": "LEP MACKENZIE",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "a13f53d4-f385-435e-8bf2-382e1b501c7b",
+                "ID": "f99ae340-d15e-428e-884d-8df2336f54de",
                 "SIMULADOR": "False"
             },
             {
@@ -3341,7 +3341,7 @@
                 "Visitante": "FFLCH USP",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "01",
-                "ID": "26b2d007-3a31-4672-982c-0d2edb0eee57",
+                "ID": "b363e421-9ce0-4bda-8e94-c9fadb0d4af3",
                 "SIMULADOR": "False"
             },
             {
@@ -3354,7 +3354,7 @@
                 "Visitante": "Medicina Anhembi",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "02",
-                "ID": "3e617933-623a-48eb-b44e-88db867aedd7",
+                "ID": "6b468bd5-b7af-44b5-96c2-67c5cc4c5b23",
                 "SIMULADOR": "False"
             },
             {
@@ -3367,7 +3367,7 @@
                 "Visitante": "ITA",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "01",
-                "ID": "581a01e1-818c-41ac-8831-95218f287c5b",
+                "ID": "00b1d8e7-5a97-4154-bdc5-698923ebd986",
                 "SIMULADOR": "False"
             },
             {
@@ -3380,7 +3380,7 @@
                 "Visitante": "CAAP UFABC",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "06",
-                "ID": "4347c72a-9a40-4ff8-9a35-e45c7d5c3d98",
+                "ID": "85eed405-2782-46c7-a1c8-958748252dc9",
                 "SIMULADOR": "False"
             },
             {
@@ -3393,7 +3393,7 @@
                 "Visitante": "Direito FMU",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "01",
-                "ID": "63925c12-bc26-49b3-897b-b839cd29ec51",
+                "ID": "b07a23e5-9cdf-4a27-bd3f-9ccd9a8bfada",
                 "SIMULADOR": "False"
             },
             {
@@ -3406,7 +3406,7 @@
                 "Visitante": "IBMEC SP",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "05",
-                "ID": "61bf573d-bab6-4162-8c8c-4e8b63241975",
+                "ID": "9ecb0f66-86af-49eb-9395-4f8cb8fd20a3",
                 "SIMULADOR": "False"
             },
             {
@@ -3419,7 +3419,7 @@
                 "Visitante": "FAU USP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "01",
-                "ID": "9ca0503f-ab37-48b4-ae30-cc570eef5eb4",
+                "ID": "f59e7f58-72aa-417f-b946-aff263a12184",
                 "SIMULADOR": "False"
             },
             {
@@ -3432,7 +3432,7 @@
                 "Visitante": "Medicina UNIMES",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "02",
-                "ID": "b4f240f6-076d-403b-b915-1db0facf1c20",
+                "ID": "4c0517a8-7f39-41cb-b995-b974a08ffed3",
                 "SIMULADOR": "False"
             },
             {
@@ -3445,7 +3445,7 @@
                 "Visitante": "IBMEC SP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "05",
-                "ID": "1976f285-68b4-4102-8038-3ac9e77b290c",
+                "ID": "0fc23a24-eb32-4999-b2be-526bc9d40bb4",
                 "SIMULADOR": "False"
             },
             {
@@ -3458,7 +3458,7 @@
                 "Visitante": "Medicina UNIMES",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "07",
-                "ID": "b3afc737-b580-44d7-861f-15926b135f19",
+                "ID": "82c61e35-4d2b-43c0-96a3-691d6f42beb9",
                 "SIMULADOR": "False"
             },
             {
@@ -3471,7 +3471,7 @@
                 "Visitante": "Medicina Santo Amaro",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "00",
-                "ID": "9fd2ca13-ddaf-4c1c-b842-258d56d9b7e2",
+                "ID": "31939c2f-f56f-4acc-b7dd-f7ba31a02a2b",
                 "SIMULADOR": "False"
             },
             {
@@ -3484,7 +3484,7 @@
                 "Visitante": "IME USP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "f97c7602-143e-4bd1-afdb-432ae7bacb06",
+                "ID": "43a04a01-5edd-4e10-9bed-edf48d171388",
                 "SIMULADOR": "False"
             },
             {
@@ -3497,7 +3497,7 @@
                 "Visitante": "FAU USP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "d9a2478e-df33-4262-b330-87bb62953c1f",
+                "ID": "72b5e088-a9b9-4b86-a487-fa8b707496cc",
                 "SIMULADOR": "False"
             },
             {
@@ -3510,73 +3510,60 @@
                 "Visitante": "ITA",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "06",
-                "ID": "38505c00-f76b-421a-916a-fc7970c50ebe",
+                "ID": "454ee729-2046-449f-9fac-1ad68281d935",
                 "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
                 "HORARIO": "08h30min",
-                "LOCAL": "Palestra",
+                "LOCAL": "USCS",
                 "GRUPO": "B",
                 "Mandante": "IME USP",
-                "PLACAR": "X",
+                "PLACAR": "02X04",
                 "Visitante": "FFLCH USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "8858c2c1-8156-475b-be67-28c49a9f60b2",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "04",
+                "ID": "b7106728-f8e6-4aa0-ab69-66a3849c5933",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
                 "HORARIO": "09h50min",
-                "LOCAL": "Palestra",
+                "LOCAL": "USCS",
                 "GRUPO": "A",
                 "Mandante": "Medicina UNIMES",
-                "PLACAR": "X",
+                "PLACAR": "03X03",
                 "Visitante": "LEP MACKENZIE",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "08db0667-d4b3-4cb5-b78f-1cbeacab78b3",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "03",
+                "ID": "16aa0754-8fd6-4517-86ee-572b62f37743",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
                 "HORARIO": "12h30min",
-                "LOCAL": "Palestra",
+                "LOCAL": "USCS",
                 "GRUPO": "A",
                 "Mandante": "Medicina Anhembi",
-                "PLACAR": "X",
+                "PLACAR": "02X01",
                 "Visitante": "ITA",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "c7e602f6-a6f1-4578-a1cf-53e5d7c53522",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "01",
+                "ID": "7dddd42f-2736-41c3-a5a1-a63e5b1bf697",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
                 "HORARIO": "13h50min",
-                "LOCAL": "Palestra",
-                "GRUPO": "A",
-                "Mandante": "FAU USP",
-                "PLACAR": "X",
-                "Visitante": "Medicina PUC Campinas",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "b2361a40-9930-4bc6-b3ab-4f0fe3653708",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-21",
-                "HORARIO": "15h10min",
-                "LOCAL": "Palestra",
+                "LOCAL": "USCS",
                 "GRUPO": "B",
                 "Mandante": "Medicina Santo Amaro",
-                "PLACAR": "X",
+                "PLACAR": "03X01",
                 "Visitante": "IBMEC SP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "fa3cbc23-9bd6-416c-84f7-97ac3375481d",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "01",
+                "ID": "6e9bd923-7dc5-45e0-ab1e-d0957d287d55",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -3584,12 +3571,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "A",
                 "Mandante": "Medicina UNIMES",
-                "PLACAR": "X",
+                "PLACAR": "00X02",
                 "Visitante": "Medicina Anhembi",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "698e56f9-5fc7-4135-96ed-3c185023e8eb",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "02",
+                "ID": "4c0c842f-af10-4011-8f88-0b05343e0716",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -3597,12 +3584,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Direito FMU",
-                "PLACAR": "X",
+                "PLACAR": "00X04",
                 "Visitante": "Medicina Santo Amaro",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "f4bf9f93-53a2-40a9-8009-99a215661d00",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "04",
+                "ID": "f4edfe19-b1bf-469b-9706-8ebbfb535add",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3610,12 +3597,12 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "IBMEC SP",
-                "PLACAR": "X",
+                "PLACAR": "02X03",
                 "Visitante": "IME USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "0ed8aa53-efee-416e-a177-5646beb88a2b",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "03",
+                "ID": "30b18203-c05c-4f4d-9d64-0868915e025e",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-05",
@@ -3627,7 +3614,7 @@
                 "Visitante": "Direito FMU",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "14e15847-2b3a-4dee-8d5d-2077084be64c",
+                "ID": "3365d613-5d98-49b1-986d-c21e12b51b68",
                 "SIMULADOR": "True"
             },
             {
@@ -3640,7 +3627,7 @@
                 "Visitante": "LEP MACKENZIE",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "5d8ac5e0-9375-419d-8ad0-6f191b295e49",
+                "ID": "bc8f7c8d-c855-451d-8fed-8582087d0ea8",
                 "SIMULADOR": "True"
             },
             {
@@ -3653,7 +3640,7 @@
                 "Visitante": "CAAP UFABC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "752640ca-85c7-4b54-af58-729f0f714d59",
+                "ID": "572c16ff-d24b-47af-ba33-7b29bdc0506b",
                 "SIMULADOR": "True"
             },
             {
@@ -3666,20 +3653,7 @@
                 "Visitante": "Medicina Santo Amaro",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "6056c293-1761-4659-ad78-f515b799e817",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-05-05",
-                "HORARIO": "13h50min",
-                "LOCAL": "Palestra",
-                "GRUPO": "A",
-                "Mandante": "ITA",
-                "PLACAR": "X",
-                "Visitante": "Medicina PUC Campinas",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "f69e2f8b-4789-4ed3-9b15-aa87c18c65b9",
+                "ID": "01664b9c-4948-4485-87b4-c0060847066a",
                 "SIMULADOR": "True"
             },
             {
@@ -3692,7 +3666,7 @@
                 "Visitante": "FAU USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "b3ba9008-51b2-4288-9c26-aadf5f117d7f",
+                "ID": "705f7bb1-d897-4a74-9eed-f6e9cf3c3459",
                 "SIMULADOR": "True"
             },
             {
@@ -3705,7 +3679,33 @@
                 "Visitante": "Direito FMU",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "a24025ee-65d0-4c93-8a0d-3ddf8966583f",
+                "ID": "de538626-2278-4cde-876a-80a7490be33c",
+                "SIMULADOR": "True"
+            },
+            {
+                "DIA": "2024-05-18",
+                "HORARIO": "17h50min",
+                "LOCAL": "Palestra",
+                "GRUPO": "A",
+                "Mandante": "ITA",
+                "PLACAR": "X",
+                "Visitante": "Medicina PUC Campinas",
+                "GOLS_MANDANTE": "",
+                "GOLS_VISITANTE": "",
+                "ID": "9d9242ce-3f9f-4b2c-969b-fbe80d07537f",
+                "SIMULADOR": "True"
+            },
+            {
+                "DIA": "",
+                "HORARIO": "a definir",
+                "LOCAL": "a definir",
+                "GRUPO": "A",
+                "Mandante": "FAU USP",
+                "PLACAR": "X",
+                "Visitante": "Medicina PUC Campinas",
+                "GOLS_MANDANTE": "",
+                "GOLS_VISITANTE": "",
+                "ID": "d17ae06d-bc54-4783-8d2d-5e7f4eb33612",
                 "SIMULADOR": "True"
             }
         ]
@@ -3723,7 +3723,7 @@
                 "Visitante": "Medicina Bragança",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "c60046fd-a046-4893-a2d9-e4eac112af59",
+                "ID": "bd174be0-f553-45fe-b5ab-0356b75eb202",
                 "SIMULADOR": "False"
             },
             {
@@ -3736,7 +3736,7 @@
                 "Visitante": "Direito São Bernardo",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "03",
-                "ID": "9f290b77-78f7-4ac3-86e1-09add5ee9437",
+                "ID": "4a5ed665-0536-4d36-9202-0ecc6f0ef202",
                 "SIMULADOR": "False"
             },
             {
@@ -3749,7 +3749,7 @@
                 "Visitante": "Direito USP",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "01",
-                "ID": "dde2484c-9d34-4f4c-a6a1-871f01e55c66",
+                "ID": "7723019f-42ae-41e7-a6f2-22897caec240",
                 "SIMULADOR": "False"
             },
             {
@@ -3762,7 +3762,7 @@
                 "Visitante": "Tecnologia Mackenzie",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "04",
-                "ID": "04f212b8-d653-4351-92ab-afb59d5adbbc",
+                "ID": "1aec1572-f096-4aee-b58e-96fce1c18715",
                 "SIMULADOR": "False"
             },
             {
@@ -3775,7 +3775,7 @@
                 "Visitante": "Farmácia USP",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "02",
-                "ID": "27f41d59-bf20-4c90-a477-df951a15e265",
+                "ID": "8db8a562-71e1-4e27-9122-eb187b1c6c51",
                 "SIMULADOR": "False"
             },
             {
@@ -3788,7 +3788,7 @@
                 "Visitante": "Medicina Santa Marcelina",
                 "GOLS_MANDANTE": "08",
                 "GOLS_VISITANTE": "03",
-                "ID": "5b7c98e1-7dde-4c07-9439-176fb1cb937e",
+                "ID": "dfaa2c31-a56f-4594-8155-16183249915d",
                 "SIMULADOR": "False"
             },
             {
@@ -3801,7 +3801,7 @@
                 "Visitante": "Medicina UNICID",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "04",
-                "ID": "bf6c67f2-406d-49c3-ba85-880c235cd6ad",
+                "ID": "ec97ba45-16b7-41b6-9068-875841f76e08",
                 "SIMULADOR": "False"
             },
             {
@@ -3814,7 +3814,7 @@
                 "Visitante": "UNIP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "02",
-                "ID": "3ad3ffd6-c778-492c-9944-6bc129154418",
+                "ID": "9670a7f8-1fd4-44e3-90e9-1d2e14f00dd9",
                 "SIMULADOR": "False"
             },
             {
@@ -3827,7 +3827,7 @@
                 "Visitante": "UNIP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "07",
-                "ID": "db8996bb-a539-40dc-8a22-39802e5ee803",
+                "ID": "5514ba43-13b7-4e4b-a861-ae36ea2224a3",
                 "SIMULADOR": "False"
             },
             {
@@ -3840,7 +3840,7 @@
                 "Visitante": "Tecnologia Mackenzie",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "00",
-                "ID": "01c2f359-ad96-4432-b8d2-8a843428ea20",
+                "ID": "17b5dcd4-70d3-4697-9cad-20e1ef4166cd",
                 "SIMULADOR": "False"
             },
             {
@@ -3853,7 +3853,7 @@
                 "Visitante": "Arquitetura Mackenzie",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "01",
-                "ID": "e781325e-74a6-4e3b-9d2f-132a245fd2de",
+                "ID": "8b9139f8-19dd-4f0e-81e2-de96007469ab",
                 "SIMULADOR": "False"
             },
             {
@@ -3866,7 +3866,7 @@
                 "Visitante": "UNIP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "9bdbcc0b-b58a-48f4-97f8-f44f8cee4087",
+                "ID": "07738b72-ae0e-4539-a1be-b87e9e59c7b3",
                 "SIMULADOR": "False"
             },
             {
@@ -3879,7 +3879,7 @@
                 "Visitante": "Tecnologia Mackenzie",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "edff8b19-4289-46a5-8636-30747fb2939d",
+                "ID": "7be63b0e-6f74-4f50-8b6e-d028904640bd",
                 "SIMULADOR": "False"
             },
             {
@@ -3892,7 +3892,7 @@
                 "Visitante": "Belas Artes",
                 "GOLS_MANDANTE": "09",
                 "GOLS_VISITANTE": "04",
-                "ID": "3d3ed5e5-ceb7-45cb-8b85-8a8b4d16d314",
+                "ID": "68114d4e-5b62-406c-be52-2798e27c58e5",
                 "SIMULADOR": "False"
             },
             {
@@ -3905,7 +3905,7 @@
                 "Visitante": "Medicina São Caetano",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "01",
-                "ID": "c5c5a4b8-61f6-4e83-8e71-4e1391a20669",
+                "ID": "dd47eef4-47fb-46d0-9432-b3eb36c87960",
                 "SIMULADOR": "False"
             },
             {
@@ -3918,7 +3918,7 @@
                 "Visitante": "Medicina Paulista",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "01",
-                "ID": "b7dbfd13-491e-417f-bec3-323351e49ad8",
+                "ID": "de330f5a-7dc1-4ba4-988a-30d73702bfcd",
                 "SIMULADOR": "False"
             },
             {
@@ -3931,7 +3931,7 @@
                 "Visitante": "Direito São Bernardo",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "03",
-                "ID": "8d298117-56c4-48b7-b3bb-6fb3a060fa03",
+                "ID": "df77b9a5-cbb6-4266-a81d-f57a80f2dcde",
                 "SIMULADOR": "False"
             },
             {
@@ -3940,12 +3940,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "Medicina Santa Marcelina",
-                "PLACAR": "X",
+                "PLACAR": "05X04",
                 "Visitante": "Arquitetura Mackenzie",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "cd098ee0-0d28-4813-8177-f5b19fd5f371",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "05",
+                "GOLS_VISITANTE": "04",
+                "ID": "10b9ba23-e01b-441e-ad1f-6c373fc54ed9",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3953,12 +3953,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "Direito USP",
-                "PLACAR": "X",
+                "PLACAR": "05X02",
                 "Visitante": "Farmácia USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "b578f677-803f-4a87-bb4f-4b9f3e73edbe",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "05",
+                "GOLS_VISITANTE": "02",
+                "ID": "0e522f0c-ad60-4334-b71b-2b272a44617d",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3966,12 +3966,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "UNIP",
-                "PLACAR": "X",
+                "PLACAR": "02X04",
                 "Visitante": "Medicina Bragança",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "0eaf6cd8-0d0d-44eb-ba99-907216243247",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "04",
+                "ID": "94ca456b-83e2-484e-ba52-68e8be94419a",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3979,12 +3979,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "Belas Artes",
-                "PLACAR": "X",
+                "PLACAR": "01X01",
                 "Visitante": "Direito São Bernardo",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "4698baaf-ae00-4273-8717-4719b8d46dbe",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "01",
+                "ID": "32bd0ee1-4d7f-4bbc-ac06-3993e0a5cde0",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -3992,12 +3992,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "Medicina UNICID",
-                "PLACAR": "X",
+                "PLACAR": "00X02",
                 "Visitante": "Medicina Paulista",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "ee3a17b4-7995-469b-b046-0164938e3f4b",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "02",
+                "ID": "1c8db065-07f1-4024-ac14-4939d93b3e61",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -4005,12 +4005,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "Tecnologia Mackenzie",
-                "PLACAR": "X",
+                "PLACAR": "01X00",
                 "Visitante": "Medicina São Caetano",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "9ff06a12-213a-4559-895c-0b713c44b6d0",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "01",
+                "GOLS_VISITANTE": "00",
+                "ID": "a57cf181-bcd5-460b-bf35-bee82ae64b42",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-11",
@@ -4022,7 +4022,7 @@
                 "Visitante": "Arquitetura Mackenzie",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "e377607c-d72d-40eb-b8c2-5f411798727a",
+                "ID": "a1394037-0a6a-4a61-bb9c-4b02399da0a1",
                 "SIMULADOR": "True"
             },
             {
@@ -4035,7 +4035,20 @@
                 "Visitante": "Medicina UNICID",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "7e8bfeb6-9179-4f8a-ae54-2322ba526912",
+                "ID": "20d69cd3-c82c-4ce3-9c66-0acf1fd3e5a8",
+                "SIMULADOR": "True"
+            },
+            {
+                "DIA": "2024-05-11",
+                "HORARIO": "19h10min",
+                "LOCAL": "Palestra",
+                "GRUPO": "B",
+                "Mandante": "Medicina São Caetano",
+                "PLACAR": "X",
+                "Visitante": "Medicina Paulista",
+                "GOLS_MANDANTE": "",
+                "GOLS_VISITANTE": "",
+                "ID": "5ca33e66-91d7-43a1-89a6-c0bcce1aa87f",
                 "SIMULADOR": "True"
             },
             {
@@ -4048,20 +4061,7 @@
                 "Visitante": "Direito USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "4543de11-5584-4058-a02f-08d2e4b8d06d",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-05-19",
-                "HORARIO": "08h30min",
-                "LOCAL": "Palestra",
-                "GRUPO": "B",
-                "Mandante": "Medicina São Caetano",
-                "PLACAR": "X",
-                "Visitante": "Medicina Paulista",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "2dfdc91d-cdd1-4b3c-a037-f44b7b6d1ed0",
+                "ID": "19964c45-d007-4b6e-a20e-f179bb96de36",
                 "SIMULADOR": "True"
             },
             {
@@ -4074,7 +4074,7 @@
                 "Visitante": "Belas Artes",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "b6deb17d-3d6a-4a08-90c3-4ba185f7a058",
+                "ID": "b1539f38-3caa-4062-9349-474e2039ea3c",
                 "SIMULADOR": "True"
             },
             {
@@ -4087,12 +4087,12 @@
                 "Visitante": "Medicina Santa Marcelina",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "1bd25ec4-8352-4eb5-945b-96888106715f",
+                "ID": "d369938a-0677-4314-8205-31d6b16cf85e",
                 "SIMULADOR": "True"
             },
             {
-                "DIA": "a definir",
-                "HORARIO": "",
+                "DIA": "",
+                "HORARIO": "a definir",
                 "LOCAL": "a definir",
                 "GRUPO": "B",
                 "Mandante": "Medicina São Caetano",
@@ -4100,7 +4100,7 @@
                 "Visitante": "Medicina UNICID",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "b713d43f-12d2-4539-8b3c-9f4ebc4b2a8d",
+                "ID": "0c22cc9b-a459-4ce8-bb4e-77c8cb4aefaa",
                 "SIMULADOR": "True"
             }
         ]
@@ -4118,7 +4118,7 @@
                 "Visitante": "FAAP",
                 "GOLS_MANDANTE": "14",
                 "GOLS_VISITANTE": "00",
-                "ID": "84fdf6ef-d564-409b-9e84-20719ded9b26",
+                "ID": "4cb2d70b-8917-4d80-857f-4b794dbaf079",
                 "SIMULADOR": "False"
             },
             {
@@ -4131,7 +4131,7 @@
                 "Visitante": "Psicologia da PUC SP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "51c4fcc9-1eb6-4a70-b3a3-33403a814a79",
+                "ID": "40dab911-f756-45ea-94dd-fea0ae1eebc8",
                 "SIMULADOR": "False"
             },
             {
@@ -4144,7 +4144,7 @@
                 "Visitante": "UNIFESP Diadema",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "01",
-                "ID": "b08adc69-6013-411b-a2d1-a6b875c72de4",
+                "ID": "d0d02144-4428-403a-884c-0985c94c53ba",
                 "SIMULADOR": "False"
             },
             {
@@ -4157,7 +4157,7 @@
                 "Visitante": "Medicina Bela Vista",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "6a025b49-bea6-4641-aae9-abe1d0009a2d",
+                "ID": "71b86ea1-2a1a-428c-9b9b-8d678f0e74a0",
                 "SIMULADOR": "False"
             },
             {
@@ -4170,7 +4170,7 @@
                 "Visitante": "USCS",
                 "GOLS_MANDANTE": "01",
                 "GOLS_VISITANTE": "06",
-                "ID": "3d08e744-cc07-4c3f-9cca-2742cca92578",
+                "ID": "fbfa06d2-a4c4-4299-93b8-fb8374205216",
                 "SIMULADOR": "False"
             },
             {
@@ -4183,7 +4183,7 @@
                 "Visitante": "UNIFESP Diadema",
                 "GOLS_MANDANTE": "09",
                 "GOLS_VISITANTE": "00",
-                "ID": "31cfbad8-72f3-4e51-ad9e-3caa7d7b2ecd",
+                "ID": "d32fdf7c-c905-4686-9b4d-595fd44d4f6c",
                 "SIMULADOR": "False"
             },
             {
@@ -4196,7 +4196,7 @@
                 "Visitante": "Direito UNICID",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "7b117c66-fc9b-452c-a761-e399751eeddf",
+                "ID": "8c3cdfad-190d-422f-8fa3-bfc9d2f7ac08",
                 "SIMULADOR": "False"
             },
             {
@@ -4209,7 +4209,7 @@
                 "Visitante": "Direito São Judas",
                 "GOLS_MANDANTE": "04",
                 "GOLS_VISITANTE": "10",
-                "ID": "0345ee82-c435-4330-be4d-fe349fff94b4",
+                "ID": "cacba21c-18fd-49b9-8b9b-247e26375469",
                 "SIMULADOR": "False"
             },
             {
@@ -4222,7 +4222,7 @@
                 "Visitante": "Engenharia UNICAMP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "06",
-                "ID": "763ae99b-e312-4591-8675-57dffd19f085",
+                "ID": "76b9a865-eada-4b21-8799-6cba68500463",
                 "SIMULADOR": "False"
             },
             {
@@ -4235,7 +4235,7 @@
                 "Visitante": "Medicina UNESP Botucatu",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "04",
-                "ID": "256e4348-d8a7-4b8a-bcef-24111c05ad34",
+                "ID": "c384e8c3-588b-4342-8580-e45c44954f62",
                 "SIMULADOR": "False"
             },
             {
@@ -4248,7 +4248,7 @@
                 "Visitante": "Medicina MANDIC",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "07",
-                "ID": "bfaea467-7dd6-4640-9ffa-2c3f3fe512ca",
+                "ID": "3b9d35cd-bcea-41b5-bdb3-52faf1376345",
                 "SIMULADOR": "False"
             },
             {
@@ -4261,7 +4261,7 @@
                 "Visitante": "Engenharia UNICAMP",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "07",
-                "ID": "d44e0b40-d99d-4a22-91b8-2aee30cea1ee",
+                "ID": "ec0e8961-f006-478e-908a-a52d8a2fd5bc",
                 "SIMULADOR": "False"
             },
             {
@@ -4274,7 +4274,7 @@
                 "Visitante": "Medicina Bela Vista",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "76884135-18df-4aa2-ba9a-5d98b3c1de0f",
+                "ID": "9acf37f8-e7c2-4441-af9e-4e0835c67411",
                 "SIMULADOR": "False"
             },
             {
@@ -4287,7 +4287,7 @@
                 "Visitante": "Fatec São Paulo",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "8b5e9b51-e952-4f08-b7ec-f3387824bb21",
+                "ID": "0c27f5a1-7228-46e5-83a9-d1e220cac574",
                 "SIMULADOR": "False"
             },
             {
@@ -4300,7 +4300,7 @@
                 "Visitante": "Engenharia UNICAMP",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "00",
-                "ID": "096f6aef-44e4-4ef4-896c-8c758be8c666",
+                "ID": "52e34c46-08a1-41a6-a5bb-6345d93e8569",
                 "SIMULADOR": "False"
             },
             {
@@ -4313,7 +4313,7 @@
                 "Visitante": "Direito UNICID",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "02",
-                "ID": "0bc63e3a-d53c-4f22-a66e-b868fefc4a89",
+                "ID": "64c79516-9d2e-4d27-91d9-774459bf6680",
                 "SIMULADOR": "False"
             },
             {
@@ -4326,7 +4326,7 @@
                 "Visitante": "ECA USP",
                 "GOLS_MANDANTE": "02",
                 "GOLS_VISITANTE": "03",
-                "ID": "77518db3-083d-4fcc-a93a-adc95ef1806d",
+                "ID": "718d72a2-3791-4421-8fed-d5eebc6e5404",
                 "SIMULADOR": "False"
             },
             {
@@ -4339,7 +4339,7 @@
                 "Visitante": "Medicina MANDIC",
                 "GOLS_MANDANTE": "09",
                 "GOLS_VISITANTE": "04",
-                "ID": "4a06a078-eb56-44da-bfc7-3b4a325d74a6",
+                "ID": "862e275e-9a0e-4690-91cc-36d5792b1242",
                 "SIMULADOR": "False"
             },
             {
@@ -4352,7 +4352,7 @@
                 "Visitante": "Educação Física UNINOVE",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "03",
-                "ID": "a12deb26-a51f-4817-8950-a6b94a140946",
+                "ID": "11e264b4-b275-4983-a61a-23e365a180f7",
                 "SIMULADOR": "False"
             },
             {
@@ -4365,7 +4365,7 @@
                 "Visitante": "Direito São Judas",
                 "GOLS_MANDANTE": "07",
                 "GOLS_VISITANTE": "02",
-                "ID": "15fc66e8-1301-4474-a2c2-e84c768ba8ec",
+                "ID": "ddb148d3-7f7a-43fd-b55b-c99cf7cb7db0",
                 "SIMULADOR": "False"
             },
             {
@@ -4378,7 +4378,7 @@
                 "Visitante": "Medicina Bela Vista",
                 "GOLS_MANDANTE": "03",
                 "GOLS_VISITANTE": "00",
-                "ID": "3955c731-744b-43d9-90b0-5dbed57c9005",
+                "ID": "3b8e5048-62ab-418e-ab05-691cea43a1c5",
                 "SIMULADOR": "False"
             },
             {
@@ -4391,7 +4391,7 @@
                 "Visitante": "USCS",
                 "GOLS_MANDANTE": "00",
                 "GOLS_VISITANTE": "10",
-                "ID": "370ada62-ce9b-49b6-90b1-19f48af6418d",
+                "ID": "f8e596d5-9f06-45a9-b555-aaa7ff2438f5",
                 "SIMULADOR": "False"
             },
             {
@@ -4404,7 +4404,7 @@
                 "Visitante": "Fatec São Paulo",
                 "GOLS_MANDANTE": "07",
                 "GOLS_VISITANTE": "02",
-                "ID": "90208edd-16a7-4e1e-b707-a0d9fa4cf7fb",
+                "ID": "545cf061-8a1f-4ca9-a081-3074b74efda8",
                 "SIMULADOR": "False"
             },
             {
@@ -4417,34 +4417,34 @@
                 "Visitante": "Psicologia da PUC SP",
                 "GOLS_MANDANTE": "05",
                 "GOLS_VISITANTE": "01",
-                "ID": "e434798d-3129-4f97-84a1-34859f94b3a8",
+                "ID": "cfcc7252-3771-4eda-be4c-5e27f7e60e5c",
                 "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
-                "HORARIO": "11h10min",
-                "LOCAL": "Palestra",
-                "GRUPO": "A",
-                "Mandante": "Engenharia UNICAMP",
-                "PLACAR": "X",
-                "Visitante": "FAAP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "b47ba2a8-3d25-428d-b70b-273671bbe602",
-                "SIMULADOR": "True"
+                "HORARIO": "16h30min",
+                "LOCAL": "USCS",
+                "GRUPO": "B",
+                "Mandante": "Psicologia da PUC SP",
+                "PLACAR": "02X06",
+                "Visitante": "Medicina UNESP Botucatu",
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "06",
+                "ID": "fdaf87b8-005b-4cbd-9ba5-44b2cdf51877",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
-                "HORARIO": "16h30min",
-                "LOCAL": "Palestra",
-                "GRUPO": "B",
-                "Mandante": "Psicologia da PUC SP",
-                "PLACAR": "X",
-                "Visitante": "Medicina UNESP Botucatu",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "b4a1407b-58b6-4258-af05-6259a0cd3d1f",
-                "SIMULADOR": "True"
+                "HORARIO": "17h",
+                "LOCAL": "SEMEF",
+                "GRUPO": "A",
+                "Mandante": "Engenharia UNICAMP",
+                "PLACAR": "18X00",
+                "Visitante": "FAAP",
+                "GOLS_MANDANTE": "18",
+                "GOLS_VISITANTE": "00",
+                "ID": "8d5dca69-71cf-4e99-bcca-a0ef78637d41",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
@@ -4452,38 +4452,38 @@
                 "LOCAL": "Idalina",
                 "GRUPO": "B",
                 "Mandante": "Medicina MANDIC",
-                "PLACAR": "X",
+                "PLACAR": "03X07",
                 "Visitante": "Direito UNICID",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "62c2b372-71cb-4d8a-94cd-9147e5050b30",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "03",
+                "GOLS_VISITANTE": "07",
+                "ID": "7f535974-7358-414e-91c3-0c4d46f814c1",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
                 "HORARIO": "17h50min",
-                "LOCAL": "Palestra",
+                "LOCAL": "USCS",
                 "GRUPO": "A",
                 "Mandante": "Direito São Judas",
-                "PLACAR": "X",
+                "PLACAR": "00X05",
                 "Visitante": "Educação Física UNINOVE",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "c19b3717-e2da-406f-a6b4-dfbec3f3927a",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "05",
+                "ID": "64c75a82-b8c9-44ff-8523-db0180410f32",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-21",
                 "HORARIO": "19h10min",
-                "LOCAL": "Palestra",
+                "LOCAL": "USCS",
                 "GRUPO": "A",
                 "Mandante": "UNIFESP Diadema",
-                "PLACAR": "X",
+                "PLACAR": "00X01",
                 "Visitante": "Fatec São Paulo",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "48278bce-4f85-409b-866c-e3b12e1b1d8a",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "00",
+                "GOLS_VISITANTE": "01",
+                "ID": "c741f389-4fda-44c2-8784-998c14955865",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -4491,25 +4491,25 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
                 "Mandante": "Medicina MANDIC",
-                "PLACAR": "X",
+                "PLACAR": "02X07",
                 "Visitante": "RI PUC",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "06145f9d-21df-492c-b04d-2d25ac9ab866",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "07",
+                "ID": "1cd86507-95d2-419a-9f44-56eeba21d2e7",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
                 "HORARIO": "16h30min",
                 "LOCAL": "Palestra",
                 "GRUPO": "B",
-                "Mandante": "Medicina Bela Vista",
-                "PLACAR": "X",
-                "Visitante": "Psicologia da PUC SP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "4a1e07bc-619f-4d8c-b21f-a4ea571bd25a",
-                "SIMULADOR": "True"
+                "Mandante": "Medicina UNESP Botucatu",
+                "PLACAR": "10X02",
+                "Visitante": "ECA USP",
+                "GOLS_MANDANTE": "10",
+                "GOLS_VISITANTE": "02",
+                "ID": "66b0aac7-a491-4718-a491-f1fa9814a139",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-27",
@@ -4517,25 +4517,12 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "USCS",
-                "PLACAR": "X",
+                "PLACAR": "02X01",
                 "Visitante": "Direito São Judas",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "b2eda1c7-4fdd-4172-ac5a-ae0ecc01540a",
-                "SIMULADOR": "True"
-            },
-            {
-                "DIA": "2024-04-28",
-                "HORARIO": "16h30min",
-                "LOCAL": "Palestra",
-                "GRUPO": "B",
-                "Mandante": "Medicina UNESP Botucatu",
-                "PLACAR": "X",
-                "Visitante": "ECA USP",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "69da35fd-9fd5-46de-8d3f-e498b279b246",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "01",
+                "ID": "f2b14640-8eba-418a-9923-46f1718e33fa",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-04-28",
@@ -4543,12 +4530,25 @@
                 "LOCAL": "Palestra",
                 "GRUPO": "A",
                 "Mandante": "FAAP",
-                "PLACAR": "X",
+                "PLACAR": "02X06",
                 "Visitante": "UNIFESP Diadema",
-                "GOLS_MANDANTE": "",
-                "GOLS_VISITANTE": "",
-                "ID": "2ef21805-95da-4347-8024-87acb93fecd8",
-                "SIMULADOR": "True"
+                "GOLS_MANDANTE": "02",
+                "GOLS_VISITANTE": "06",
+                "ID": "bd67786f-568a-419e-aae9-fb2eefdf1812",
+                "SIMULADOR": "False"
+            },
+            {
+                "DIA": "2024-04-28",
+                "HORARIO": "19h10min",
+                "LOCAL": "Palestra",
+                "GRUPO": "B",
+                "Mandante": "Medicina Bela Vista",
+                "PLACAR": "05X03",
+                "Visitante": "Psicologia da PUC SP",
+                "GOLS_MANDANTE": "05",
+                "GOLS_VISITANTE": "03",
+                "ID": "2fdd6954-a6cf-46af-8307-78801c85ba05",
+                "SIMULADOR": "False"
             },
             {
                 "DIA": "2024-05-05",
@@ -4560,7 +4560,7 @@
                 "Visitante": "ECA USP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "ce8470c1-3a43-4c7c-8955-99aca883747c",
+                "ID": "6f286af7-d0eb-4ff4-b3d0-6cc48f266130",
                 "SIMULADOR": "True"
             },
             {
@@ -4573,7 +4573,7 @@
                 "Visitante": "RI PUC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "bc9954e6-728f-4b62-91d4-27236426820f",
+                "ID": "98d81024-8a17-452f-9cb9-059f4b5fdfd0",
                 "SIMULADOR": "True"
             },
             {
@@ -4586,7 +4586,7 @@
                 "Visitante": "Medicina UNESP Botucatu",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "05081788-96d5-474d-85c2-eb560ba202a4",
+                "ID": "4885b24d-4914-468c-9814-7eea3c072f74",
                 "SIMULADOR": "True"
             },
             {
@@ -4599,7 +4599,7 @@
                 "Visitante": "Educação Física UNINOVE",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "2c9ba759-925e-4aeb-ad7b-cf35ea957205",
+                "ID": "46e83b46-a60e-489c-8ffb-e06f6875fd2a",
                 "SIMULADOR": "True"
             },
             {
@@ -4612,7 +4612,7 @@
                 "Visitante": "Medicina MANDIC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "4f20a292-5ea4-4ec1-8f64-deb96d06f9a2",
+                "ID": "21f36860-f92b-44fb-8788-4d3b3d1f0fd8",
                 "SIMULADOR": "True"
             },
             {
@@ -4625,7 +4625,7 @@
                 "Visitante": "USCS",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "2a6eefd7-4000-4cbd-8002-3b371d8c3855",
+                "ID": "5ddcad55-0863-4860-95e6-f089e4191f23",
                 "SIMULADOR": "True"
             },
             {
@@ -4638,7 +4638,7 @@
                 "Visitante": "FAAP",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "ee4273dc-7f19-4f3c-8e11-a600d57810f0",
+                "ID": "4c70e622-4411-40bd-b5b5-e1234f83254c",
                 "SIMULADOR": "True"
             },
             {
@@ -4651,7 +4651,7 @@
                 "Visitante": "RI PUC",
                 "GOLS_MANDANTE": "",
                 "GOLS_VISITANTE": "",
-                "ID": "20d0cb33-aecc-45c0-b295-79d372d1fd23",
+                "ID": "62195cb3-c7b5-478e-b44f-ebe0977bf739",
                 "SIMULADOR": "True"
             }
         ]

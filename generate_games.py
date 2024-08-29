@@ -9,7 +9,6 @@ def get_games_filepths(base_dir):
 
     # Percorre todos os subdiretórios no diretório base
     for subdir, _, _ in os.walk(base_dir):
-        print(subdir)
         # Verifica se há um arquivo 'games.json' no diretório atual
         game_file = os.path.join(subdir, 'games.json')
         if os.path.exists(game_file):

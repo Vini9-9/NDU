@@ -127,7 +127,7 @@ def get_games(modality, series):
     ---
     parameters:
     - name: modality
-      in: path
+      in: path'
       type: string
       description: A modalidade dos jogos.
     - name: series
@@ -146,6 +146,33 @@ def get_games(modality, series):
 
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode
+
+# @app.route('/api/games/playoff/<modality>/<series>', methods=['GET'])
+# def get_games(modality, series):
+#     """
+#     Obtém informações sobre os jogos por time.
+#     ---
+#     parameters:
+#     - name: modality
+#       in: path
+#       type: string
+#       description: A modalidade dos jogos.
+#     - name: series
+#       in: path
+#       type: string
+#       description: A série dos jogos.
+#     responses:
+#       200:
+#         description: Lista de jogos.
+#     """
+#     try:
+
+#       team_query = request.args.get('team')
+#       df_games = myAppService.get_games_by_team(modality, series, team_query)
+#       return json.dumps(df_games, ensure_ascii=False).encode('utf8')
+
+#     except Exception as e:
+#         return json.dumps({'error': e.message}), e.errorCode
     
 @app.route('/api/nextGames/local/<local>', methods=['GET'])
 def get_games_by_local(local):
@@ -174,6 +201,20 @@ def get_modalities():
     """
     try:
       modalities = myAppService.generate_all_modalities()
+      return modalities
+    except Exception as e:
+        return jsonify({'error': e.message}), e.errorCode
+    
+@app.route('/api/localities', methods=['GET'])
+def get_localities():
+    """
+    Obtém informações sobre os locais dos jogos.
+    responses:
+      200:
+        description: Lista de localidades.
+    """
+    try:
+      modalities = myAppService.generate_all_localities()
       return modalities
     except Exception as e:
         return jsonify({'error': e.message}), e.errorCode

@@ -409,6 +409,7 @@ def corrigir_times(teams, df_games):
         'CásperLíbero': 'Cásper Líbero',
         'Comunica ção PUC': 'Comunicação PUC',
         'Comunicaçã o Anhembi': 'Comunicação Anhembi',
+        'Comunicação Anhembi (DT)': 'Comunicação Anhembi',
         'Comunicaçã o Mackenzie': 'Comunicação Mackenzie',
         'Comunicaçã o Metodista': 'Comunicação Metodista',
         'Direit o PUC': 'Direito PUC',
@@ -455,6 +456,7 @@ def corrigir_times(teams, df_games):
         'IME U SP': 'IME USP',
         'INS P ER': 'INSPER',
         'INSP ER': 'INSPER',
+        'INSPER (DT)': 'INSPER',
         'IT A': 'ITA',
         'LEP Ma c kenzie': 'LEP Mackenzie',
         'LEP Mac kenzie': 'LEP Mackenzie',
@@ -505,6 +507,7 @@ def corrigir_times(teams, df_games):
         'SEN  AC': 'SENAC',
         'SEN AC': 'SENAC',
         'SENAC (WO)': 'SENAC',
+        'SENAC (DT)': 'SENAC',
         'Sistema de Inf ormação USP': 'Sistema de Informação USP',
         'Stron g BS': 'Strong BS',
         'TecnologiaMackenzie': 'Tecnologia Mackenzie',
@@ -928,45 +931,6 @@ def execute_update_data_playoff_by_modality(modality, page):
     create_files(df_games_playoff, filepath, 'playoff')
     check_game_data(modality, 'playoff')
 
-# TODO - Grupo A e Grupo B | csv
-def execute_update_data_by_modality_old(modality, pages):
-    log_function_entry()
-    logging.info(f"Modalidade: {modality}")
-    tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
-    tb_group = format_tb_group(tables[0])
-    tb_games = [tables[1], tables[2]]
-
-    filepath = f'files/{modality}'
-    df_games = generate_table_games(tb_games)
-    
-    df_games = corrigir_times(tb_group, df_games)
-
-    # if modality == 'FM/F':
-    #     df_games = format_DIA_HORARIO(df_games)
-
-    # if modality == 'FM/B':
-    #     df_games = format_LOCAL_GRUPO(df_games)
-
-    df_games = corrigir_local(df_games)
-    df_games = corrigir_horario(df_games)
-    df_games = corrigir_dia(df_games)
-    df_games = preencher_simulador(df_games)
-    create_files(df_games, filepath)
-    
-    confrontos = gerar_confronto_direto(df_games, filepath)
-    df_confrontos_diretos = confrontos_to_df(confrontos)
-    rankings = generate_ranking_by_games(modality)
-    df_groups = update_ranking([rankings['A'], rankings['B']], df_confrontos_diretos)
-    df_groupA = df_groups[0]
-    df_groupB = df_groups[1]
-
-    df_groupA.to_csv(f'files/{modality}/group/ranking_A.csv', index=False)
-    df_groupB.to_csv(f'files/{modality}/group/ranking_B.csv', index=False)
-
-    csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
-    csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')
-    check_game_data(modality)
-
 def get_all_teams_by_rankings(rankings):
     teams = [team['Time'] for group in rankings.values() for team in group]
     return teams
@@ -1056,11 +1020,12 @@ def generate_dic_modalities_page(first_page, modalities):
     return dic_modalities_page
 
 initial_page = 48
-# initial_page = 72
+# initial_page = 60
 
 # Lista das modalidades
 modalities = [
-    "FF/A", "FF/B", "FF/C", "FF/D", "FF/E",
+    "FF/A", "FF/B", "FF/C",
+    "FF/D", "FF/E",
     "FM/A", 
     "FM/B", "FM/C", "FM/D", "FM/E", "FM/F" 
 ]
