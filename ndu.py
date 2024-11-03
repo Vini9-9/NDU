@@ -370,7 +370,23 @@ def verificar_listagem(set_output, set_default):
 # TODO - Correções
 def corrigir_local(df_games):
     log_function_entry()
-    locations = ['Medicina USP', 'Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha', 'Mauro Pinheiro', 'Baby Barione', 'CERET', 'Mauro Pinheiro']
+    locations = [
+        'Mackenzie', 
+        'SENAC', 
+        'Medicina USP', 
+        'Palestra', 
+        'USCS', 
+        'Idalina', 
+        'Pinheiros', 
+        'SEMEF', 
+        'GETA', 
+        'EDA', 
+        'CESPRO', 
+        'Mané Garrincha', 
+        'Mauro Pinheiro', 
+        'Baby Barione',
+        'CERET'
+        ]
     correction_local = {
         'Pale stra': 'Palestra',
         'Idal ina': 'Idalina',
@@ -379,9 +395,14 @@ def corrigir_local(df_games):
         'Mané Ga rrincha': 'Mané Garrincha',
         'US CS': 'USCS',
         'Baby B arione' : 'Baby Barione',
+        'Baby B arioni' : 'Baby Barione',
+        'SEN AC' : 'SENAC',
         'CER ET' : 'CERET',
+        'Mack enzie' : 'Mackenzie',
         'Mauro P inheiro' : 'Mauro Pinheiro',
         'Medicin a USP' : 'Medicina USP',
+        'CDC Ip asure': 'CDC Ipasure',
+        'APC EF': 'APCEF',
     }
     # Função de validação e correção
     def correct_local(local):
@@ -410,6 +431,7 @@ def corrigir_times(teams, df_games):
         'Comunica ção PUC': 'Comunicação PUC',
         'Comunicaçã o Anhembi': 'Comunicação Anhembi',
         'Comunicação Anhembi (DT)': 'Comunicação Anhembi',
+        'Comunicação A nhembi (WO)': 'Comunicação Anhembi',
         'Comunicaçã o Mackenzie': 'Comunicação Mackenzie',
         'Comunicaçã o Metodista': 'Comunicação Metodista',
         'Direit o PUC': 'Direito PUC',
@@ -450,6 +472,7 @@ def corrigir_times(teams, df_games):
         'Federaldo ABC': 'Federal do ABC',
         'FFLCHUSP': 'FFLCH USP',
         'FM U': 'FMU',
+        'FMU (DT)': 'FMU',
         'GetúlioVargas': 'Getúlio Vargas',
         'IBM EC': 'IBMEC',
         'IBME C SP': 'IBMEC SP',
@@ -1020,7 +1043,6 @@ def generate_dic_modalities_page(first_page, modalities):
     return dic_modalities_page
 
 initial_page = 48
-# initial_page = 60
 
 # Lista das modalidades
 modalities = [
@@ -1033,17 +1055,17 @@ modalities = [
 dic_modalities_page = generate_dic_modalities_page(initial_page, modalities)
 
 # dic_modalities_page = {
-#         "FF/A" : "48-49",
-#         "FF/B" : "50-51",
-#         "FF/C" : "53-54",
-#         "FF/D" : "60-61",
-#         "FF/E" : "64-65",
-#         # "FM/A" : "68-69",
-#         "FM/B" : "72-73",
-#         "FM/C" : "73-74",
-#         "FM/E" : "81-82",
+#         # "FF/A" : "48-49",
+#         # "FF/B" : "52-53",
+#         # "FF/C" : "56-57",
+#         # "FF/D" : "60-61",
+#         # "FF/E" : "64-65",
+#         "FM/A" : "69-70",  
+#         "FM/B" : "73-74",
+#         "FM/C" : "76-77",
+#         "FM/D" : "80-81",
+#         "FM/E" : "84-85",
 #         "FM/F" : "88-89",
-#         "FM/D" : "77-78",
 #     }
 
 # TODO - Runner
