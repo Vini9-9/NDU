@@ -25,6 +25,10 @@ myAppService = my_app.service
 def get_info():
     return json.dumps(myAppService.get_info(), ensure_ascii=False).encode('utf8')
 
+@app.route('/api/flags', methods=['GET'])
+def get_flags():
+    return json.dumps(myAppService.get_flags(), ensure_ascii=False).encode('utf8')
+
 @app.route('/api/games/<modality>/<series>/confrontation', methods=['GET'])
 def get_confrontation(modality, series):
     """

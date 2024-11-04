@@ -17,7 +17,10 @@ class FirebaseRepository:
         })
 
     def get_info(self):
-        return db.reference(f'info').get()
+        return db.reference('info').get()
+    
+    def get_flags(self):
+        return db.reference('flags').get()
     
     def get_confrontation(self, modality, series):
         return db.reference(f'modalidades/{modality}/{series}/confrontation').get()
