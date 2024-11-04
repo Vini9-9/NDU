@@ -26,6 +26,9 @@ class MyService:
     def get_games(self, modality, series):
         return self.repository.get_games(modality, series)
     
+    def get_playoff_games(self, modality, series):
+        return self.repository.get_playoff_games(modality, series)
+    
     def get_games_by_team(self, modality, series, team=None):
         return self.repository.get_games_by_team(modality, series, team)
     

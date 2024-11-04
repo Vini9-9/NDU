@@ -127,7 +127,7 @@ def get_games(modality, series):
     ---
     parameters:
     - name: modality
-      in: path'
+      in: path
       type: string
       description: A modalidade dos jogos.
     - name: series
@@ -141,38 +141,42 @@ def get_games(modality, series):
     try:
 
       team_query = request.args.get('team')
-      df_games = myAppService.get_games_by_team(modality, series, team_query)
-      return df_games
+      simulator_query = request.args.get('simulator')
+
+      if simulator_query :
+        df_games = myAppService.get_simulator_games(modality, series)
+      else:
+        df_games = myAppService.get_games_by_team(modality, series, team_query)
+      return json.dumps(df_games, ensure_ascii=False).encode('utf8')
 
     except Exception as e:
-        return jsonify({'error': e.message}), e.errorCode
+        return json.dumps({'error': e.message}), e.errorCode
 
-# @app.route('/api/games/playoff/<modality>/<series>', methods=['GET'])
-# def get_games(modality, series):
-#     """
-#     Obtém informações sobre os jogos por time.
-#     ---
-#     parameters:
-#     - name: modality
-#       in: path
-#       type: string
-#       description: A modalidade dos jogos.
-#     - name: series
-#       in: path
-#       type: string
-#       description: A série dos jogos.
-#     responses:
-#       200:
-#         description: Lista de jogos.
-#     """
-#     try:
+@app.route('/api/playoff/<modality>/<series>', methods=['GET'])
+def get_playoff(modality, series):
+    """
+    Obtém informações sobre os playoffs .
+    ---
+    parameters:
+    - name: modality
+      in: path
+      type: string
+      description: A modalidade dos jogos.
+    - name: series
+      in: path
+      type: string
+      description: A série dos jogos.
+    responses:
+      200:
+        description: Lista de jogos.
+    """
+    try:
 
-#       team_query = request.args.get('team')
-#       df_games = myAppService.get_games_by_team(modality, series, team_query)
-#       return json.dumps(df_games, ensure_ascii=False).encode('utf8')
+      df_games = myAppService.get_playoff_games(modality, series)
+      return json.dumps(df_games, ensure_ascii=False).encode('utf8')
 
-#     except Exception as e:
-#         return json.dumps({'error': e.message}), e.errorCode
+    except Exception as e:
+        return json.dumps({'error': e.message}), e.errorCode
     
 @app.route('/api/nextGames/local/<local>', methods=['GET'])
 def get_games_by_local(local):

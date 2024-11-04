@@ -29,6 +29,10 @@ class FirebaseRepository:
         games = db.reference(f'modalidades/{modality}/{series}/games').get()
         return games
     
+    def get_playoff_games(self, modality, series):
+        playoff = db.reference(f'modalidades/{modality}/{series}/playoff').get()
+        return playoff
+    
     def get_games_by_team(self, modality, series, team=None):
         games = db.reference(f'modalidades/{modality}/{series}/games').get()
         if team:

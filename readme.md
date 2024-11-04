@@ -7,7 +7,15 @@ Este é um aplicativo Flask simples que fornece uma API para obter informações
 Certifique-se de ter o Python instalado no seu sistema. Além disso, instale as dependências necessárias executando o seguinte comando:
 
 ```bash
-pip install flask pandas flasgger
+pip install tabula-py==2.9.0 pandas 
+```
+
+- Java: [version "1.8.0_202"](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html)
+
+Para API:
+
+```bash
+pip install flask flask_cors flasgger
 ```
 
 ## Executando o Aplicativo
