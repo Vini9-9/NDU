@@ -8,7 +8,6 @@ import inspect
 import utils
 import check
 import fixes
-import main
 
 data_hora_atual = datetime.now()
 
@@ -97,6 +96,27 @@ def verify_empty_games(tables):
     
     concatenated_df = pd.concat(tables, ignore_index=True)
     return concatenated_df
+
+def generate_table_games(tables):
+    log_function_entry()
+    tb_games = verify_empty_games(tables)
+    df_games = pd.DataFrame(tb_games)
+    if df_games['DIA'].isna().all():
+        df_games['DIA'] = ''
+    else:
+        # Limpar os espaços extras e formatar a coluna 'DIA'
+        df_games['DIA'] = df_games['DIA'].str.replace(' ', '', regex=False)
+        df_games['DIA'] = pd.to_datetime(df_games['DIA'] + '/' + pd.to_datetime('now', utc=True).strftime('%Y'), format='%d/%m/%Y', errors='coerce')
+
+    # Limpar os espaços extras e corrigir a formatação dos placares
+    df_games['PLACAR'] = df_games['PLACAR'].str.replace(' ', '', regex=True)
+    df_games[['GOLS_MANDANTE', 'GOLS_VISITANTE']] = df_games['PLACAR'].str.split('X', expand=True)
+    df_games['ID'] = [utils.generate_game_id() for _ in range(len(df_games))]
+    df_games.rename(columns={'HORÁRIO': 'HORARIO'}, inplace=True)
+    df_games.rename(columns={'EQUIPE Mandante': 'Mandante'}, inplace=True)
+    df_games.rename(columns={'EQUIPE Visitante': 'Visitante'}, inplace=True)
+    df_games['SIMULADOR'] = df_games.apply(check_simulador, axis=1)
+    return df_games
 
 # Jogos por time
 def listar_jogos_por_time(df_games, team_surname):
@@ -433,6 +453,22 @@ def get_all_teams_by_rankings(rankings):
     teams = [team['Time'] for group in rankings.values() for team in group]
     return teams
 
+def execute_update_games_by_modality(modality, pages):
+    logging.info(f"Modalidade: {modality}")
+    tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
+    rankings_zero_group = get_rankings_zero_group(modality)
+    teams = get_all_teams_by_rankings(rankings_zero_group)
+    tb_games = [tables[1], tables[2]]
+    filepath = f'files/{modality}'
+    df_games = generate_table_games(tb_games)
+    df_games = fixes.corrigir_times(teams, df_games)
+    df_games = fixes.corrigir_local(df_games)
+    df_games = fixes.corrigir_horario(df_games)
+    df_games = fixes.corrigir_dia(df_games)
+    df_games = preencher_simulador(df_games)
+    utils.create_files(df_games, filepath)
+    check.check_game_data(modality)
+
 def execute_update_data_by_modality(modality, pages):
     log_function_entry()
     logging.info(f"Modalidade: {modality}")
@@ -442,7 +478,7 @@ def execute_update_data_by_modality(modality, pages):
     tb_games = [tables[1], tables[2]]
 
     filepath = f'files/{modality}'
-    df_games = main.generate_table_games(tb_games)
+    df_games = generate_table_games(tb_games)
     df_games = fixes.corrigir_times(teams, df_games)
     df_games = fixes.corrigir_local(df_games)
     df_games = fixes.corrigir_horario(df_games)
@@ -450,7 +486,7 @@ def execute_update_data_by_modality(modality, pages):
     df_games = preencher_simulador(df_games)
     utils.create_files(df_games, filepath)
     
-    confrontos = main.gerar_confronto_direto(df_games, filepath)
+    confrontos = gerar_confronto_direto(df_games, filepath)
     df_confrontos_diretos = confrontos_to_df(confrontos)
     rankings = generate_ranking_by_games(modality)
     df_groups = update_ranking(rankings, df_confrontos_diretos)
@@ -465,20 +501,39 @@ def execute_update_data_by_modality(modality, pages):
 
 def execute_update_data(dic_modalities_page):
     log_function_entry()
-    for key, value in dic_modalities_page.items():
-        modality = key
-        group_page_range = value['group_page_range']
+    utils.extract_and_save_team_names(dic_modalities_page)
+    for item in dic_modalities_page:
+        # Cada item é um dicionário com uma única chave-valor
+        modality, details = next(iter(item.items()))
+        group_page_range = details['group_page_range']
         execute_update_data_by_modality(modality, group_page_range)
         logging.info("----------------------------------------")
     
     utils.create_backup_zipped()
 
+def update_ranking_by_games(modality):
+    log_function_entry()
+    filepath = f'files/{modality}'
+    df_games = pd.read_json(f'{filepath}/games.json')
 
-# TODO - Runner
-# execute_update_data_playoff(dic_modalities_page_playoff)
+    confrontos = gerar_confronto_direto(df_games, filepath)
+    df_confrontos_diretos = confrontos_to_df(confrontos)
+    rankings = generate_ranking_by_games(modality)
+    df_groups = update_ranking([rankings['A'], rankings['B']], df_confrontos_diretos)
+    df_groupA = df_groups[0]
+    df_groupB = df_groups[1]
 
-# TODO - Runner
-# execute_update_data_by_modality("FM/F", "84-85")
+    df_groupA.to_csv(f'files/{modality}/group/ranking_A.csv', index=False)
+    df_groupB.to_csv(f'files/{modality}/group/ranking_B.csv', index=False)
 
-# TODO - Runner
-# update_ranking_by_games("FM/F")
+    utils.csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
+    utils.csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')
+
+def execute_update_games(dic_modalities_page):
+    log_function_entry()
+    for item in dic_modalities_page:
+        # Cada item é um dicionário com uma única chave-valor
+        modality, details = next(iter(item.items()))
+        group_page_range = details['group_page_range']
+        execute_update_games_by_modality(modality, group_page_range)
+        logging.info("----------------------------------------")
