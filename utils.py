@@ -1,4 +1,3 @@
-import tabula
 import pandas as pd
 import uuid
 import csv
@@ -13,6 +12,7 @@ import locale
 from datetime import datetime
 from typing import List, Dict
 from types import SimpleNamespace
+from colorama import init, Fore, Style
 
 data_hora_atual = datetime.now()
 
@@ -116,7 +116,7 @@ def create_backup_zipped(source_folder='files', backup_folder='backup'):
         os.makedirs(backup_folder)
 
     # Obter a data e hora atuais
-    data_hora_atual = datetime.datetime.now()
+    data_hora_atual = datetime.now()
     timestamp = data_hora_atual.strftime("%Y-%m-%d_%H-%M-%S")
 
     # Criar o nome do arquivo zip
@@ -240,3 +240,35 @@ def get_current_dic_modalities_page():
         return generate_dic_modalities_page(True)
     else:
         return load_json_data(filename)
+
+# Inicializa o colorama
+init(autoreset=True)
+
+def print_colored(text, color=Fore.CYAN, style=Style.BRIGHT):
+    print(f"{style}{color}{text}{Style.RESET_ALL}")
+
+def print_magenta(text):
+    print_colored(text, Fore.MAGENTA)
+
+
+def extract_and_save_team_names(dic_modalities_page):
+    all_teams = set()
+
+    for item in dic_modalities_page:
+        modality = next(iter(item.keys()))
+        for letter in ['A', 'B', 'C']:
+            ranking_file_path = f'files/{modality}/group/ranking_zero_{letter}.json'
+            
+            # Verifica se o arquivo ranking_zero_{letter}.json existe
+            if os.path.exists(ranking_file_path):
+                ranking_file = load_json_data(ranking_file_path)
+                for team_data in ranking_file:
+                    all_teams.add(team_data['Time'])
+            else:
+                # Se o arquivo não existe, pula para a próxima letra ou modalidade
+                continue
+
+    # Converte o conjunto para uma lista e ordena
+    all_teams_list = sorted(list(all_teams))
+
+    create_json(all_teams_list, 'files/all_teams_name.json')

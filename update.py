@@ -2,26 +2,18 @@ import main
 import utils
 import zero
 import playoff
-from colorama import init, Fore, Style
+from colorama import Fore, Style
 
-# Inicializa o colorama
-init(autoreset=True)
 dic_modalities_page = utils.get_current_dic_modalities_page()
-
-def print_colored(text, color=Fore.CYAN, style=Style.BRIGHT):
-    print(f"{style}{color}{text}{Style.RESET_ALL}")
-
-def print_magenta(text):
-    print_colored(text, Fore.MAGENTA)
 
 def menu():
     
-    print_colored("O que deseja atualizar?", Fore.YELLOW)
-    print_colored("G - Tudo da fase de grupos")
-    print_colored("J - Apenas Jogos")
-    print_colored("P - Tudo do playoff")
-    print_colored("R - Ranking por modalidade")
-    print_colored("Z - do zero")
+    utils.print_colored("O que deseja atualizar?", Fore.YELLOW)
+    utils.print_colored("G - Tudo da fase de grupos")
+    utils.print_colored("J - Apenas Jogos")
+    utils.print_colored("P - Tudo do playoff")
+    utils.print_colored("R - Ranking por modalidade")
+    utils.print_colored("Z - do zero")
     
     choice = input(Fore.GREEN + "Escolha uma opção: " + Style.RESET_ALL).capitalize()
     
@@ -39,16 +31,16 @@ def menu():
         print("Opção inválida.")
 
 def update_all_group():
-    print_magenta("Atualizando tudo...")
+    utils.print_magenta("Atualizando tudo...")
     main.execute_update_data(dic_modalities_page)
 
 def update_data_from_zero():
-    print_magenta("Atualizando do zero...")
+    utils.print_magenta("Atualizando do zero...")
     zero.execute_zero_ranking(dic_modalities_page)
 
 def update_ranking_by_modality():
     modality = input(Fore.GREEN + "Informe a modalidade (ex: FM/A): " + Style.RESET_ALL)
-    print_magenta(f"Atualizando ranking para a modalidade {modality}...")
+    utils.print_magenta(f"Atualizando ranking para a modalidade {modality}...")
     main.update_ranking_by_games(modality)
 
 def update_playoff():
@@ -61,10 +53,8 @@ def update_playoff():
     #   playoff.execute_update_data_playoff(dic_modalities_page)
 
 def update_games():
-    print_magenta("Atualizando apenas jogos...")
-    # Implemente a função para atualizar apenas os jogos aqui
-    # Por exemplo:
-    # main.update_games()
+    utils.print_magenta("Atualizando apenas jogos...")
+    main.execute_update_games(dic_modalities_page)
 
 if __name__ == "__main__":
     menu()
