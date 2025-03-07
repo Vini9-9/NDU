@@ -51,20 +51,20 @@ python update.py
   Caso ocorra algum erro, você pode apagar o arquivo `files/futsal_series_info.json` que ele gerará um novo de acordo com o arquivo `files/Boletim.pdf`.
 
 - **Opção R**: 
-  *Rodar para atualizar o ranking de uma modalidade específica. *
+  *Rodar para atualizar o ranking de uma modalidade específica.*
   Ele solicitará que você informe a modalidade (ex: FM/A) e atualizará o ranking para essa modalidade específica com base nos jogos registrados no Boletim.
 
 - **Opção J**: 
-  *Rodar para atualizar apenas os jogos de todas as modalidades. *
+  *Rodar para atualizar apenas os jogos de todas as modalidades.*
   Ele percorrerá todas as modalidades definidas em `files/futsal_series_info.json` e atualizará as informações dos jogos, sem modificar rankings ou dados de confronto direto.
 
 - **Opção P** (Versão Beta): 
-  *Rodar para atualizar os dados dos playoffs de todas as modalidades. *
+  *Rodar para atualizar os dados dos playoffs de todas as modalidades.*
   Ele processará as informações de playoff para todas as modalidades definidas em `files/futsal_series_info.json`. 
   Caso haja necessidade de atualizar uma modalidade específica, é possível descomentar o código relevante na função `update_playoff()`.
 
 - **Opção Z**: 
-  *Rodar quando for início de competição, com a definição dos grupos pronta no boletim. *
+  *Rodar quando for início de competição, com a definição dos grupos pronta no boletim.*
   Ele irá identificar as páginas de cada modalidade e suas respectivas séries. 
   Caso ocorra algum erro, você pode apagar o arquivo `files/futsal_series_info.json` que ele gerará um novo de acordo com o arquivo `files/Boletim.pdf`.
 
