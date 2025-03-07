@@ -7,6 +7,39 @@ import pandas as pd
 import re
 
 
+def novo_split_fase_equipe(df):
+    """Ajusta a tabela quando 'FASE EQUIPE Mandante' está presente"""
+    fases = [
+             '(1)', '(2)', '(3)', '(4)',
+             '4as', '4a s',
+             '9o e 10o', '9o e', '10o',
+             'Semi', 'Sem i',
+             '3o e 4o', '3o  e', '4o',
+             'Final'
+             ]
+
+    def extract_fase(text):
+        if pd.isna(text):
+            return ''
+        # Verifica se o texto começa com alguma fase
+        for fase in fases:
+            if text.startswith(fase):
+                return fase
+        return ''
+
+    def extract_equipe(text):
+        if pd.isna(text):
+            return ''
+        # Remove apenas a fase no início do texto, se existir
+        for fase in fases:
+            if text.startswith(fase):
+                return text[len(fase):].strip()
+        return text.strip()
+
+    df['FASE'] = df['FASE EQUIPE Mandante'].apply(extract_fase)
+    df['EQUIPE Mandante'] = df['FASE EQUIPE Mandante'].apply(extract_equipe)
+    return df
+
 def split_fase_equipe(df):
     """Divide a coluna 'FASE EQUIPE Mandante' em 'FASE' e 'EQUIPE Mandante'."""
     df['FASE'] = df['FASE EQUIPE Mandante'].apply(lambda x: x[:-24] if len(x) > 24 else '')
@@ -23,19 +56,42 @@ def split_fase(fase_str):
             return fase, idx
         return str(fase_str), ''
 
+def apply_overtime_to_row(new_row, row1):
+    overtime_text = row1['EQUIPE Mandante'].replace("Prorrogação:", "").strip()
+    gols = overtime_text.split(' x ')
+    if len(gols) == 2:
+        new_row['GOLS_MANDANTE_OT'] = int(gols[0].strip())
+        new_row['GOLS_VISITANTE_OT'] = int(gols[1].strip())
+    return new_row
+
 def generate_playoff_games(tables):
-    
+
     df = pd.DataFrame(tables)
+
+    if 'FASE EQUIPE Mandante' in df.columns:
+        df = novo_split_fase_equipe(df)
     
     # Lista para armazenar as novas linhas
     new_rows = []
 
-    # Iterar sobre o DataFrame em blocos de 3 linhas
-    for i in range(0, len(df) - 2, 3):
+    i = 0
+    # for i in range(0, len(df) - 2, 3):
+    while i < len(df) - 2:
         row1 = df.iloc[i]
         row2 = df.iloc[i+1]
         row3 = df.iloc[i+2]
 
+        
+        if str(row1['EQUIPE Mandante']).startswith("Prorrogação:"):
+            new_rows.pop()
+            new_row = apply_overtime_to_row(new_row, row1)
+            new_rows.append(new_row)
+            # jump_row()
+            row1 = df.iloc[i+1]
+            row2 = df.iloc[i+2]
+            row3 = df.iloc[i+3]
+
+        print(i, row1)
         fase1, idx1 = split_fase(row1['FASE'])
         fase3, idx3 = split_fase(row3['FASE'])
         
@@ -50,12 +106,18 @@ def generate_playoff_games(tables):
             'DIA': str(row2['DIA']),
             'HORARIO': str(row2['HORÁRIO']),
             'LOCAL': str(row2['LOCAL']),
-            'PLACAR': str(row2['PLACAR'])
+            'PLACAR': str(row2['PLACAR']),
+            "GOLS_MANDANTE_OT": 0,
+            "GOLS_VISITANTE_OT": 0,
+            "GOLS_MANDANTE_PN": 0,
+            "GOLS_VISITANTE_PN": 0,
         }
 
         # Adicionar a nova linha à lista apenas se tiver informações relevantes
         if any(value.strip() for value in new_row.values() if isinstance(value, str)):
             new_rows.append(new_row)
+
+        i += 3
 
     ## add Final
     extra_row = {
@@ -69,6 +131,10 @@ def generate_playoff_games(tables):
         "HORARIO": "",
         "LOCAL": "",
         "PLACAR": "X",
+        "GOLS_MANDANTE_OT": 0,
+        "GOLS_VISITANTE_OT": 0,
+        "GOLS_MANDANTE_PN": 0,
+        "GOLS_VISITANTE_PN": 0,
     }
     new_rows.append(extra_row)
 
@@ -77,7 +143,9 @@ def generate_playoff_games(tables):
     result_df['ID'] = [generate_game_id() for _ in range(len(result_df))]
     result_df.rename(columns={'HORÁRIO': 'HORARIO', 'EQUIPE Mandante': 'Mandante', 'EQUIPE Visitante': 'Visitante'}, inplace=True)
     result_df[['GOLS_MANDANTE', 'GOLS_VISITANTE']] = result_df['PLACAR'].str.split('X', expand=True)
-    
+    result_df['GOLS_MANDANTE'] = pd.to_numeric(result_df['GOLS_MANDANTE'], errors='coerce').fillna(0)
+    result_df['GOLS_VISITANTE'] = pd.to_numeric(result_df['GOLS_VISITANTE'], errors='coerce').fillna(0)
+
     # Substituir 'nan' por string vazia
     result_df = result_df.replace('nan', '', regex=True)
     
@@ -179,23 +247,9 @@ def execute_update_data_playoff_by_modality(modality, page):
     check_game_data(modality, 'playoff')
 
 def execute_update_data_playoff(dic_modalities_page):
-
-    for key, value in dic_modalities_page.items():
-        execute_update_data_playoff_by_modality(key, value)
+    for item in dic_modalities_page:
+        # Cada item é um dicionário com uma única chave-valor
+        modality, details = next(iter(item.items()))
+        playoff_page_range = details['playoff_page_range']
+        execute_update_data_playoff_by_modality(modality, playoff_page_range)
         logging.info("----------------------------------------")
-
-dic_modalities_page_playoff = {
-        "FF/A" : "51",
-        "FF/B" : "55",
-        "FF/C" : "59",
-        "FF/D" : "63",
-        # "FF/E" : "68",
-        "FM/A" : "72",
-        "FM/B" : "76",
-        "FM/C" : "80",
-        "FM/D" : "84",
-        "FM/E" : "88",
-        # "FM/F" : "93",
-    }
-
-execute_update_data_playoff(dic_modalities_page_playoff)

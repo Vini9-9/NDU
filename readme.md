@@ -15,17 +15,12 @@ pip install tabula-py==2.9.0 pandas
 Para API:
 
 ```bash
-pip install flask flask_cors flasgger
+pip install flask flask_cors flasgger fuzzywuzzy python-Levenshtein colorama
 ```
 
 ## Executando o Aplicativo
 
-Caso queira gerar os dados, execute o seguinte comando:
-(Será gerado apenas os dados do futsal masculino serie A)
-
-```bash
-python ndu.py
-```
+Caso queira gerar/atualizar os dados vá para a seção runners.
 
 Para iniciar a api, execute o seguinte comando:
 
@@ -42,3 +37,44 @@ O aplicativo será iniciado e estará disponível em `http://localhost:5001`.
 ## Notas Adicionais
 
 - Certifique-se de ter os arquivos CSV necessários no diretório `files/` para que o aplicativo funcione corretamente.
+
+
+## Runners
+
+### update.py
+
+```bash
+python update.py
+```
+
+- Opção Z: Rodar quando for inicio de competição, com a definição dos grupos pronta no boletim
+
+Ele irá identificar as páginas de cada modalidade e suas respectivas series, 
+caso ocorra algum erro você pode apagar o arquivo files/futsal_series_info.json que ele gerará um novo de acordo com o arquivo files/Boletim.pdf 
+
+
+- Opção G:
+
+Rodar para atualizar os dados da fase de grupos, como jogos, atualização e listagem de confronto direto.
+
+Ele irá identificar as páginas de cada modalidade e suas respectivas series através do arquivo files/futsal_series_info.json caso ocorra algum erro você pode apagar o arquivo files/futsal_series_info.json que ele gerará um novo de acordo com o arquivo files/Boletim.pdf 
+
+
+
+## Arquivos relevantes
+
+### fixes.py
+
+Para corrigir algum dado que foi gerado incorreto deverá ser incluído no dict correction_teams para nome de atléticas
+e no dict correction_local para locais de jogos, caso o local não esteja na lista de locations
+
+-------------
+
+TODO
+
+- [X] Separar em runners
+- [X] Funcionar zero.py
+- [X] Funcionar group.py
+- [ ] Funcionar playoff.py
+
+- [ ] Pular uma modalidade caso encontre um erro
