@@ -453,6 +453,22 @@ def get_all_teams_by_rankings(rankings):
     teams = [team['Time'] for group in rankings.values() for team in group]
     return teams
 
+def execute_update_games_by_modality(modality, pages):
+    logging.info(f"Modalidade: {modality}")
+    tables = tabula.read_pdf("files/Boletim.pdf", pages=pages)
+    rankings_zero_group = get_rankings_zero_group(modality)
+    teams = get_all_teams_by_rankings(rankings_zero_group)
+    tb_games = [tables[1], tables[2]]
+    filepath = f'files/{modality}'
+    df_games = generate_table_games(tb_games)
+    df_games = fixes.corrigir_times(teams, df_games)
+    df_games = fixes.corrigir_local(df_games)
+    df_games = fixes.corrigir_horario(df_games)
+    df_games = fixes.corrigir_dia(df_games)
+    df_games = preencher_simulador(df_games)
+    utils.create_files(df_games, filepath)
+    check.check_game_data(modality)
+
 def execute_update_data_by_modality(modality, pages):
     log_function_entry()
     logging.info(f"Modalidade: {modality}")
@@ -485,6 +501,7 @@ def execute_update_data_by_modality(modality, pages):
 
 def execute_update_data(dic_modalities_page):
     log_function_entry()
+    utils.extract_and_save_team_names(dic_modalities_page)
     for item in dic_modalities_page:
         # Cada item é um dicionário com uma única chave-valor
         modality, details = next(iter(item.items()))
@@ -511,3 +528,12 @@ def update_ranking_by_games(modality):
 
     utils.csv_to_json(f'files/{modality}/group/ranking_A.csv', f'files/{modality}/group/ranking_A.json')
     utils.csv_to_json(f'files/{modality}/group/ranking_B.csv', f'files/{modality}/group/ranking_B.json')
+
+def execute_update_games(dic_modalities_page):
+    log_function_entry()
+    for item in dic_modalities_page:
+        # Cada item é um dicionário com uma única chave-valor
+        modality, details = next(iter(item.items()))
+        group_page_range = details['group_page_range']
+        execute_update_games_by_modality(modality, group_page_range)
+        logging.info("----------------------------------------")
