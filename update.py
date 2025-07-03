@@ -1,4 +1,5 @@
-from modules.main import update_boletim_file, execute_update_games, execute_update_data, update_ranking_by_games
+from modules.main import execute_update_games, execute_update_data, update_ranking_by_games
+from modules.boletim import update_boletim_file, get_updated_boletim_info, has_matching_boletim_link
 from modules.utils import get_current_dic_modalities_page, print_colored, print_magenta
 from modules.zero import execute_zero_ranking
 from modules.playoff import execute_update_data_playoff
@@ -15,22 +16,30 @@ def menu():
     print_colored("R - Ranking por modalidade")
     print_colored("Z - do zero")
     
-    choice = input(Fore.GREEN + "Escolha uma opção: " + Style.RESET_ALL).capitalize()
-    update_boletim_file()
-    
-    if choice == "G":
-        update_all_group()
-    elif choice == "R":
-        update_ranking_by_modality()
-    elif choice == "J":
-        update_games()
-    elif choice == "P":
-        update_playoff()
-    elif choice == "Z":
-        update_data_from_zero()
-    else:
-        print("Opção inválida.")
+    # validar se é o arquivo mais recente antes de atualizar o boletim
+    boletim_info = get_updated_boletim_info()
+    if boletim_info:
+        if(has_matching_boletim_link(boletim_info["redirect"])):
+            print_magenta("O boletim já está atualizado!")
+        else:
+            update_boletim_file(boletim_info)
 
+        choice = input(Fore.GREEN + "Escolha uma opção: " + Style.RESET_ALL).capitalize()
+
+        if choice == "G":
+            update_all_group()
+        elif choice == "R":
+            update_ranking_by_modality()
+        elif choice == "J":
+            update_games()
+        elif choice == "P":
+            update_playoff()
+        elif choice == "Z":
+            update_data_from_zero()
+        else:
+            print("Opção inválida.")
+        return 0
+    
 def update_all_group():
     print_magenta("Atualizando tudo...")
     execute_update_data(dic_modalities_page)
