@@ -115,7 +115,6 @@ def has_matching_boletim_link(boletim_url):
             return False
         
         data = load_json_data(json_file_path)
-        print(data)
         # Verificar se o link já existe no arquivo
         return data.get("link") == boletim_url
         

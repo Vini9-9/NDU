@@ -7,6 +7,9 @@ import inspect
 import modules.utils as utils
 import modules.fixes as fixes
 import modules.main as main
+import os
+import json
+from pathlib import Path
 
 data_hora_atual = datetime.now()
 
@@ -69,6 +72,7 @@ def create_zero_ranking_group(table_groups, filepath):
 
 def execute_zero_ranking(dic_modalities_page):
     log_function_entry()
+    limpar_conteudo_json()
     for item in dic_modalities_page:
         # Cada item é um dicionário com uma única chave-valor
         modality, details = next(iter(item.items()))
@@ -90,6 +94,33 @@ def execute_zero_ranking(dic_modalities_page):
         df_games = fixes.corrigir_times(teams, df_games)
         utils.create_files(df_games, filepath)
         main.gerar_confronto_direto(df_games, filepath)
+
+def limpar_conteudo_json():
+    """
+    Apenas escreve uma string JSON vazia nos arquivos dos diretorios_alvo
+    """
+    log_function_entry()
+    diretorios_alvo = [
+        "files/FF/",
+        "files/FM/"
+    ]
+    
+    for diretorio_base in diretorios_alvo:
+        diretorio_path = Path(diretorio_base)
+        
+        if not diretorio_path.exists():
+            logging.info(f"Diretório não encontrado: {diretorio_path}")
+            continue
+        
+        for arquivo_json in diretorio_path.rglob("*.json"):
+            try:
+                with open(arquivo_json, 'w', encoding='utf-8') as f:
+                    f.write('{}')
+                
+                logging.info(f"Conteúdo limpo: {arquivo_json}")
+                
+            except Exception as e:
+                logging.warning(f"Erro ao processar {arquivo_json}: {e}")
 
 # dic_modalities_page = utils.get_current_dic_modalities_page()
 
