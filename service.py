@@ -77,7 +77,7 @@ class MyService:
         return all_modalities
     
     def generate_all_localities(self):
-        locations = ['Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha', 'Baby Barione']
+        locations = ['Palestra', 'USCS', 'Idalina', 'Pinheiros', 'SEMEF', 'GETA', 'EDA', 'CESPRO', 'Mané Garrincha', 'Baby Barione', 'DERDIC', 'Federal do ABC']
         return locations
     
     def generate_all_rankings(self, modality, series, simulator=False):

@@ -101,7 +101,7 @@ def get_updated_boletim_info():
         logging.error(f"Erro inesperado: {e}")
         return None
 
-def has_matching_boletim_link(boletim_url):
+def has_matching_boletim_link(boletim_info):
     """
     Verifica se o link do boletim já existe no arquivo JSON local
     """
@@ -115,9 +115,15 @@ def has_matching_boletim_link(boletim_url):
             return False
         
         data = load_json_data(json_file_path)
+        # Convertendo strings de data no formato "dd/mm/yyyy" para objetos datetime
+        boletim_date = datetime.strptime(boletim_info["date_str"], "%d/%m/%Y")
+        data_boletim_json = datetime.strptime(data.get("boletimDate"), "%d/%m/%Y")
+
+        # Verifica se boletim_date é mais recente (maior) que data_boletim_date
+        is_newer = boletim_date > data_boletim_json
         # Verificar se o link já existe no arquivo
-        return data.get("link") == boletim_url
-        
+        return data.get("link") == boletim_info["redirect"] and not is_newer
+
     except (FileNotFoundError, json.JSONDecodeError):
         return False
     except Exception as e:

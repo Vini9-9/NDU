@@ -19,7 +19,7 @@ def menu():
     # validar se é o arquivo mais recente antes de atualizar o boletim
     boletim_info = get_updated_boletim_info()
     if boletim_info:
-        if(has_matching_boletim_link(boletim_info["redirect"])):
+        if(has_matching_boletim_link(boletim_info)):
             print_magenta("O boletim já está atualizado!")
         else:
             update_boletim_file(boletim_info)
