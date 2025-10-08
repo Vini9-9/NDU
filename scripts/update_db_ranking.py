@@ -6,7 +6,7 @@ import os
 import datetime
 import logging
 
-INFO_DB_FILE = os.path.join(os.getcwd(), "info_db.json")
+INFO_DB_FILE = os.path.join(os.getcwd(), "boletim_info.json")
 
 data_hora_atual = datetime.datetime.now()
 
