@@ -1,7 +1,7 @@
 from modules.main import execute_update_games, execute_update_data, update_ranking_by_games
 from modules.boletim import update_boletim_file, get_updated_boletim_info, has_matching_boletim_link
 from modules.utils import get_current_dic_modalities_page, print_colored, print_magenta
-from modules.zero import execute_zero_ranking
+from modules.zero import create_all_folders, execute_zero_ranking
 from modules.playoff import execute_update_data_playoff
 from colorama import Fore, Style
 
@@ -46,6 +46,7 @@ def update_all_group():
 
 def update_data_from_zero():
     print_magenta("Atualizando do zero...")
+    create_all_folders()
     execute_zero_ranking(dic_modalities_page)
 
 def update_ranking_by_modality():
