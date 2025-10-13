@@ -23,6 +23,34 @@ def log_function_entry():
     function_name = inspect.currentframe().f_back.f_code.co_name
     logging.debug(f"Function: {function_name}")
 
+def create_all_folders():
+    # Caminho base onde as pastas serão criadas
+    BASE_DIR = "files"
+
+    # Caminho do arquivo JSON
+    JSON_FILE = "files/futsal_series_info.json"
+
+    # Ler o JSON
+    with open(JSON_FILE, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # Criar diretórios
+    for item in data:
+        for key, value in item.items():
+            # Exemplo de key: "FF/A" -> partes = ["FF", "A"]
+            parts = key.split("/")
+            if len(parts) == 2:
+                modalidade, serie = parts
+                # Criar diretórios "group" e "playoff"
+                group_dir = os.path.join(BASE_DIR, modalidade, serie, "group")
+                playoff_dir = os.path.join(BASE_DIR, modalidade, serie, "playoff")
+
+                os.makedirs(group_dir, exist_ok=True)
+                os.makedirs(playoff_dir, exist_ok=True)
+
+        logging.info("✅ Diretórios criados com sucesso!")
+
+
 def create_zero_ranking_group(table_groups, filepath):
     log_function_entry()
     dataframes = []
@@ -78,7 +106,10 @@ def execute_zero_ranking(dic_modalities_page):
         modality, details = next(iter(item.items()))
         group_page_range = details['group_page_range']
         logging.info(f"modalidade: {modality} | group_page: {group_page_range}")
-        tables = tabula.read_pdf("files/Boletim.pdf", pages=group_page_range)
+        tables = tabula.read_pdf(
+            "files/Boletim.pdf", 
+            pages=group_page_range
+    )
         tb_group = fixes.format_tb_group(tables)
         print('Grupo página:', group_page_range)
         print(tb_group)
