@@ -7,6 +7,34 @@ import os
 import logging
 from modules.utils import load_json_data, create_json
 
+def get_target_li(lis):
+    """
+    Retorna o <li> correto conforme o conteúdo do link.
+    Se o link dentro do primeiro <li> contiver 'controle',
+    retorna o próximo <li>.
+    """
+    if not lis:
+        logging.warning("Lista de <li> está vazia.")
+        return None
+
+    primeiro_li = lis[0]
+    link = primeiro_li.find('a', href=True)
+
+    if not link:
+        logging.warning("Nenhum link <a> encontrado no primeiro <li>.")
+        return None
+
+    # Verifica se o texto do link contém 'controle'
+    if "controle" in link.get_text(strip=True).lower():
+        if len(lis) > 1:
+            logging.info("Link contém 'controle'. Usando o próximo <li>.")
+            return lis[1]
+        else:
+            logging.warning("Link contém 'controle', mas não há próximo <li>.")
+            return None
+
+    return primeiro_li
+
 def get_updated_boletim_info():
     """
     Obtém as informações do boletim mais recente do site usando XPath específico
@@ -51,18 +79,18 @@ def get_updated_boletim_info():
         # Encontrar o primeiro li dentro do ul
         lis = target_ul.find_all('li', recursive=False)
         if not lis:
-            logging.warning("Nenhum <li> encontrado no UL alvo")
+            logging.warning("Nenhum <li> encontrado no UL alvo.")
             return None
-        
-        target_li = lis[0]  # li[1] do XPath
-        # logging.info(f"LI alvo encontrada: {target_li}")
-        
-        # Encontrar o link dentro do li
+
+        target_li = get_target_li(lis)
+        if not target_li:
+            return None
+
         boletim_link = target_li.find('a', href=True)
         if not boletim_link:
-            logging.warning("Nenhum link <a> encontrado no LI alvo")
+            logging.warning("Nenhum link <a> encontrado no LI alvo.")
             return None
-        
+
         logging.info(f"Link do boletim encontrado: {boletim_link}")
         
         # Verificar se o texto começa com data no formato dd/mm/yyyy
